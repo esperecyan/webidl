@@ -1,0 +1,225 @@
+<?php
+namespace esperecyan\webidl\lib;
+
+class UnionType
+{
+    use Utility;
+    
+    /**
+     * 与えられた値を、指定された型のいずれか一つに変換して返します。
+     * @link https://heycam.github.io/webidl/#idl-union Web IDL (Second Edition)
+     * @link http://www.w3.org/TR/WebIDL/#idl-union Web IDL
+     * @link https://heycam.github.io/webidl/#es-union Web IDL (Second Edition)
+     * @param mixed $value
+     * @param string $unitTypeString 共用体型。先頭、末尾の丸括弧も含む文字列。
+     * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
+     * @throws \InvalidArgumentException 指定された型のいずれにも一致しない値が与えられた場合。
+     * @throws \DomainException 指定された型のいずれにも一致しない値が与えられた場合。
+     * @return mixed
+     */
+    public static function toUnion($value, $unitTypeString, $pseudoTypes = [])
+    {
+        $flattenedTypesAndNullableNums = self::getFlattenedTypesAndNullableNums($unitTypeString);
+        
+        if ($flattenedTypesAndNullableNums['numberOfNullableMemberTypes'] === 1 && is_null($value)) {
+            return null;
+        }
+        
+        foreach ($flattenedTypesAndNullableNums['flattenedMemberTypes'] as $type) {
+            $genericTypes[$type] = self::getGenericType($type, $pseudoTypes);
+        }
+        
+        if (is_object($value) || $value instanceof \__PHP_Incomplete_Class) {
+            foreach (array_keys($genericTypes, 'interface') as $interfaceType) {
+                try {
+                    return Type::to($interfaceType, $value, $pseudoTypes);
+                } catch (\LogicException $exception) {
+                    if ($exception instanceof \InvalidArgumentException) {
+                        $lastInvalidArgumentException = $exception;
+                    } elseif ($exception instanceof \DomainException) {
+                        $lastDomainException = $exception;
+                    } else {
+                        throw $exception;
+                    }
+                }
+            }
+            if (isset($genericTypes['object'])) {
+                return $value;
+            }
+        }
+
+        if (RegExpType::isRegExpCastable($value) && isset($genericTypes['RegExp'])) {
+            try {
+                return RegExpType::toRegExp($value);
+            } catch (\LogicException $exception) {
+                if ($exception instanceof \DomainException) {
+                    $lastDomainException = $exception;
+                } else {
+                    throw $exception;
+                }
+            }
+        }
+        
+        if (is_callable($value) && array_search('callback function', $genericTypes)) {
+            return $value;
+        }
+        
+        try {
+            if ((is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value))
+                && ($identifier = array_search('dictionary', $genericTypes) !== false)) {
+                return DictionaryType::to($value, $identifier, $pseudoTypes);
+            }
+            
+            if (is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value)) {
+                $type = array_search('array', $genericTypes) ?: array_search('sequence', $genericTypes);
+                if ($type) {
+                    return Type::to($type, $value, $pseudoTypes);
+                }
+                foreach (array_keys($genericTypes, 'interface') as $interfaceType) {
+                    if (isset($pseudoTypes[$interfaceType])
+                        && ($pseudoTypes[$interfaceType] === 'callback interface'
+                            || $pseudoTypes[$interfaceType] === 'single operation callback interface')) {
+                        return Type::to($interfaceType, $value, $pseudoTypes);
+                    }
+                }
+            }
+
+            if (is_bool($value) && isset($genericTypes['boolean'])) {
+                return $value;
+            }
+
+            if ((is_int($value) || is_float($value)) && ($type = array_search('numeric', $genericTypes))) {
+                return Type::to($type, $value);
+            }
+            
+            if (($type = array_search('string', $genericTypes) ?: array_search('numeric', $genericTypes))) {
+                return Type::to($type, $value, $pseudoTypes);
+            }
+            
+            if (isset($genericTypes['boolean'])) {
+                return BooleanType::toBoolean($value);
+            }
+        } catch (\LogicException $exception) {
+            if ($exception instanceof \InvalidArgumentException) {
+                $lastInvalidArgumentException = $exception;
+            } elseif ($exception instanceof \DomainException) {
+                $lastDomainException = $exception;
+            } else {
+                throw $exception;
+            }
+        }
+        
+        $errorMessage = ErrorMessageCreator::create($value, $unitTypeString);
+        if (isset($lastDomainException)) {
+            throw new \DomainException($errorMessage, 0, $lastDomainException);
+        } elseif (isset($lastInvalidArgumentException)) {
+            throw new \InvalidArgumentException($errorMessage, 0, $lastInvalidArgumentException);
+        } else {
+            throw new \InvalidArgumentException($errorMessage);
+        }
+    }
+    
+    /**
+     * 共用体型の平坦化メンバ型、および nullable メンバ型の個数を返す。
+     * @link https://heycam.github.io/webidl/#dfn-flattened-union-member-types Web IDL (Second Edition)
+     * @link https://heycam.github.io/webidl/#dfn-number-of-nullable-member-types Web IDL (Second Edition)
+     * @link http://www.w3.org/TR/WebIDL/#dfn-flattened-union-member-types Web IDL
+     * @link http://www.w3.org/TR/WebIDL/#dfn-number-of-nullable-member-types Web IDL
+     * @param string $unionTypeString
+     * @return (string[]|integer)[] flattenedMemberTypesキーの値に平坦化メンバ型の配列、
+     *      numberOfNullableMemberTypesキーの値に nullable メンバ型の個数。
+     */
+    public static function getFlattenedTypesAndNullableNums($unionTypeString)
+    {
+        /**
+         * @var string[] 共用体のメンバ型
+         * @link https://heycam.github.io/webidl/#dfn-union-member-type Web IDL (Second Edition)
+         * @link http://www.w3.org/TR/WebIDL/#dfn-union-member-type Web IDL
+         */
+        $unionMemberTypes = preg_split(
+            '/^\\(|([^ (]*\\((?>[^()]+|(?1))*\\)[^ )]*)| or |\\)$/u',
+            $unionTypeString,
+            -1,
+            PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE
+        );
+        
+        $flattenedMemberTypes = [];
+        $numberOfNullableMemberTypes = 0;
+        
+        foreach ($unionMemberTypes as $unionMemberType) {
+            preg_match('/^(?<type>(?<union>\\(.+\\))|.+?)(?<nullable>\\??)$/u', $unionMemberType, $matches);
+            
+            if ($matches['nullable']) {
+                // nullable 型であれば
+                $numberOfNullableMemberTypes++;
+            }
+            
+            if ($matches['union']) {
+                // メンバ型、または内部型が共用体型であれば
+                $flattenedTypesAndNullableNums = self::getFlattenedTypesAndNullableNums($matches['type']);
+                $flattenedMemberTypes
+                    = array_merge($flattenedMemberTypes, $flattenedTypesAndNullableNums['flattenedMemberTypes']);
+                $numberOfNullableMemberTypes += $flattenedTypesAndNullableNums['numberOfNullableMemberTypes'];
+            } else {
+                $flattenedMemberTypes[] = $matches['type'];
+            }
+        }
+        
+        return [
+            'flattenedMemberTypes' => $flattenedMemberTypes,
+            'numberOfNullableMemberTypes' => $numberOfNullableMemberTypes,
+        ];
+    }
+    
+    /**
+     * 次のいずれかを返します: any、boolean、numeric、string、
+     *      object、interface、dictionary、callback function、nullable、sequence、array、union、RegExp。
+     * @link https://heycam.github.io/webidl/#idl-types Web IDL (Second Edition)
+     * @link https://heycam.github.io/webidl/#es-union Web IDL (Second Edition)
+     * @param string $type
+     * @param array $pseudoTypes
+     * @return string
+     */
+    private static function getGenericType($type, $pseudoTypes)
+    {
+        $genericType = 'interface';
+        if (in_array($type, ['any', 'boolean', 'object', 'RegExp'])) {
+            $genericType = (string)$type;
+        } elseif (in_array($type, ['[EnforceRange] byte', '[Clamp] byte', 'byte',
+            '[EnforceRange] octet', '[Clamp] octet', 'octet', '[EnforceRange] short', '[Clamp] short', 'short',
+            '[EnforceRange] unsigned short', '[Clamp] unsigned short', 'unsigned short',
+            '[EnforceRange] long', '[Clamp] long', 'long',
+            '[EnforceRange] unsigned long', '[Clamp] unsigned long', 'unsigned long',
+            '[EnforceRange] long long', '[Clamp] long long', 'long long',
+            '[EnforceRange] unsigned long long', '[Clamp] unsigned long long', 'unsigned long long',
+            'float', 'unrestricted float', 'double', 'unrestricted double'])) {
+            $genericType = 'numeric';
+        } elseif (in_array($type, ['DOMString', 'ByteString', 'USVString'])) {
+            $genericType = 'string';
+        } elseif (preg_match(
+            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\)))$/u',
+            $type,
+            $matches
+        ) === 1) {
+            if (!empty($matches['nullable'])) {
+                $genericType = 'nullable';
+            } elseif (!empty($matches['sequence'])) {
+                $genericType = 'sequence';
+            } elseif (!empty($matches['array'])) {
+                $genericType = 'array';
+            } elseif (!empty($matches['union'])) {
+                $genericType = 'union';
+            }
+        } elseif (isset($pseudoTypes[$type])) {
+            $pseudoType = $pseudoTypes[$type];
+            if ($pseudoType === 'callback function') {
+                $genericType = 'callback function';
+            } elseif (is_string($pseudoType) || isset($pseudoType[0])) {
+                $genericType = 'string';
+            } else {
+                $genericType = 'dictionary';
+            }
+        }
+        return $genericType;
+    }
+}

@@ -1,0 +1,41 @@
+{
+	"name": "esperecyan/webidl",
+	"description": "Provides the utility class for casting a given value in accordance with Web IDL (Second Edition) type to help with PHP type hinting. / Web IDL 第2版 の型に沿うように、与えられた値をキャストするユーティリティクラスを提供し、PHP のタイプヒンティングを補助します。",
+	"keywords": ["W3C", "EvalError", "RangeError", "ReferenceError", "TypeError", "URIError", "DOMException"],
+	"homepage": "https://github.com/esperecyan/webidl",
+	"license": "MPL-2.0",
+	"authors": [
+		{
+			"name": "100の人",
+			"homepage": "https://twitter.com/esperecyan",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"ext-spl": "*",
+		"ext-dom": "*",
+		"ext-mbstring": "*",
+		"ext-pcre": "*",
+		"ext-date": "*",
+		"ext-reflection": "*"
+	},
+	"require-dev": {
+		"php": ">=5.5",
+		"phpunit/phpunit": ">=4",
+		"ext-spl-types": "*",
+		"ext-xml": "*",
+		"ext-gmp": "*",
+		"ext-simplexml": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"esperecyan\\webidl\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"esperecyan\\webidl\\": "tests/"
+		}
+	}
+}
