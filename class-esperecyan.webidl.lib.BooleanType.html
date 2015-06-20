@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class esperecyan\webidl\lib\BooleanType | esperecyan/webidl documentation</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.html">
+						esperecyan<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.webidl.html">
+						webidl<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.webidl.lib.html">
+						lib					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-esperecyan.webidl.lib.BooleanType.html">BooleanType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.DictionaryType.html">DictionaryType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.ErrorMessageCreator.html">ErrorMessageCreator</a></li>
+				<li><a href="class-esperecyan.webidl.lib.FloatType.html">FloatType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.IntegerType.html">IntegerType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.NullableType.html">NullableType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.ObjectType.html">ObjectType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.RegExpType.html">RegExpType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.SequenceType.html">SequenceType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.StringType.html">StringType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.Type.html">Type</a></li>
+				<li><a href="class-esperecyan.webidl.lib.UnionType.html">UnionType</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-esperecyan.webidl.lib.Error.html">Error</a></li>
+				<li><a href="class-esperecyan.webidl.lib.Utility.html">Utility</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-esperecyan.webidl.lib.html" title="Summary of esperecyan\webidl\lib"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class BooleanType</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>esperecyan\webidl\lib\BooleanType</span></b>			
+			
+			 uses 
+					<a href="class-esperecyan.webidl.lib.Utility.html"><span>esperecyan\webidl\lib\Utility</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.webidl.html">webidl</a>\<a href="namespace-esperecyan.webidl.lib.html">lib</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.BooleanType.html#4-37" title="Go to source code">lib/BooleanType.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="isBooleanCastable" id="_isBooleanCastable">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isBooleanCastable">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.BooleanType.html#8-19" title="Go to source code">isBooleanCastable</a>( <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値が論理型に変換可能であれば真を返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値が論理型に変換可能であれば真を返します。</p>
+
+<p>次の型の値が論理型に変換可能であるとみなされます。
+論理型。整数型。浮動小数点型。文字列型。配列型。リソース型。null型。オブジェクト型のうち、SplType 以外のインスタンス、または SplBool のインスタンス。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toBoolean" id="_toBoolean">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toBoolean">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.BooleanType.html#21-36" title="Go to source code">toBoolean</a>( <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を論理型に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を論理型に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>SplBool 以外の SplType が与えられた場合。
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-boolean">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-boolean">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		esperecyan/webidl documentation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

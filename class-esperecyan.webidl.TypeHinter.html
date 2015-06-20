@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class esperecyan\webidl\TypeHinter | esperecyan/webidl documentation</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.html">
+						esperecyan<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.webidl.html">
+						webidl<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-esperecyan.webidl.lib.html">
+						lib					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-esperecyan.webidl.TypeHinter.html">TypeHinter</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-esperecyan.webidl.Error.html">Error</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-esperecyan.webidl.DOMException.html">DOMException</a></li>
+				<li><a href="class-esperecyan.webidl.ErrorClass.html">ErrorClass</a></li>
+				<li><a href="class-esperecyan.webidl.EvalError.html">EvalError</a></li>
+				<li><a href="class-esperecyan.webidl.RangeError.html">RangeError</a></li>
+				<li><a href="class-esperecyan.webidl.ReferenceError.html">ReferenceError</a></li>
+				<li><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></li>
+				<li><a href="class-esperecyan.webidl.URIError.html">URIError</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-esperecyan.webidl.html" title="Summary of esperecyan\webidl"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class TypeHinter</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>esperecyan\webidl\TypeHinter</span></b>			
+			
+			 uses 
+					<a href="class-esperecyan.webidl.lib.Utility.html"><span>esperecyan\webidl\lib\Utility</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.webidl.html">webidl</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.TypeHinter.html#4-160" title="Go to source code">TypeHinter.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="to" id="_to">
+
+		<td class="attributes"><code>
+			 public static
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_to">#</a>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#8-48" title="Go to source code">to</a>( <span>string <var>$type</var></span>, <span>mixed <var>$value</var></span>, <span>integer <var>$argNum</var> = <span class="php-num">0</span></span>, <span>(string|string[]|array)[] <var>$pseudoTypes</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Converts a given value in accordance with a given IDL type.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Converts a given value in accordance with a given IDL type.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd>The IDL type.</dd>
+					<dt><var>$value</var></dt>
+					<dd>The value being converted.</dd>
+					<dt><var>$argNum</var></dt>
+					<dd><p>The argument offset that received the value being converted.
+     Arguments are counted starting from zero.  If the caller method is __set(), this argument are ignored.</p></dd>
+					<dt><var>$pseudoTypes</var></dt>
+					<dd><p>associative array with the identifiers of
+     callback interface types, enumeration types, callback function types or dictionary types
+     (the strings passed in $type) as key.
+     For the corresponding values, see the link.</p></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If $value is not castable. The exception includes a message with method name etc.<br>
+					DomainException<br>If $value is not castable. The exception includes a message with method name etc.
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehintertotype-value-argnum-pseudotypes">webidl/README.md at master · esperecyan/webidl</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="throwReadonlyException" id="_throwReadonlyException">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_throwReadonlyException">#</a>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#50-70" title="Go to source code">throwReadonlyException</a>( )</code>
+
+		<div class="description short">
+			<p>Throws an exception with a message that represents a read-only property. Must call from __set() method.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Throws an exception with a message that represents a read-only property. Must call from __set() method.</p>
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					BadMethodCallException<br>呼び出し元のメソッドが __set() 以外の場合。<br>
+					LogicException<br>An exception with a message that represents a read-only property.
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehinterthrowreadonlyexception">webidl/README.md at master · esperecyan/webidl</a><br>
+						<a href="https://heycam.github.io/webidl/#dfn-read-only">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#dfn-read-only">Web IDL</a><br>
+						<a href="https://wiki.php.net/rfc/readonly_properties#example">PHP: rfc:readonly_properties</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="triggerVisibilityErrorOrDefineProperty" id="_triggerVisibilityErrorOrDefineProperty">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_triggerVisibilityErrorOrDefineProperty">#</a>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#72-98" title="Go to source code">triggerVisibilityErrorOrDefineProperty</a>( )</code>
+
+		<div class="description short">
+			<p>If a user tries setting to a private or protected property, it will trigger a fatal error.
+If a user tries setting to a non-existing property, it will create a new public property.
+Must call from __set() method.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>If a user tries setting to a private or protected property, it will trigger a fatal error.
+If a user tries setting to a non-existing property, it will create a new public property.
+Must call from __set() method.</p>
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					BadMethodCallException<br>呼び出し元のメソッドが __set() 以外の場合。
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehintertriggervisibilityerrorordefineproperty">webidl/README.md at master · esperecyan/webidl</a><br>
+						<a href="https://heycam.github.io/webidl/#dfn-read-only">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#dfn-read-only">Web IDL</a><br>
+						<a href="https://wiki.php.net/rfc/readonly_properties#example">PHP: rfc:readonly_properties</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="triggerVisibilityErrorOrUndefinedNotice" id="_triggerVisibilityErrorOrUndefinedNotice">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_triggerVisibilityErrorOrUndefinedNotice">#</a>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#100-119" title="Go to source code">triggerVisibilityErrorOrUndefinedNotice</a>( )</code>
+
+		<div class="description short">
+			<p>If a user tries setting to a private or protected property, it will trigger a fatal error.
+If a user tries getting to a non-existing property, it will trigger a notice. Must call from __get() method.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>If a user tries setting to a private or protected property, it will trigger a fatal error.
+If a user tries getting to a non-existing property, it will trigger a notice. Must call from __get() method.</p>
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					BadMethodCallException<br>呼び出し元のメソッドが __get() 以外の場合。
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehintertriggervisibilityerrororundefinednotice">webidl/README.md at master · esperecyan/webidl</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="STACK_FRAME_LIMIT" id="STACK_FRAME_LIMIT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.webidl.TypeHinter.html#140-141" title="Go to source code"><b>STACK_FRAME_LIMIT</b></a>
+			</code>
+
+			<div class="description short">
+				<p>呼び出し元のメソッドから getCallerInfomation() を実行するまでに含まれうる最大のスタックフレーム数。</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>呼び出し元のメソッドから getCallerInfomation() を実行するまでに含まれうる最大のスタックフレーム数。</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#STACK_FRAME_LIMIT" class="anchor">#</a>
+				<code><span class="php-num">5</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		esperecyan/webidl documentation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

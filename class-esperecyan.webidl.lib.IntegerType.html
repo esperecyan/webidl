@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class esperecyan\webidl\lib\IntegerType | esperecyan/webidl documentation</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.html">
+						esperecyan<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.webidl.html">
+						webidl<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.webidl.lib.html">
+						lib					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-esperecyan.webidl.lib.BooleanType.html">BooleanType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.DictionaryType.html">DictionaryType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.ErrorMessageCreator.html">ErrorMessageCreator</a></li>
+				<li><a href="class-esperecyan.webidl.lib.FloatType.html">FloatType</a></li>
+				<li class="active"><a href="class-esperecyan.webidl.lib.IntegerType.html">IntegerType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.NullableType.html">NullableType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.ObjectType.html">ObjectType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.RegExpType.html">RegExpType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.SequenceType.html">SequenceType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.StringType.html">StringType</a></li>
+				<li><a href="class-esperecyan.webidl.lib.Type.html">Type</a></li>
+				<li><a href="class-esperecyan.webidl.lib.UnionType.html">UnionType</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-esperecyan.webidl.lib.Error.html">Error</a></li>
+				<li><a href="class-esperecyan.webidl.lib.Utility.html">Utility</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-esperecyan.webidl.lib.html" title="Summary of esperecyan\webidl\lib"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class IntegerType</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>esperecyan\webidl\lib\IntegerType</span></b>			
+			
+			 uses 
+					<a href="class-esperecyan.webidl.lib.Utility.html"><span>esperecyan\webidl\lib\Utility</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.webidl.html">webidl</a>\<a href="namespace-esperecyan.webidl.lib.html">lib</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.IntegerType.html#4-221" title="Go to source code">lib/IntegerType.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="isIntegerCastable" id="_isIntegerCastable">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isIntegerCastable">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#11-22" title="Go to source code">isIntegerCastable</a>( <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値が整数型に変換可能であれば真を返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値が整数型に変換可能であれば真を返します。</p>
+
+<p>次の型の値が整数型に変換可能であるとみなされます。
+論理型。整数型。浮動小数点型。文字列型。リソース型。オブジェクト型のうち、GMP、または SplInt のインスタンス。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toByte" id="_toByte">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toByte">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#107-118" title="Go to source code">toByte</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を －128〜127 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を －128〜127 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-byte">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-byte">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toOctet" id="_toOctet">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toOctet">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#120-131" title="Go to source code">toOctet</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を 0〜255 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を 0〜255 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-octet">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-octet">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toShort" id="_toShort">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toShort">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#133-144" title="Go to source code">toShort</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を －32768〜32767 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を －32768〜32767 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-short">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-short">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toUnsignedShort" id="_toUnsignedShort">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toUnsignedShort">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#146-157" title="Go to source code">toUnsignedShort</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を 0〜65535 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を 0〜65535 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-unsigned-short">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-unsigned-short">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toLong" id="_toLong">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toLong">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#159-170" title="Go to source code">toLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を －2147483648〜2147483647 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を －2147483648〜2147483647 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-long">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-long">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toUnsignedLong" id="_toUnsignedLong">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer|float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toUnsignedLong">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#172-183" title="Go to source code">toUnsignedLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を 0〜4294967295 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を 0〜4294967295 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer|float<br>32bit版のPHP、またはWindows版のPHPにおいて、整数型の範囲を超える場合は浮動小数点数。
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-unsigned-long">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-unsigned-long">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toLongLong" id="_toLongLong">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer|float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toLongLong">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#185-199" title="Go to source code">toLongLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を －9223372036854775808〜9223372036854775807 の範囲の整数に変換して返します。
+32bit版のPHP、またはWindows版のPHPでは、－9007199254740991〜9007199254740991 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を －9223372036854775808〜9223372036854775807 の範囲の整数に変換して返します。
+32bit版のPHP、またはWindows版のPHPでは、－9007199254740991〜9007199254740991 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer|float<br>32bit版のPHP、またはWindows版のPHPにおいて、整数型の範囲を超える場合は浮動小数点数。
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-long-long">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-long">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toUnsignedLongLong" id="_toUnsignedLongLong">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer|float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toUnsignedLongLong">#</a>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#201-220" title="Go to source code">toUnsignedLongLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>与えられた値を 0〜9223372036854775807 の範囲の整数に変換して返します。
+32bit版のPHP、またはWindows版のPHPでは、0〜9007199254740991 の範囲の整数に変換して返します。</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>与えられた値を 0〜9223372036854775807 の範囲の整数に変換して返します。
+32bit版のPHP、またはWindows版のPHPでは、0〜9007199254740991 の範囲の整数に変換して返します。</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+					<dt><var>$extendedAttribute</var></dt>
+					<dd>拡張属性。[EnforceRange] か [Clamp] のいずれか。</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer|float<br>32bit版のPHP、またはWindows版のPHPにおいて、整数型の範囲を超える場合は浮動小数点数。
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://heycam.github.io/webidl/#idl-unsigned-long-long">Web IDL (Second Edition)</a><br>
+						<a href="http://www.w3.org/TR/WebIDL/#idl-unsigned-long-long">Web IDL</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		esperecyan/webidl documentation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
