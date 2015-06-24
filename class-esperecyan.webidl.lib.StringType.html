@@ -47,7 +47,6 @@
 			<ul>
 				<li><a href="class-esperecyan.webidl.lib.BooleanType.html">BooleanType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.DictionaryType.html">DictionaryType</a></li>
-				<li><a href="class-esperecyan.webidl.lib.ErrorMessageCreator.html">ErrorMessageCreator</a></li>
 				<li><a href="class-esperecyan.webidl.lib.FloatType.html">FloatType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.IntegerType.html">IntegerType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.NullableType.html">NullableType</a></li>
@@ -63,7 +62,6 @@
 			<h3>Traits</h3>
 			<ul>
 				<li><a href="class-esperecyan.webidl.lib.Error.html">Error</a></li>
-				<li><a href="class-esperecyan.webidl.lib.Utility.html">Utility</a></li>
 			</ul>
 
 
@@ -112,7 +110,8 @@
 <b><span>esperecyan\webidl\lib\StringType</span></b>			
 			
 			 uses 
-					<a href="class-esperecyan.webidl.lib.Utility.html"><span>esperecyan\webidl\lib\Utility</span></a>
+					esperecyan\webidl\lib\Utility (not available)
+
 			
 		</dd>
 	</dl>
@@ -130,7 +129,9 @@
 		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.webidl.html">webidl</a>\<a href="namespace-esperecyan.webidl.lib.html">lib</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.StringType.html#4-96" title="Go to source code">lib/StringType.php</a>
+				<b>Internal</b>
+				<br>
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.StringType.html#4-97" title="Go to source code">lib/StringType.php</a>
 		<br>
 	</div>
 
@@ -150,7 +151,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isStringCastable">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#8-22" title="Go to source code">isStringCastable</a>( <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#9-23" title="Go to source code">isStringCastable</a>( <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値が文字列型に変換可能であれば真を返します。</p>
@@ -192,7 +193,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toDOMString">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#24-34" title="Go to source code">toDOMString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#25-35" title="Go to source code">toDOMString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>toUSVString() のエイリアスです。</p>
@@ -236,7 +237,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toByteString">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#36-50" title="Go to source code">toByteString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#37-51" title="Go to source code">toByteString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を文字列型に変換して返します。</p>
@@ -283,7 +284,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toUSVString">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#52-66" title="Go to source code">toUSVString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#53-67" title="Go to source code">toUSVString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を、符号化方式が utf-8 である文字列型に変換して返します。</p>
@@ -330,7 +331,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toEnumerationValue">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#68-95" title="Go to source code">toEnumerationValue</a>( <span>string|SplEnum <var>$value</var></span>, <span>string <var>$identifier</var></span>, <span>string[]|string <var>$enum</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#69-96" title="Go to source code">toEnumerationValue</a>( <span>string|SplEnum <var>$value</var></span>, <span>string <var>$identifier</var></span>, <span>string[]|string <var>$enum</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を文字列型に変換し、列挙値のいずれかに一致するかチェックして返します。</p>
@@ -393,7 +394,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js"></script>
-<script src="elementlist.js"></script>
+<script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
+<script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
 </body>
 </html>

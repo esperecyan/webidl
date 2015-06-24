@@ -47,7 +47,6 @@
 			<ul>
 				<li><a href="class-esperecyan.webidl.lib.BooleanType.html">BooleanType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.DictionaryType.html">DictionaryType</a></li>
-				<li><a href="class-esperecyan.webidl.lib.ErrorMessageCreator.html">ErrorMessageCreator</a></li>
 				<li><a href="class-esperecyan.webidl.lib.FloatType.html">FloatType</a></li>
 				<li class="active"><a href="class-esperecyan.webidl.lib.IntegerType.html">IntegerType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.NullableType.html">NullableType</a></li>
@@ -63,7 +62,6 @@
 			<h3>Traits</h3>
 			<ul>
 				<li><a href="class-esperecyan.webidl.lib.Error.html">Error</a></li>
-				<li><a href="class-esperecyan.webidl.lib.Utility.html">Utility</a></li>
 			</ul>
 
 
@@ -112,7 +110,8 @@
 <b><span>esperecyan\webidl\lib\IntegerType</span></b>			
 			
 			 uses 
-					<a href="class-esperecyan.webidl.lib.Utility.html"><span>esperecyan\webidl\lib\Utility</span></a>
+					esperecyan\webidl\lib\Utility (not available)
+
 			
 		</dd>
 	</dl>
@@ -130,7 +129,9 @@
 		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.webidl.html">webidl</a>\<a href="namespace-esperecyan.webidl.lib.html">lib</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.IntegerType.html#4-221" title="Go to source code">lib/IntegerType.php</a>
+				<b>Internal</b>
+				<br>
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.IntegerType.html#4-222" title="Go to source code">lib/IntegerType.php</a>
 		<br>
 	</div>
 
@@ -150,7 +151,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isIntegerCastable">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#11-22" title="Go to source code">isIntegerCastable</a>( <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#12-23" title="Go to source code">isIntegerCastable</a>( <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値が整数型に変換可能であれば真を返します。</p>
@@ -192,7 +193,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toByte">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#107-118" title="Go to source code">toByte</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#108-119" title="Go to source code">toByte</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を －128〜127 の範囲の整数に変換して返します。</p>
@@ -238,7 +239,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toOctet">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#120-131" title="Go to source code">toOctet</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#121-132" title="Go to source code">toOctet</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を 0〜255 の範囲の整数に変換して返します。</p>
@@ -284,7 +285,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toShort">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#133-144" title="Go to source code">toShort</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#134-145" title="Go to source code">toShort</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を －32768〜32767 の範囲の整数に変換して返します。</p>
@@ -330,7 +331,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toUnsignedShort">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#146-157" title="Go to source code">toUnsignedShort</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#147-158" title="Go to source code">toUnsignedShort</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を 0〜65535 の範囲の整数に変換して返します。</p>
@@ -376,7 +377,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toLong">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#159-170" title="Go to source code">toLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#160-171" title="Go to source code">toLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を －2147483648〜2147483647 の範囲の整数に変換して返します。</p>
@@ -422,7 +423,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toUnsignedLong">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#172-183" title="Go to source code">toUnsignedLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#173-184" title="Go to source code">toUnsignedLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を 0〜4294967295 の範囲の整数に変換して返します。</p>
@@ -468,7 +469,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toLongLong">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#185-199" title="Go to source code">toLongLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#186-200" title="Go to source code">toLongLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を －9223372036854775808〜9223372036854775807 の範囲の整数に変換して返します。
@@ -516,7 +517,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toUnsignedLongLong">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#201-220" title="Go to source code">toUnsignedLongLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.IntegerType.html#202-221" title="Go to source code">toUnsignedLongLong</a>( <span>boolean|integer|float|string|resource|GMP|SplInt <var>$value</var></span>, <span>string|null <var>$extendedAttribute</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を 0〜9223372036854775807 の範囲の整数に変換して返します。
@@ -578,7 +579,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js"></script>
-<script src="elementlist.js"></script>
+<script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
+<script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
 </body>
 </html>
