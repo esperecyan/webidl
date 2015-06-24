@@ -137,7 +137,10 @@ class TypeHinter
         return $existed;
     }
     
-    /** 呼び出し元のメソッドから getCallerInfomation() を実行するまでに含まれうる最大のスタックフレーム数。 */
+    /**
+     * 呼び出し元のメソッドから getCallerInfomation() を実行するまでに含まれうる最大のスタックフレーム数。
+     * @internal
+     */
     const STACK_FRAME_LIMIT = 5;
     
     /**

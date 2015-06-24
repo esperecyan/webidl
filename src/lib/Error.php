@@ -1,6 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
+/** @internal */
 trait Error
 {
     /**

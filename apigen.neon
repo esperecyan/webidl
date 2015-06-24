@@ -4,6 +4,14 @@ source: ./src
 # Target dir for documentation.
 destination: ./docs
 
+#Directories and files matching this mask will not be parsed.
+exclude: 
+	- lib/Utility.php
+	- lib/ErrorMessageCreator.php
+
+# Include elements marked as @internal.
+internal: yes
+
 # Title of generated documentation.
 title: esperecyan/webidl documentation
 
