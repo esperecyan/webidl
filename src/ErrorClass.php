@@ -3,8 +3,7 @@ namespace esperecyan\webidl;
 
 /**
  * This class is defined to construct an exception having the error name "Error".
- * If you catch an exception having the error name "Error", use esperecyan\webidl\Error.
- * @see Error
+ * If you catch an exception having the error name "Error", use {@see Error}.
  */
 class ErrorClass extends \RuntimeException implements Error
 {
