@@ -170,7 +170,7 @@ The correspondence table of [the types]
 | [Dictionary types]                 | [Arrays]                           | An array conforming the structure passed in [$pseudoType]. |
 | [Enumeration types]                | [Strings]                          | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
 | [Callback function types]          | [Callables]                        |                                                |
-| [Sequences]<br>[Arrays][idl-array] | [Arrays]                           | New array.                                     |
+| [Sequences]<br><a name="^"></a>[Arrays][idl-array] <sup>[*1]</sup> | [Arrays]                           | New array.                                     |
 | [Promise types]                    |                                    | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                      | [mixed]                            | A return value of [UnionType::toUnion()].      |
 | [Date]                             | [DateTimeInterface]                |                                                |
@@ -179,6 +179,9 @@ The correspondence table of [the types]
 | [DOMException][idl-DOMException]   | [DOMException]                     |                                                |
 | [Buffer source types]              |                                    | Not supported. Instead, pass a fully qualified class name or interface name. |
 | [OpenEndedDictionary\<T>]          |                                    | Not yet supported.                             |
+
+<a name="note"></a><sup>[*1](#^)</sup> Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated.
+[*1]: #note "Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated."
 
 [the types]: https://heycam.github.io/webidl/#idl-types
 [boolean]: https://heycam.github.io/webidl/#idl-boolean
@@ -203,7 +206,7 @@ The correspondence table of [the types]
 [Enumeration types]: https://heycam.github.io/webidl/#idl-enumeration
 [Callback function types]: https://heycam.github.io/webidl/#idl-callback-function
 [Sequences]: https://heycam.github.io/webidl/#idl-sequence
-[idl-array]: https://heycam.github.io/webidl/#idl-array
+[idl-array]: http://www.w3.org/TR/WebIDL/#idl-array
 [Promise types]: https://heycam.github.io/webidl/#idl-promise
 [Union types]: https://heycam.github.io/webidl/#idl-union
 [Date]: https://heycam.github.io/webidl/#idl-Date

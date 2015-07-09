@@ -37,7 +37,7 @@ class TypeTest extends \PHPUnit_Framework_TestCase
                 $value,
             ],
             [
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or (float[] or DOMNodeList)[])',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
                 [
                     [0.1, 0.2],
                     ['0'],

@@ -38,7 +38,7 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
                 ['1', 2, 3.0],
                 $nodeList = new \DOMNodeList(),
                 [],
-            ], '(float[] or DOMNodeList)', [
+            ], '(sequence<float> or DOMNodeList)', [
                 [1.0, 2.0, 3.0],
                 $nodeList,
                 [],
@@ -97,7 +97,7 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [['string', new \stdClass()]      , 'DOMString'                 ],
-            [[[1.0, null], new \DOMNodeList()], '(float[] or DOMNodeList)'],
+            [[[1.0, null], new \DOMNodeList()], '(sequence<float> or DOMNodeList)'],
         ];
     }
     
