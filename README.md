@@ -154,30 +154,30 @@ Must call from [\__get()] method.
 
 The correspondence table of [the types]
 --------------------------------------
-| Web IDL                            | PHP                                | Additional notes                               |
-|------------------------------------|------------------------------------|------------------------------------------------|
-| [boolean]                          | [Booleans]                         |                                                |
-| [byte]<br>[octet]<br>[short]<br>[unsigned short]<br>[long] | [Integers] |                                                |
-| [unsigned long]                    | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | On 32bit PHP or PHP for Windows, a number less than -2147483648 or greater than 2147483647 is the floating point number. |
-| [long long]                        | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | -9223372036854775808 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, -9007199254740991 to 9007199254740991, and the number less than -2147483648 or greater than 2147483647 is the floating point number. |
-| [unsigned long long]               | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | 0 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, 0 to 9007199254740991, and the number greater than 2147483647 is the floating point number. |
+| Web IDL                          | PHP                                  | Additional notes                           |
+|----------------------------------|--------------------------------------|--------------------------------------------|
+| [boolean]                        | [Booleans]                           |                                            |
+| [byte]<br>[octet]<br>[short]<br>[unsigned short]<br>[long] | [Integers] |                                            |
+| [unsigned long]                  | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | On 32bit PHP or PHP for Windows, a number less than -2147483648 or greater than 2147483647 is the floating point number. |
+| [long long]                      | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | -9223372036854775808 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, -9007199254740991 to 9007199254740991, and the number less than -2147483648 or greater than 2147483647 is the floating point number. |
+| [unsigned long long]             | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | 0 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, 0 to 9007199254740991, and the number greater than 2147483647 is the floating point number. |
 | <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [Floating&nbsp;point&nbsp;numbers] | `float` and `unrestricted float` is aliases of `double` and `unrestricted double`. |
-| [DOMString]<br>[USVString]         | [Strings]                          | A valid utf-8 string.                          |
-| [ByteString]                       | [Strings]                          |                                                |
-| [object]                           | [Objects]                          |                                                |
-| [Interface types]                  | [Objects]\|[Callables]             | If an interface is [single operation callback interface], there are cases where the PHP type is Callable. |
-| [Dictionary types]                 | [Arrays]                           | An array conforming the structure passed in [$pseudoType]. |
-| [Enumeration types]                | [Strings]                          | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
-| [Callback function types]          | [Callables]                        |                                                |
-| [Sequences]<br><a name="^2"></a>[Arrays][idl-array] <sup>[*2]</sup> | [Arrays]                           | New array.                                     |
-| [Promise types]                    |                                    | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
-| [Union types]                      | [mixed]                            | A return value of [UnionType::toUnion()].      |
-| [Date]                             | [DateTimeInterface]                |                                                |
-| [RegExp]                           | [Strings]                          | A utf-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
-| [Error]                            | [esperecyan\webidl\Error]          |                                                |
-| [DOMException][idl-DOMException]   | [DOMException]                     |                                                |
-| [Buffer source types]              |                                    | Not supported. Instead, pass a fully qualified class name or interface name. |
-| [OpenEndedDictionary\<T>]          |                                    | Not yet supported.                             |
+| [DOMString]<br>[USVString]       | [Strings]                            | A valid utf-8 string.                      |
+| [ByteString]                     | [Strings]                            |                                            |
+| [object]                         | [Objects]                            |                                            |
+| [Interface types]                | [Objects]\|[Callables]               | If an interface is [single operation callback interface], there are cases where the PHP type is Callable. |
+| [Dictionary types]               | [Arrays]                             | An array conforming the structure passed in [$pseudoType]. |
+| [Enumeration types]              | [Strings]                            | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
+| [Callback function types]        | [Callables]                          |                                            |
+| [Sequences]<br><a name="^2"></a>[Arrays][idl-array] <sup>[*2]</sup><br>[Frozen arrays] | [Arrays] | New array.       |
+| [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
+| [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
+| [Date]                           | [DateTimeInterface]                  |                                            |
+| [RegExp]                         | [Strings]                            | A utf-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
+| [Error]                          | [esperecyan\webidl\Error]            |                                            |
+| [DOMException][idl-DOMException] | [DOMException]                       |                                            |
+| [Buffer source types]            |                                      | Not supported. Instead, pass a fully qualified class name or interface name. |
+| [OpenEndedDictionary\<T>]        |                                      | Not yet supported.                         |
 
 <a name="*1"></a><sup>[*1](#^1)</sup> float is dis-recommended in Web IDL (Second Edition). Deprecated.  
 <a name="*2"></a><sup>[*2](#^2)</sup> Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated.
@@ -208,6 +208,7 @@ The correspondence table of [the types]
 [Callback function types]: https://heycam.github.io/webidl/#idl-callback-function
 [Sequences]: https://heycam.github.io/webidl/#idl-sequence
 [idl-array]: http://www.w3.org/TR/WebIDL/#idl-array
+[Frozen arrays]: https://heycam.github.io/webidl/#idl-frozen-array
 [Promise types]: https://heycam.github.io/webidl/#idl-promise
 [Union types]: https://heycam.github.io/webidl/#idl-union
 [Date]: https://heycam.github.io/webidl/#idl-Date

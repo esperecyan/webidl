@@ -72,7 +72,9 @@ class UnionType
             }
             
             if (is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value)) {
-                $type = array_search('array', $genericTypes) ?: array_search('sequence', $genericTypes);
+                $type = array_search('array', $genericTypes)
+                    ?: array_search('sequence', $genericTypes)
+                    ?: array_search('FrozenArray', $genericTypes);
                 if ($type) {
                     return Type::to($type, $value, $pseudoTypes);
                 }
@@ -174,7 +176,7 @@ class UnionType
     
     /**
      * 次のいずれかを返します: any、boolean、numeric、string、
-     *      object、interface、dictionary、callback function、nullable、sequence、array、union、RegExp。
+     *      object、interface、dictionary、callback function、nullable、sequence、array、FrozenArray、union、RegExp。
      * @link https://heycam.github.io/webidl/#idl-types Web IDL (Second Edition)
      * @link https://heycam.github.io/webidl/#es-union Web IDL (Second Edition)
      * @param string $type
@@ -198,7 +200,7 @@ class UnionType
         } elseif (in_array($type, ['DOMString', 'ByteString', 'USVString'])) {
             $genericType = 'string';
         } elseif (preg_match(
-            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\)))$/u',
+            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u',
             $type,
             $matches
         ) === 1) {
@@ -210,6 +212,8 @@ class UnionType
                 $genericType = 'array';
             } elseif (!empty($matches['union'])) {
                 $genericType = 'union';
+            } elseif (!empty($matches['FrozenArray'])) {
+                $genericType = 'FrozenArray';
             }
         } elseif (isset($pseudoTypes[$type])) {
             $pseudoType = $pseudoTypes[$type];

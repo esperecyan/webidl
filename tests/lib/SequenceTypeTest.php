@@ -13,6 +13,7 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertSame($sequence, SequenceType::toSequence($value, $type));
     }
+    
     /**
      * @param boolean|integer|float|string|object|null $value
      * @param string $type
@@ -22,6 +23,17 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     public function testToArray($value, $type, $sequence)
     {
         $this->assertSame($sequence, SequenceType::toArray($value, $type));
+    }
+    
+    /**
+     * @param boolean|integer|float|string|object|null $value
+     * @param string $type
+     * @param array $sequence
+     * @dataProvider sequenceProvider
+     */
+    public function testToFrozenArray($value, $type, $sequence)
+    {
+        $this->assertSame($sequence, SequenceType::toFrozenArray($value, $type));
     }
     
     public function sequenceProvider()
@@ -93,6 +105,18 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
         SequenceType::toArray($sequence, $type);
     }
     
+    /**
+     * @param array $sequence
+     * @param string $type
+     * @expectedException \DomainException
+     * @expectedExceptionMessageRegExp /^Expected sequence<.+> \(an array including only .+\)$/u
+     * @dataProvider invalidSequence
+     */
+    public function testInvalidFrozenArray($sequence, $type)
+    {
+        SequenceType::toFrozenArray($sequence, $type);
+    }
+    
     public function invalidSequence()
     {
         return [
@@ -117,5 +141,14 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     public function testInvalidArray2()
     {
         SequenceType::toArray(new \SplString(), 'USVString');
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Expected sequence<USVString> (an array including only USVString), got instance of SplString
+     */
+    public function testInvalidFrozenArray2()
+    {
+        SequenceType::toFrozenArray(new \SplString(), 'USVString');
     }
 }

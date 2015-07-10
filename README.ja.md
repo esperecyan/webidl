@@ -169,7 +169,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [dictionary型]                         | [配列]                     | [$pseudoType] で指定した構造に合致する配列。   |
 | [列挙型]                               | [文字列]                   | [$pseudoType] で指定した配列の要素、 またはクラスの定数値。 |
 | [callback関数型]                       | [Callable]                 |                                                |
-| [sequence]<br><a name="^2"></a>[配列][idl-array] <sup>[*2]</sup> | [配列]              | 新しい配列。                                   |
+| [sequence]<br><a name="^2"></a>[配列][idl-array] <sup>[*2]</sup><br>[凍結配列型] | [配列] | 新しい配列。             |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
 | [Date]                                 | [DateTimeInterface]        |                                                |
@@ -208,6 +208,7 @@ private、または protected が指定されたプロパティの値を取得�
 [callback関数型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-callback-function
 [sequence]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-sequence
 [idl-array]: http://www.w3.org/TR/WebIDL/#idl-array
+[凍結配列型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-frozen-array
 [promise型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-promise
 [共用体型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-union
 [Date]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-Date

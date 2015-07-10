@@ -133,7 +133,7 @@ class Type
                 $returnValue = ObjectType::toInterface($value, 'DOMException');
                 break;
             default:
-                $pattern = '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\)))$/u';
+                $pattern = '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u';
                 if (preg_match($pattern, $type, $matches) === 1) {
                     if (!empty($matches['nullable'])) {
                         $returnValue = NullableType::toNullable($value, $matches['nullable'], $pseudoTypes);
@@ -143,6 +143,8 @@ class Type
                         $returnValue = SequenceType::toArray($value, $matches['array'], $pseudoTypes);
                     } elseif (!empty($matches['union'])) {
                         $returnValue = UnionType::toUnion($value, $matches['union'], $pseudoTypes);
+                    } elseif (!empty($matches['FrozenArray'])) {
+                        $returnValue = SequenceType::toFrozenArray($value, $matches['FrozenArray'], $pseudoTypes);
                     }
                 } elseif (isset($pseudoTypes[$type])) {
                     $pseudoType = $pseudoTypes[$type];

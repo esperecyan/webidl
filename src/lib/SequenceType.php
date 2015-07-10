@@ -81,4 +81,17 @@ class SequenceType
     {
         return self::toSequence($traversable, $type, $pseudoTypes);
     }
+    
+    /**
+     * toSequence() のエイリアスです。
+     * @link https://heycam.github.io/webidl/#idl-frozen-array Web IDL (Second Edition)
+     * @param mixed $traversable
+     * @param string $type 配列の要素型 (FrozenArray<T\> の T)。
+     * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
+     * @return array
+     */
+    public static function toFrozenArray($traversable, $type, $pseudoTypes = [])
+    {
+        return self::toSequence($traversable, $type, $pseudoTypes);
+    }
 }

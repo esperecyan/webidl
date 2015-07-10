@@ -41,6 +41,11 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
                 '(USVString or URLSearchParams)',
                 'string',
             ],
+            [
+                ['string'],
+                '(DOMString or FrozenArray<DOMString>)',
+                ['string'],
+            ],
         ];
     }
     

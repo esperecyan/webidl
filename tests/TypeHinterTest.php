@@ -78,6 +78,11 @@ class TypeHinterTest extends ParentClass
                     'detail'     => $detail,
                 ],
             ],
+            [
+                ($array = [new DOMException('', 'OperationError'), new ErrorClass(), new TypeError()]),
+                'FrozenArray<Error>',
+                $array,
+            ],
             
             // A test of an union type including obsolute type.
             [
