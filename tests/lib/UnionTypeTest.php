@@ -23,12 +23,12 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 null,
-                '(float or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (Date or Event) or (DOMNode or DOMString)?)',
                 null,
             ],
             [
                 'string',
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
                 'string',
             ],
             [
@@ -65,13 +65,13 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [
-                '(float or (Date or Event) or (DOMNode or DOMString)?)',
-                ['float', 'Date', 'Event', 'DOMNode', 'DOMString'],
+                '(double or (Date or Event) or (DOMNode or DOMString)?)',
+                ['double', 'Date', 'Event', 'DOMNode', 'DOMString'],
                 1,
             ],
             [
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
-                ['DOMNode', 'Date', 'Event', 'XMLHttpRequest', 'DOMString', 'sequence<(sequence<float> or DOMNodeList)>'],
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
+                ['DOMNode', 'Date', 'Event', 'XMLHttpRequest', 'DOMString', 'sequence<(sequence<double> or DOMNodeList)>'],
                 1,
             ],
             [
@@ -164,11 +164,11 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 new \stdClass(),
-                '(float or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
             [
                 new \SplFloat(),
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
             ],
             [
                 new \SplBool(),
@@ -180,7 +180,7 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
             ],
             [
                 new \SplFloat(INF),
-                '(float or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
         ];
     }
@@ -201,7 +201,7 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 [[new \SplInt(), new \SplInt()], []],
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
             ],
         ];
     }

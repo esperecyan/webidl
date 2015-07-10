@@ -21,6 +21,7 @@ class FloatType
     
     /**
      * toDouble() のエイリアスです。
+     * @deprecated 1.1.0 float is dis-recommended in Web IDL (Second Edition).
      * @link https://heycam.github.io/webidl/#idl-float Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-float Web IDL
      * @param boolean|integer|float|string|resource|\GMP|\SplFloat $value
@@ -33,6 +34,7 @@ class FloatType
     
     /**
      * toUnrestrictedDouble() のエイリアスです。
+     * @deprecated 1.1.0 float is dis-recommended in Web IDL (Second Edition).
      * @link https://heycam.github.io/webidl/#idl-unrestricted-float Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-unrestricted-float Web IDL
      * @param boolean|integer|float|string|resource|\GMP|\SplFloat $value

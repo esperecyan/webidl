@@ -41,7 +41,7 @@ class TypeHinterTest extends ParentClass
             ],
             [
                 $value = new \DateTime(),
-                '(float or (Date or Event) or (DOMNode or DOMString)?',
+                '(double or (Date or Event) or (DOMNode or DOMString)?',
                 $value,
             ],
             [
@@ -49,7 +49,7 @@ class TypeHinterTest extends ParentClass
                     [0.1, 0.2],
                     ['0'],
                 ],
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
                 [
                     [0.1, 0.2],
                     [0.0],
@@ -85,7 +85,7 @@ class TypeHinterTest extends ParentClass
                     [0.1, 0.2],
                     ['0'],
                 ],
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or (float[] or DOMNodeList)[])',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or (double[] or DOMNodeList)[])',
                 [
                     [0.1, 0.2],
                     [0.0],
@@ -123,11 +123,11 @@ class TypeHinterTest extends ParentClass
         return [
             [
                 new \stdClass(),
-                '(float or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
             [
                 new \SplBool(),
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
             ],
             [
                 new \SplBool(),
@@ -139,7 +139,7 @@ class TypeHinterTest extends ParentClass
             ],
             [
                 new \SplFloat(NAN),
-                '(float or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
         ];
     }
@@ -164,7 +164,7 @@ class TypeHinterTest extends ParentClass
                 [
                     [1.5, null],
                 ],
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
             ],
             [
                 [

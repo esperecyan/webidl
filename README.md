@@ -161,8 +161,7 @@ The correspondence table of [the types]
 | [unsigned long]                    | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | On 32bit PHP or PHP for Windows, a number less than -2147483648 or greater than 2147483647 is the floating point number. |
 | [long long]                        | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | -9223372036854775808 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, -9007199254740991 to 9007199254740991, and the number less than -2147483648 or greater than 2147483647 is the floating point number. |
 | [unsigned long long]               | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | 0 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, 0 to 9007199254740991, and the number greater than 2147483647 is the floating point number. |
-| [float]<br>[unrestricted float]    | [Floating&nbsp;point&nbsp;numbers] | Aliases of `double` and `unrestricted double`. |
-| [double]<br>[unrestricted double]  | [Floating&nbsp;point&nbsp;numbers] |                                                |
+| <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [Floating&nbsp;point&nbsp;numbers] | `float` and `unrestricted float` is aliases of `double` and `unrestricted double`. |
 | [DOMString]<br>[USVString]         | [Strings]                          | A valid utf-8 string.                          |
 | [ByteString]                       | [Strings]                          |                                                |
 | [object]                           | [Objects]                          |                                                |
@@ -170,7 +169,7 @@ The correspondence table of [the types]
 | [Dictionary types]                 | [Arrays]                           | An array conforming the structure passed in [$pseudoType]. |
 | [Enumeration types]                | [Strings]                          | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
 | [Callback function types]          | [Callables]                        |                                                |
-| [Sequences]<br><a name="^"></a>[Arrays][idl-array] <sup>[*1]</sup> | [Arrays]                           | New array.                                     |
+| [Sequences]<br><a name="^2"></a>[Arrays][idl-array] <sup>[*2]</sup> | [Arrays]                           | New array.                                     |
 | [Promise types]                    |                                    | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                      | [mixed]                            | A return value of [UnionType::toUnion()].      |
 | [Date]                             | [DateTimeInterface]                |                                                |
@@ -180,8 +179,10 @@ The correspondence table of [the types]
 | [Buffer source types]              |                                    | Not supported. Instead, pass a fully qualified class name or interface name. |
 | [OpenEndedDictionary\<T>]          |                                    | Not yet supported.                             |
 
-<a name="note"></a><sup>[*1](#^)</sup> Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated.
-[*1]: #note "Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated."
+<a name="*1"></a><sup>[*1](#^1)</sup> float is dis-recommended in Web IDL (Second Edition). Deprecated.  
+<a name="*2"></a><sup>[*2](#^2)</sup> Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated.
+[*1]: #*1 "float is dis-recommended in Web IDL (Second Edition). Deprecated."
+[*2]: #*2 "Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated."
 
 [the types]: https://heycam.github.io/webidl/#idl-types
 [boolean]: https://heycam.github.io/webidl/#idl-boolean

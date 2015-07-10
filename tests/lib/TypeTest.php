@@ -31,13 +31,13 @@ class TypeTest extends \PHPUnit_Framework_TestCase
                 null,
             ],
             [
-                '(float or (Date or Event) or (DOMNode or DOMString)?',
+                '(double or (Date or Event) or (DOMNode or DOMString)?',
                 $value = new \DateTime(),
                 null,
                 $value,
             ],
             [
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<float> or DOMNodeList)>)',
+                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
                 [
                     [0.1, 0.2],
                     ['0'],

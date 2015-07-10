@@ -161,8 +161,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [unsigned long]                        | [整数]\|[浮動小数点数]     | 32bit 版 PHPと Windows 版 PHP では、 －2147483648 より小さい数と 2147483647 より大きい数は浮動小数点数。 |
 | [long long]                            | [整数]\|[浮動小数点数]     | －9223372036854775808 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP では －9007199254740991 〜 9007199254740991 であり、 －2147483648 より小さい数と 2147483647 より大きい数は浮動小数点数。 |
 | [unsigned long long]                   | [整数]\|[浮動小数点数]     | 0 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP では 0 〜 9007199254740991 であり、 2147483647 より大きい数は浮動小数点数。 |
-| [float]<br>[unrestricted float]        | [浮動小数点数]             | `double`、`unrestricted double` のエイリアス。 |
-| [double]<br>[unrestricted double]      | [浮動小数点数]             |                                                |
+| <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [浮動小数点数] | `float`、`unrestricted float` は、`double`、`unrestricted double` のエイリアス。 |
 | [DOMString]<br>[USVString]             | [文字列]                   | 妥当な utf-8 文字列。                          |
 | [ByteString]                           | [文字列]                   |                                                |
 | [object]                               | [オブジェクト]             |                                                |
@@ -170,7 +169,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [dictionary型]                         | [配列]                     | [$pseudoType] で指定した構造に合致する配列。   |
 | [列挙型]                               | [文字列]                   | [$pseudoType] で指定した配列の要素、 またはクラスの定数値。 |
 | [callback関数型]                       | [Callable]                 |                                                |
-| [sequence]<br><a name="^"></a>[配列][idl-array] <sup>[*1]</sup> | [配列]              | 新しい配列。                                   |
+| [sequence]<br><a name="^2"></a>[配列][idl-array] <sup>[*2]</sup> | [配列]              | 新しい配列。                                   |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
 | [Date]                                 | [DateTimeInterface]        |                                                |
@@ -180,8 +179,10 @@ private、または protected が指定されたプロパティの値を取得�
 | [buffer source型]                      |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名を指定。 |
 | [OpenEndedDictionary\<T>]              |                            | 未対応。                                       |
 
-<a name="note"></a><sup>[*1](#^)</sup> 配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。
-[*1]: #note "配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。"
+<a name="*1"></a><sup>[*1](#^1)</sup> float は Web IDL 第2版 で推奨されない。非推奨。  
+<a name="*2"></a><sup>[*2](#^2)</sup> 配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。
+[*1]: #*1 "float は Web IDL 第2版 で推奨されない。非推奨。"
+[*2]: #*2 "配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。"
 
 [型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-types
 [boolean]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-boolean
