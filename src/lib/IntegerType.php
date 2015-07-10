@@ -106,7 +106,7 @@ class IntegerType
     }
     
     /**
-     * 与えられた値を －128〜127 の範囲の整数に変換して返します。
+     * 与えられた値を −128〜127 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-byte Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-byte Web IDL
      * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
@@ -132,7 +132,7 @@ class IntegerType
     }
     
     /**
-     * 与えられた値を －32768〜32767 の範囲の整数に変換して返します。
+     * 与えられた値を −32768〜32767 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-short Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-short Web IDL
      * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
@@ -158,7 +158,7 @@ class IntegerType
     }
     
     /**
-     * 与えられた値を －2147483648〜2147483647 の範囲の整数に変換して返します。
+     * 与えられた値を −2147483648〜2147483647 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-long Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-long Web IDL
      * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
@@ -184,8 +184,8 @@ class IntegerType
     }
     
     /**
-     * 与えられた値を －9223372036854775808〜9223372036854775807 の範囲の整数に変換して返します。
-     * 32bit版のPHP、またはWindows版のPHPでは、－9007199254740991〜9007199254740991 の範囲の整数に変換して返します。
+     * 与えられた値を −9223372036854775808〜9223372036854775807 の範囲の整数に変換して返します。
+     * 32bit版のPHP、またはWindows版のPHPでは、−9007199254740991〜9007199254740991 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-long-long Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-long Web IDL
      * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
