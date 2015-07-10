@@ -36,7 +36,7 @@ class SequenceType
      * @link https://heycam.github.io/webidl/#idl-sequence Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-sequence Web IDL
      * @param mixed $traversable
-     * @param string $type sequence の要素型 (sequence<T> の T)。
+     * @param string $type sequence の要素型 (sequence<T\> の T)。
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
      * @throws \InvalidArgumentException SplType のインスタンスが与えられた場合。
      * @throws \DomainException 与えられた配列の要素が、指定された型に合致しない場合。
