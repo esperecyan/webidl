@@ -172,7 +172,6 @@ The correspondence table of [the types]
 | [Sequences]<br><a name="^2"></a>[Arrays][idl-array] <sup>[*2]</sup><br>[Frozen arrays] | [Arrays] | New array.       |
 | [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
-| [Date]                           | [DateTimeInterface]                  |                                            |
 | [RegExp]                         | [Strings]                            | A utf-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
 | [Error]                          | [esperecyan\webidl\Error]            |                                            |
 | [DOMException][idl-DOMException] | [DOMException]                       |                                            |
@@ -211,7 +210,6 @@ The correspondence table of [the types]
 [Frozen arrays]: https://heycam.github.io/webidl/#idl-frozen-array
 [Promise types]: https://heycam.github.io/webidl/#idl-promise
 [Union types]: https://heycam.github.io/webidl/#idl-union
-[Date]: https://heycam.github.io/webidl/#idl-Date
 [RegExp]: https://heycam.github.io/webidl/#idl-RegExp
 [Error]: https://heycam.github.io/webidl/#idl-Error
 [idl-DOMException]: https://heycam.github.io/webidl/#idl-DOMException
@@ -229,7 +227,6 @@ The correspondence table of [the types]
 [mixed]: http://uk3.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
-[DateTimeInterface]: http://uk3.php.net/manual/class.exception.php
 [PCRE]: http://uk3.php.net/manual/book.pcre.php
 [e modifier]: http://uk3.php.net/manual/reference.pcre.pattern.modifiers.php#reference.pcre.pattern.modifiers.eval
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error

@@ -172,7 +172,6 @@ private、または protected が指定されたプロパティの値を取得�
 | [sequence]<br><a name="^2"></a>[配列][idl-array] <sup>[*2]</sup><br>[凍結配列型] | [配列] | 新しい配列。             |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
-| [Date]                                 | [DateTimeInterface]        |                                                |
 | [RegExp]                               | [文字列]                   | utf-8 の文字列であり、 デリミタで囲まれた正しい [PCRE] のパターン。 [e修飾子] は不正とみなされる。 |
 | [Error]                                | [esperecyan\webidl\Error]  |                                                |
 | [DOMException][idl-DOMException]       | [DOMException]             |                                                |
@@ -211,7 +210,6 @@ private、または protected が指定されたプロパティの値を取得�
 [凍結配列型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-frozen-array
 [promise型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-promise
 [共用体型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-union
-[Date]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-Date
 [RegExp]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-RegExp
 [Error]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-Error
 [idl-DOMException]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-DOMException
@@ -229,7 +227,6 @@ private、または protected が指定されたプロパティの値を取得�
 [mixed]: http://jp2.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
-[DateTimeInterface]: http://jp2.php.net/manual/class.exception.php
 [PCRE]: http://jp2.php.net/manual/book.pcre.php
 [e修飾子]: http://jp2.php.net/manual/reference.pcre.pattern.modifiers.php#reference.pcre.pattern.modifiers.eval
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
