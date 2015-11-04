@@ -12,15 +12,15 @@ This library makes [Type hinting help API] and the exceptions defined by Web IDL
 This library is for Web standards API implementors and is not intended to be used directly by a PHP project.
 
 If you want your users to install this library simultaneously with your library,
-append `"esperecyan/webidl": "^1.2.0"` to [require property] in [composer.json] of your library, such as the following.
+append `"esperecyan/webidl": "^1.3.0"` to [require property] in [composer.json] of your library, such as the following.
 
 ```json
 {
 	"name": "esperecyan/url",
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
-		"php": ">=5.4.7",
-		"esperecyan/webidl": "^1.2.0"
+		"php": ">=5.5",
+		"esperecyan/webidl": "^1.3.0"
 	},
 	"autoload": {
 		"psr-4": {
@@ -255,7 +255,7 @@ The correspondence table of [the exceptions]
 
 Requirement
 -----------
-* PHP 5.4.7 or later
+* PHP 5.5 or later
 * [mbstring extension module]
 
 [mbstring extension module]: http://uk3.php.net/manual/book.mbstring.php "mbstring provides multibyte specific string functions that help you deal with multibyte encodings in PHP."

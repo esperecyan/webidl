@@ -19,8 +19,8 @@ Web IDL
 	"name": "esperecyan/url",
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
-		"php": ">=5.4.7",
-		"esperecyan/webidl": "^1.2.0"
+		"php": ">=5.5",
+		"esperecyan/webidl": "^1.3.0"
 	},
 	"autoload": {
 		"psr-4": {
@@ -255,7 +255,7 @@ private、または protected が指定されたプロパティの値を取得�
 
 要件
 ----
-* PHP 5.4.7 以上
+* PHP 5.5 以上
 * [mbstring拡張モジュール]
 
 [mbstring拡張モジュール]: http://jp2.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"
