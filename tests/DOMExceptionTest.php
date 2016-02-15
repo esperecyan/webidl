@@ -56,6 +56,7 @@ class DOMExceptionTest extends \PHPUnit_Framework_TestCase
             ['ReadOnlyError'                  , 'ReadOnlyError'             ],
             ['VersionError'                   , 'VersionError'              ],
             ['OperationError'                 , 'OperationError'            ],
+            ['NotAllowedError'                , 'NotAllowedError'           ],
             
             // invalid arguments
             [-1                               , '-1'                        ],

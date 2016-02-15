@@ -44,6 +44,7 @@ class DOMException extends \DOMException implements Error
         "ReadOnlyError" => null,
         "VersionError" => null,
         "OperationError"  => null,
+        "NotAllowedError"  => null,
     ];
     
     /** @var string */
