@@ -22,7 +22,7 @@
 	},
 	"require-dev": {
 		"php": ">=5.5",
-		"phpunit/phpunit": ">=4",
+		"phpunit/phpunit": "^4.8.26",
 		"ext-spl-types": "*",
 		"ext-xml": "*",
 		"ext-gmp": "*",
