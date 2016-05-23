@@ -67,8 +67,8 @@ class UnionType
         
         try {
             if ((is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value))
-                && ($identifier = array_search('dictionary', $genericTypes) !== false)) {
-                return DictionaryType::to($value, $identifier, $pseudoTypes);
+                && ($identifier = array_search('dictionary', $genericTypes)) !== false) {
+                return DictionaryType::toDictionary($value, $identifier, $pseudoTypes);
             }
             
             if (is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value)) {

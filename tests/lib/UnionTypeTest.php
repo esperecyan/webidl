@@ -10,9 +10,9 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
      * @param mixed $returnValue
      * @dataProvider unionProvider
      */
-    public function testToUnion($value, $unitTypeString, $pseudoTypes, $returnValue = null)
+    public function testToUnion($value, $unitTypeString, $pseudoTypes = null, $returnValue = null)
     {
-        $this->assertSame(
+        $this->assertEquals(
             $returnValue === null ? $value : $returnValue,
             UnionType::toUnion($value, $unitTypeString, $pseudoTypes)
         );
@@ -24,27 +24,32 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
             [
                 null,
                 '(double or (Date or Event) or (DOMNode or DOMString)?)',
-                null,
             ],
             [
                 'string',
                 '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
-                'string',
             ],
             [
                 'string',
                 '(DOMNode or DOMString)',
-                'string',
             ],
             [
                 'string',
                 '(USVString or URLSearchParams)',
-                'string',
             ],
             [
                 ['string'],
                 '(DOMString or FrozenArray<DOMString>)',
-                ['string'],
+            ],
+            [
+                ['memberA' => true],
+                '(SomeDictionary or sequence<DOMString>)',
+                ['SomeDictionary' => [
+                    'memberA' => [
+                        'type' => 'DOMString',
+                    ],
+                ]],
+                ['memberA' => '1'],
             ],
         ];
     }
