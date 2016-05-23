@@ -4,7 +4,7 @@ Web IDL
 =======
 [Web IDL 第2版]の型に沿うように、与えられた値をキャストするユーティリティクラスを提供し、PHP のタイプヒンティングを補助します。
 
-[Web IDL 第2版]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html "この文書は、 Web ブラウザへの実装を目的とするインタフェースを記述するためのインタフェース定義言語， Web IDL を定義する。"
+[Web IDL 第2版]: https://triple-underscore.github.io/WebIDL-ja.html "この文書は、 Web ブラウザへの実装を目的とするインタフェースを記述するためのインタフェース定義言語， Web IDL を定義する。"
 
 概要
 ----
@@ -144,7 +144,7 @@ private、または protected が指定されたプロパティの値を取得�
 [esperecyan\webidl\TypeHinter::to($type, $value, $argNum, $pseudoTypes)]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_to
 [DomainException]: http://jp2.php.net/manual/class.domainexception.php
 [InvalidArgumentException]: http://jp2.php.net/manual/class.invalidargumentexception.php
-[interface型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-interface
+[interface型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-interface
 [型の対応表]: #型の対応表
 [\__set()]: http://jp2.php.net/manual/language.oop5.overloading.php#object.set
 [esperecyan\webidl\TypeHinter::throwReadonlyException()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_throwReadonlyException
@@ -183,37 +183,37 @@ private、または protected が指定されたプロパティの値を取得�
 [*1]: #*1 "float は Web IDL 第2版 で推奨されない。非推奨。"
 [*2]: #*2 "配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。"
 
-[型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-types
-[boolean]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-boolean
-[byte]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-byte
-[octet]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-octet
-[short]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-short
-[unsigned short]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-unsigned-short
-[long]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-long
-[unsigned long]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-unsigned-long
-[long long]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-long-long
-[unsigned long long]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-unsigned-long-long
-[float]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-float
-[unrestricted float]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-unrestricted-float
-[double]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-double
-[unrestricted double]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-unrestricted-double
-[DOMString]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-DOMString
-[USVString]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-USVString
-[ByteString]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-ByteString
-[object]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-object
-[interface型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-interface
-[dictionary型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-dictionary
-[列挙型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-enumeration
-[callback関数型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-callback-function
-[sequence]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-sequence
+[型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-types
+[boolean]: https://triple-underscore.github.io/WebIDL-ja.html#idl-boolean
+[byte]: https://triple-underscore.github.io/WebIDL-ja.html#idl-byte
+[octet]: https://triple-underscore.github.io/WebIDL-ja.html#idl-octet
+[short]: https://triple-underscore.github.io/WebIDL-ja.html#idl-short
+[unsigned short]: https://triple-underscore.github.io/WebIDL-ja.html#idl-unsigned-short
+[long]: https://triple-underscore.github.io/WebIDL-ja.html#idl-long
+[unsigned long]: https://triple-underscore.github.io/WebIDL-ja.html#idl-unsigned-long
+[long long]: https://triple-underscore.github.io/WebIDL-ja.html#idl-long-long
+[unsigned long long]: https://triple-underscore.github.io/WebIDL-ja.html#idl-unsigned-long-long
+[float]: https://triple-underscore.github.io/WebIDL-ja.html#idl-float
+[unrestricted float]: https://triple-underscore.github.io/WebIDL-ja.html#idl-unrestricted-float
+[double]: https://triple-underscore.github.io/WebIDL-ja.html#idl-double
+[unrestricted double]: https://triple-underscore.github.io/WebIDL-ja.html#idl-unrestricted-double
+[DOMString]: https://triple-underscore.github.io/WebIDL-ja.html#idl-DOMString
+[USVString]: https://triple-underscore.github.io/WebIDL-ja.html#idl-USVString
+[ByteString]: https://triple-underscore.github.io/WebIDL-ja.html#idl-ByteString
+[object]: https://triple-underscore.github.io/WebIDL-ja.html#idl-object
+[interface型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-interface
+[dictionary型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-dictionary
+[列挙型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-enumeration
+[callback関数型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-callback-function
+[sequence]: https://triple-underscore.github.io/WebIDL-ja.html#idl-sequence
 [idl-array]: http://www.w3.org/TR/WebIDL/#idl-array
-[凍結配列型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-frozen-array
-[promise型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-promise
-[共用体型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-union
-[RegExp]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-RegExp
-[Error]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-Error
-[idl-DOMException]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-DOMException
-[buffer source型]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-buffer-source-types
+[凍結配列型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-frozen-array
+[promise型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-promise
+[共用体型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-union
+[RegExp]: https://triple-underscore.github.io/WebIDL-ja.html#idl-RegExp
+[Error]: https://triple-underscore.github.io/WebIDL-ja.html#idl-Error
+[idl-DOMException]: https://triple-underscore.github.io/WebIDL-ja.html#idl-DOMException
+[buffer source型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-buffer-source-types
 [OpenEndedDictionary\<T>]: https://fetch.spec.whatwg.org/#headersinit
 
 [論理値]: http://jp2.php.net/manual/language.types.boolean.php
@@ -222,7 +222,7 @@ private、または protected が指定されたプロパティの値を取得�
 [文字列]: http://jp2.php.net/manual/language.types.string.php
 [オブジェクト]: http://jp2.php.net/manual/language.types.object.php
 [Callable]: http://jp2.php.net/manual/language.types.callable.php
-[単一演算 callback interface]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#dfn-single-operation-callback-interface
+[単一演算 callback interface]: https://triple-underscore.github.io/WebIDL-ja.html#dfn-single-operation-callback-interface
 [配列]: http://jp2.php.net/manual/language.types.array.php
 [mixed]: http://jp2.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
@@ -244,7 +244,7 @@ private、または protected が指定されたプロパティの値を取得�
 | URIError                         | [esperecyan\webidl\URIErrorクラス]       |
 | [DOMException][idl-DOMException] | [esperecyan\webidl\DOMExceptionクラス]   |
 
-[例外]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-exceptions
+[例外]: https://triple-underscore.github.io/WebIDL-ja.html#idl-exceptions
 [esperecyan\webidl\Errorインターフェース]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
 [esperecyan\webidl\EvalErrorクラス]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.EvalError
 [esperecyan\webidl\RangeErrorクラス]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.RangeError
@@ -281,7 +281,7 @@ README の翻訳も歓迎いたします。
 
 READMEの英訳をハダーさんに協力していただきました。
 
-[Web IDL （第２版 — 日本語訳）]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html "この ページ は、 W3C により，副題の日付にて編集者草案（ Editor's Draft ）として公開された Web IDL （第２版）を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
+[Web IDL （第２版 — 日本語訳）]: https://triple-underscore.github.io/WebIDL-ja.html "この ページ は、 W3C により，副題の日付にて編集者草案（ Editor's Draft ）として公開された Web IDL （第２版）を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
 
 ライセンス
 ---------
