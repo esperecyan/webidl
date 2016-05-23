@@ -169,18 +169,18 @@
 </span><span id="51" class="l">    }
 </span><span id="52" class="l">
 </span><span id="53" class="l">    <span class="php-comment">/**
-</span></span><span id="54" class="l"><span class="php-comment">     * 与えられた値を、符号化方式が utf-8 である文字列型に変換して返します。
+</span></span><span id="54" class="l"><span class="php-comment">     * 与えられた値を、符号化方式が UTF-8 である文字列型に変換して返します。
 </span></span><span id="55" class="l"><span class="php-comment">     * @link https://heycam.github.io/webidl/#idl-USVString Web IDL (Second Edition)
 </span></span><span id="56" class="l"><span class="php-comment">     * @param boolean|integer|float|string|object|null $value
-</span></span><span id="57" class="l"><span class="php-comment">     * @throws \InvalidArgumentException 符号化方式が utf-8 でない文字列、配列、__toString()メソッドなどを持たないオブジェクト、またはリソースが与えられた場合。
+</span></span><span id="57" class="l"><span class="php-comment">     * @throws \InvalidArgumentException 符号化方式が UTF-8 でない文字列、配列、__toString()メソッドなどを持たないオブジェクト、またはリソースが与えられた場合。
 </span></span><span id="58" class="l"><span class="php-comment">     * @return string
 </span></span><span id="59" class="l"><span class="php-comment">     */</span>
 </span><span id="60" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> toUSVString(<span class="php-var">$value</span>)
 </span><span id="61" class="l">    {
-</span><span id="62" class="l">        <span class="php-keyword1">if</span> (self::isStringCastable(<span class="php-var">$value</span>) &amp;&amp; <span class="php-keyword2">mb_check_encoding</span>((<span class="php-var">$string</span> = (string)<span class="php-var">$value</span>), <span class="php-quote">'utf-8'</span>)) {
+</span><span id="62" class="l">        <span class="php-keyword1">if</span> (self::isStringCastable(<span class="php-var">$value</span>) &amp;&amp; <span class="php-keyword2">mb_check_encoding</span>((<span class="php-var">$string</span> = (string)<span class="php-var">$value</span>), <span class="php-quote">'UTF-8'</span>)) {
 </span><span id="63" class="l">            <span class="php-keyword1">return</span> <span class="php-var">$string</span>;
 </span><span id="64" class="l">        } <span class="php-keyword1">else</span> {
-</span><span id="65" class="l">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \InvalidArgumentException(ErrorMessageCreator::create(<span class="php-var">$value</span>, <span class="php-quote">'USVString (a utf-8 string)'</span>));
+</span><span id="65" class="l">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \InvalidArgumentException(ErrorMessageCreator::create(<span class="php-var">$value</span>, <span class="php-quote">'USVString (a UTF-8 string)'</span>));
 </span><span id="66" class="l">        }
 </span><span id="67" class="l">    }
 </span><span id="68" class="l">    
@@ -196,7 +196,7 @@
 </span></span><span id="78" class="l"><span class="php-comment">     */</span>
 </span><span id="79" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> toEnumerationValue(<span class="php-var">$value</span>, <span class="php-var">$identifier</span>, <span class="php-var">$enum</span>)
 </span><span id="80" class="l">    {
-</span><span id="81" class="l">        <span class="php-var">$expectedType</span> = <span class="php-keyword2">sprintf</span>(<span class="php-quote">'DOMString (a utf-8 string) and valid %s value'</span>, <span class="php-var">$identifier</span>);
+</span><span id="81" class="l">        <span class="php-var">$expectedType</span> = <span class="php-keyword2">sprintf</span>(<span class="php-quote">'DOMString (a UTF-8 string) and valid %s value'</span>, <span class="php-var">$identifier</span>);
 </span><span id="82" class="l">        
 </span><span id="83" class="l">        <span class="php-keyword1">try</span> {
 </span><span id="84" class="l">            <span class="php-var">$string</span> = self::toDOMString(<span class="php-var">$value</span>);
@@ -220,7 +220,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?c67e6064240e5c2079017e0fc688024f63620098"></script>
+<script src="resources/combined.js?1a5d1f8bfefa02896829688491a841c7d835a30d"></script>
 <script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
 </body>
 </html>

@@ -185,8 +185,8 @@
 </span><span id="67" class="l">        
 </span><span id="68" class="l">        <span class="php-keyword1">try</span> {
 </span><span id="69" class="l">            <span class="php-keyword1">if</span> ((<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>) || <span class="php-keyword2">is_object</span>(<span class="php-var">$value</span>) || <span class="php-var">$value</span> <span class="php-keyword1">instanceof</span> \__PHP_Incomplete_Class || <span class="php-keyword2">is_null</span>(<span class="php-var">$value</span>))
-</span><span id="70" class="l">                &amp;&amp; (<span class="php-var">$identifier</span> = <span class="php-keyword2">array_search</span>(<span class="php-quote">'dictionary'</span>, <span class="php-var">$genericTypes</span>) !== <span class="php-keyword1">false</span>)) {
-</span><span id="71" class="l">                <span class="php-keyword1">return</span> DictionaryType::to(<span class="php-var">$value</span>, <span class="php-var">$identifier</span>, <span class="php-var">$pseudoTypes</span>);
+</span><span id="70" class="l">                &amp;&amp; (<span class="php-var">$identifier</span> = <span class="php-keyword2">array_search</span>(<span class="php-quote">'dictionary'</span>, <span class="php-var">$genericTypes</span>)) !== <span class="php-keyword1">false</span>) {
+</span><span id="71" class="l">                <span class="php-keyword1">return</span> DictionaryType::toDictionary(<span class="php-var">$value</span>, <span class="php-var">$identifier</span>, <span class="php-var">$pseudoTypes</span>);
 </span><span id="72" class="l">            }
 </span><span id="73" class="l">            
 </span><span id="74" class="l">            <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>) || <span class="php-keyword2">is_object</span>(<span class="php-var">$value</span>) || <span class="php-var">$value</span> <span class="php-keyword1">instanceof</span> \__PHP_Incomplete_Class || <span class="php-keyword2">is_null</span>(<span class="php-var">$value</span>)) {
@@ -353,7 +353,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?c67e6064240e5c2079017e0fc688024f63620098"></script>
+<script src="resources/combined.js?1a5d1f8bfefa02896829688491a841c7d835a30d"></script>
 <script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
 </body>
 </html>
