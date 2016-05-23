@@ -51,18 +51,18 @@ class StringType
     }
 
     /**
-     * 与えられた値を、符号化方式が utf-8 である文字列型に変換して返します。
+     * 与えられた値を、符号化方式が UTF-8 である文字列型に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-USVString Web IDL (Second Edition)
      * @param boolean|integer|float|string|object|null $value
-     * @throws \InvalidArgumentException 符号化方式が utf-8 でない文字列、配列、__toString()メソッドなどを持たないオブジェクト、またはリソースが与えられた場合。
+     * @throws \InvalidArgumentException 符号化方式が UTF-8 でない文字列、配列、__toString()メソッドなどを持たないオブジェクト、またはリソースが与えられた場合。
      * @return string
      */
     public static function toUSVString($value)
     {
-        if (self::isStringCastable($value) && mb_check_encoding(($string = (string)$value), 'utf-8')) {
+        if (self::isStringCastable($value) && mb_check_encoding(($string = (string)$value), 'UTF-8')) {
             return $string;
         } else {
-            throw new \InvalidArgumentException(ErrorMessageCreator::create($value, 'USVString (a utf-8 string)'));
+            throw new \InvalidArgumentException(ErrorMessageCreator::create($value, 'USVString (a UTF-8 string)'));
         }
     }
     
@@ -78,7 +78,7 @@ class StringType
      */
     public static function toEnumerationValue($value, $identifier, $enum)
     {
-        $expectedType = sprintf('DOMString (a utf-8 string) and valid %s value', $identifier);
+        $expectedType = sprintf('DOMString (a UTF-8 string) and valid %s value', $identifier);
         
         try {
             $string = self::toDOMString($value);

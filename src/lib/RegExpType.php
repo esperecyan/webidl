@@ -17,21 +17,21 @@ class RegExpType
     public static function isRegExpCastable($value)
     {
         return (is_string($value) || method_exists($value, '__toString') || $value instanceof \SplString)
-            && mb_check_encoding($value, 'utf-8');
+            && mb_check_encoding($value, 'UTF-8');
     }
 
     /**
      * 与えられた値が妥当な正規表現 (PCRE) パターンかチェックして返します。
      * @link https://heycam.github.io/webidl/#idl-RegExp Web IDL (Second Edition)
      * @param string $value
-     * @throws \InvalidArgumentException 論理値、整数、浮動小数点数、符号化方式が utf-8 でない文字列、配列、
+     * @throws \InvalidArgumentException 論理値、整数、浮動小数点数、符号化方式が UTF-8 でない文字列、配列、
      *      __toString()メソッドなどを持たないオブジェクト、リソース、または NULL が与えられた場合。
      * @throws \DomainException 妥当でない正規表現パターンが与えられた場合
      * @return string
      */
     public static function toRegExp($value)
     {
-        $expectedType = 'RegExp (a utf-8 string and valid regular expression pattern)';
+        $expectedType = 'RegExp (a UTF-8 string and valid regular expression pattern)';
         
         if (!self::isRegExpCastable($value)) {
             throw new \InvalidArgumentException(ErrorMessageCreator::create($value, $expectedType));

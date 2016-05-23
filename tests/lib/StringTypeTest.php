@@ -138,8 +138,8 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     public function byteStringProvider()
     {
         return [
-            // utf-16
-            [mb_convert_encoding('PEAR (🍐)', 'utf-16', 'utf-8')],
+            // UTF-16
+            [mb_convert_encoding('PEAR (🍐)', 'UTF-16', 'UTF-8')],
             // binary
             [file_get_contents(__DIR__ . '/byte-string.png')],
         ];
@@ -147,7 +147,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected USVString (a utf-8 string), got
+     * @expectedExceptionMessage Expected USVString (a UTF-8 string), got
      * @dataProvider invalidStringProvider
      * @dataProvider byteStringProvider
      */
@@ -168,7 +168,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected USVString (a utf-8 string), got
+     * @expectedExceptionMessage Expected USVString (a UTF-8 string), got
      * @dataProvider invalidStringProvider
      * @dataProvider byteStringProvider
      */
@@ -218,7 +218,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
      * @param mixed $value
      * @param string[]|string $enum
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected DOMString (a utf-8 string) and valid EnumTest value, got
+     * @expectedExceptionMessage Expected DOMString (a UTF-8 string) and valid EnumTest value, got
      * @dataProvider invalidStringProvider
      * @dataProvider byteStringProvider
      * @dataProvider invalidEnumerationValueProvider
@@ -241,7 +241,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
      * @param string $value
      * @param string[]|string $enum
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected DOMString (a utf-8 string) and valid EnumTest value, got
+     * @expectedExceptionMessage Expected DOMString (a UTF-8 string) and valid EnumTest value, got
      * @dataProvider invalidEnumerationValueProvider2
      */
     public function testInvalidEnumerationValue3($value, $enum)

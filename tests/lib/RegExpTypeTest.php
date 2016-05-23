@@ -37,7 +37,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             ['str'                      , true ],
             ["/\x00/"                   , true ],
             ['/\\x00/'                  , true ],
-            ["\xE6str\xE6"              , false], // delimiters is invalid byte sequence for utf-8
+            ["\xE6str\xE6"              , false], // delimiters is invalid byte sequence for UTF-8
             ['(str('                    , true ],
             ['{str{'                    , true ],
             ['[str['                    , true ],
@@ -46,7 +46,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             ['/str/e'                   , true ], // deprecated modifier
             ["/\xC0\xAF/"               , false], // 0xC0 0xAF is a overlong form for "/"
             ['/(str/'                   , true ], // invalid regular expression
-            ['/' . mb_convert_encoding('ｓｔｒ', 'utf-16', 'utf-8') . '/', false],
+            ['/' . mb_convert_encoding('ｓｔｒ', 'UTF-16', 'UTF-8') . '/', false],
             ['/str/'                    , true ],
             [new \SplString('/str/')    , true ],
             
@@ -98,7 +98,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern), got
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern), got
      * @dataProvider invalidRegExpProvider
      */
     public function testInvalidRegExp($value)
@@ -126,9 +126,9 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             [new \SplFloat()],
             
             // string
-            ["\xE6str\xE6"], // delimiters is invalid byte sequence for utf-8
+            ["\xE6str\xE6"], // delimiters is invalid byte sequence for UTF-8
             ["/\xC0\xAF/"], // 0xC0 0xAF is a overlong form for "/"
-            ['/' . mb_convert_encoding('ｓｔｒ', 'utf-16', 'utf-8') . '/'],
+            ['/' . mb_convert_encoding('ｓｔｒ', 'UTF-16', 'UTF-8') . '/'],
             
             // array
             [[]],
@@ -149,7 +149,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). Empty regular expression
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). Empty regular expression
      */
     public function testInvalidRegExp2()
     {
@@ -158,7 +158,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). Delimiter must not be alphanumeric or backslash
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). Delimiter must not be alphanumeric or backslash
      */
     public function testInvalidRegExp3()
     {
@@ -167,7 +167,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). Null byte in regex
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). Null byte in regex
      */
     public function testInvalidRegExp4()
     {
@@ -176,7 +176,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). No ending matching delimiter ')' found
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). No ending matching delimiter ')' found
      */
     public function testInvalidRegExp5()
     {
@@ -185,7 +185,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). Unknown modifier 'Z'
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). Unknown modifier 'Z'
      */
     public function testInvalidRegExp6()
     {
@@ -194,7 +194,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). The /e modifier is deprecated, use preg_replace_callback instead
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). The /e modifier is deprecated, use preg_replace_callback instead
      */
     public function testInvalidRegExp7()
     {
@@ -203,7 +203,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Expected RegExp (a utf-8 string and valid regular expression pattern). Compilation failed: missing ) at offset 4
+     * @expectedExceptionMessage Expected RegExp (a UTF-8 string and valid regular expression pattern). Compilation failed: missing ) at offset 4
      */
     public function testInvalidRegExp8()
     {

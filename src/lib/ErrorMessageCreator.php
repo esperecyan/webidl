@@ -33,8 +33,8 @@ class ErrorMessageCreator
     public static function getStringRepresentation($value)
     {
         if (is_scalar($value) || $value === null) {
-            $stringRepresentation = is_string($value) && !mb_check_encoding($value, 'utf-8')
-                ? 'non utf-8 string'
+            $stringRepresentation = is_string($value) && !mb_check_encoding($value, 'UTF-8')
+                ? 'non UTF-8 string'
                 : var_export($value, true);
         } elseif (is_array($value)) {
             $stringRepresentation = 'array';

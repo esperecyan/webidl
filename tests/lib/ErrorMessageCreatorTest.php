@@ -20,9 +20,9 @@ class ErrorMessageCreatorTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 new \SplBool(),
-                'USVString (a utf-8 string)',
+                'USVString (a UTF-8 string)',
                 null,
-                'Expected USVString (a utf-8 string), got instance of SplBool',
+                'Expected USVString (a UTF-8 string), got instance of SplBool',
             ],
             [
                 [],
@@ -39,15 +39,15 @@ class ErrorMessageCreatorTest extends \PHPUnit_Framework_TestCase
             ],
             [
                 xml_parser_create(),
-                'RegExp (a utf-8 string and valid regular expression pattern)',
+                'RegExp (a UTF-8 string and valid regular expression pattern)',
                 null,
-                'Expected RegExp (a utf-8 string and valid regular expression pattern), got resource of type (xml)',
+                'Expected RegExp (a UTF-8 string and valid regular expression pattern), got resource of type (xml)',
             ],
             [
                 'string',
-                'RegExp (a utf-8 string and valid regular expression pattern)',
+                'RegExp (a UTF-8 string and valid regular expression pattern)',
                 'Delimiter must not be alphanumeric or backslash',
-                'Expected RegExp (a utf-8 string and valid regular expression pattern). Delimiter must not be alphanumeric or backslash',
+                'Expected RegExp (a UTF-8 string and valid regular expression pattern). Delimiter must not be alphanumeric or backslash',
             ],
             [
                 new \__PHP_Incomplete_Class(),
@@ -77,7 +77,7 @@ class ErrorMessageCreatorTest extends \PHPUnit_Framework_TestCase
             [INF                          , 'INF'                               ],
             [NAN                          , 'NAN'                               ],
             ['string'                     , '\'string\''                        ],
-            [mb_convert_encoding('PEAR (🍐)', 'utf-16', 'utf-8'), 'non utf-8 string'],
+            [mb_convert_encoding('PEAR (🍐)', 'UTF-16', 'UTF-8'), 'non UTF-8 string'],
             [[]                           , 'array'                             ],
             [new \stdClass()              , 'instance of stdClass'              ],
             [new \__PHP_Incomplete_Class(), 'instance of __PHP_Incomplete_Class'],

@@ -162,7 +162,7 @@ The correspondence table of [the types]
 | [long long]                      | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | -9223372036854775808 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, -9007199254740991 to 9007199254740991, and the number less than -2147483648 or greater than 2147483647 is the floating point number. |
 | [unsigned long long]             | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | 0 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, 0 to 9007199254740991, and the number greater than 2147483647 is the floating point number. |
 | <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [Floating&nbsp;point&nbsp;numbers] | `float` and `unrestricted float` is aliases of `double` and `unrestricted double`. |
-| [DOMString]<br>[USVString]       | [Strings]                            | A valid utf-8 string.                      |
+| [DOMString]<br>[USVString]       | [Strings]                            | A valid UTF-8 string.                      |
 | [ByteString]                     | [Strings]                            |                                            |
 | [object]                         | [Objects]                            |                                            |
 | [Interface types]                | [Objects]\|[Callables]               | If an interface is [single operation callback interface], there are cases where the PHP type is Callable. |
@@ -172,7 +172,7 @@ The correspondence table of [the types]
 | [Sequences]<br><a name="^2"></a>[Arrays][idl-array] <sup>[*2]</sup><br>[Frozen arrays] | [Arrays] | New array.       |
 | [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
-| [RegExp]                         | [Strings]                            | A utf-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
+| [RegExp]                         | [Strings]                            | A UTF-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
 | [Error]                          | [esperecyan\webidl\Error]            |                                            |
 | [DOMException][idl-DOMException] | [DOMException]                       |                                            |
 | [Buffer source types]            |                                      | Not supported. Instead, pass a fully qualified class name or interface name. |

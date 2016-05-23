@@ -162,7 +162,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [long long]                            | [整数]\|[浮動小数点数]     | −9223372036854775808 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP では −9007199254740991 〜 9007199254740991 であり、 −2147483648 より小さい数と 2147483647 より大きい数は浮動小数点数。 |
 | [unsigned long long]                   | [整数]\|[浮動小数点数]     | 0 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP では 0 〜 9007199254740991 であり、 2147483647 より大きい数は浮動小数点数。 |
 | <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [浮動小数点数] | `float`、`unrestricted float` は、`double`、`unrestricted double` のエイリアス。 |
-| [DOMString]<br>[USVString]             | [文字列]                   | 妥当な utf-8 文字列。                          |
+| [DOMString]<br>[USVString]             | [文字列]                   | 妥当な UTF-8 文字列。                          |
 | [ByteString]                           | [文字列]                   |                                                |
 | [object]                               | [オブジェクト]             |                                                |
 | [interface型]                          | [オブジェクト]\|[Callable] | [単一演算 callback interface] なら、 Callable の場合がある。 |
@@ -172,7 +172,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [sequence]<br><a name="^2"></a>[配列][idl-array] <sup>[*2]</sup><br>[凍結配列型] | [配列] | 新しい配列。             |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
-| [RegExp]                               | [文字列]                   | utf-8 の文字列であり、 デリミタで囲まれた正しい [PCRE] のパターン。 [e修飾子] は不正とみなされる。 |
+| [RegExp]                               | [文字列]                   | UTF-8 の文字列であり、 デリミタで囲まれた正しい [PCRE] のパターン。 [e修飾子] は不正とみなされる。 |
 | [Error]                                | [esperecyan\webidl\Error]  |                                                |
 | [DOMException][idl-DOMException]       | [DOMException]             |                                                |
 | [buffer source型]                      |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名を指定。 |
