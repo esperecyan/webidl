@@ -23,6 +23,7 @@
 	"require-dev": {
 		"php": ">=5.5",
 		"phpunit/phpunit": "^4.8.26",
+		"apigen/apigen": "^4.1.2",
 		"ext-spl-types": "*",
 		"ext-xml": "*",
 		"ext-gmp": "*",
