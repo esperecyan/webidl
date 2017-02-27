@@ -56,12 +56,12 @@ class TypeHinterTest extends ParentClass
                 ],
             ],
             [
-                new \SplString('string'),
+                'string',
                 '(DOMNode or DOMString)',
                 'string',
             ],
             [
-                new \SplString('string'),
+                'string',
                 '(USVString or URLSearchParams)',
                 'string',
             ],
@@ -69,17 +69,17 @@ class TypeHinterTest extends ParentClass
                 [
                     'bubbles'    => null,
                     'cancelable' => 'string',
-                    'detail'     => ($detail = new \SplFloat()),
+                    'detail'     => 0.0,
                 ],
                 'CustomEventInit',
                 [
                     'bubbles'    => false,
                     'cancelable' => true,
-                    'detail'     => $detail,
+                    'detail'     => 0.0,
                 ],
             ],
             [
-                ($array = [new DOMException('', 'OperationError'), new ErrorClass(), new TypeError()]),
+                ($array = [new DOMException(), new ErrorClass(), new TypeError()]),
                 'FrozenArray<Error>',
                 $array,
             ],
@@ -131,20 +131,8 @@ class TypeHinterTest extends ParentClass
                 '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
             [
-                new \SplBool(),
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
-            ],
-            [
-                new \SplBool(),
-                '(DOMNode or DOMString)',
-            ],
-            [
                 new \stdClass(),
                 '(USVString or URLSearchParams)',
-            ],
-            [
-                new \SplFloat(NAN),
-                '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
         ];
     }
@@ -170,21 +158,6 @@ class TypeHinterTest extends ParentClass
                     [1.5, null],
                 ],
                 '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
-            ],
-            [
-                [
-                    'bubbles'    => new \SplString(''),
-                    'cancelable' => false,
-                    'detail'     => null,
-                ],
-                'CustomEventInit',
-                [
-                    'CustomEventInit' => [
-                        'bubbles'    => ['type' => 'boolean', 'default' => false],
-                        'cancelable' => ['type' => 'boolean', 'default' => false],
-                        'detail'     => ['type' => 'any'    , 'default' => null ],
-                    ],
-                ],
             ],
         ];
     }

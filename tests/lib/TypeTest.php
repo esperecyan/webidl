@@ -50,7 +50,7 @@ class TypeTest extends \PHPUnit_Framework_TestCase
             ],
             [
                 '(DOMNode or DOMString)',
-                new \SplString('string'),
+                'string',
                 null,
                 'string',
             ],
@@ -65,7 +65,7 @@ class TypeTest extends \PHPUnit_Framework_TestCase
                 [
                     'bubbles'    => null,
                     'cancelable' => 'string',
-                    'detail'     => ($detail = new \SplFloat()),
+                    'detail'     => 0.0,
                 ],
                 [
                     'CustomEventInit' => [
@@ -77,7 +77,7 @@ class TypeTest extends \PHPUnit_Framework_TestCase
                 [
                     'bubbles'    => false,
                     'cancelable' => true,
-                    'detail'     => $detail,
+                    'detail'     => 0.0,
                 ],
             ],
         ];

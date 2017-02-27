@@ -36,13 +36,13 @@ class DictionaryTypeTest extends \PHPUnit_Framework_TestCase
                 [
                     'bubbles'    => null,
                     'cancelable' => 'string',
-                    'detail'     => ($detail = new \SplFloat()),
+                    'detail'     => 0.0,
                 ],
                 'CustomEventInit',
                 [
                     'bubbles'    => false,
                     'cancelable' => true,
-                    'detail'     => $detail,
+                    'detail'     => 0.0,
                 ],
             ],
             [
@@ -172,36 +172,10 @@ class DictionaryTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected Dictionary, got instance of SplBool
-     */
-    public function testInvalidDictionary()
-    {
-        DictionaryType::toDictionary(new \SplBool(), 'Dictionary', []);
-    }
-    
-    /**
-     * @expectedException \DomainException
-     * @expectedExceptionMessage In "stringMember" member of Dictionary, expected DOMString
-     */
-    public function testInvalidDictionary2()
-    {
-        DictionaryType::toDictionary([
-            'stringMember'   => new \SplBool(),
-            'requiredMember' => 'string',
-        ], 'Dictionary', [
-            'Dictionary' => [
-                'stringMember'   => ['type' => 'DOMString'],
-                'requiredMember' => ['type' => 'DOMString', 'required' => true],
-            ]
-        ]);
-    }
-    
-    /**
      * @expectedException \DomainException
      * @expectedExceptionMessage In "requiredMember" member of Dictionary, expected DOMString, got none
      */
-    public function testInvalidDictionary3()
+    public function testInvalidDictionary()
     {
         DictionaryType::toDictionary([
             'stringMember' => 'string',

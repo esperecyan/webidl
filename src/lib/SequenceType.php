@@ -38,18 +38,11 @@ class SequenceType
      * @param mixed $traversable
      * @param string $type sequence の要素型 (sequence<T\> の T)。
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
-     * @throws \InvalidArgumentException SplType のインスタンスが与えられた場合。
      * @throws \DomainException 与えられた配列の要素が、指定された型に合致しない場合。
      * @return array
      */
     public static function toSequence($traversable, $type, $pseudoTypes = [])
     {
-        $expectedType = sprintf('%s (an array including only %s)', 'sequence<' . $type . '>', $type);
-        
-        if ($traversable instanceof \SplType) {
-            throw new \InvalidArgumentException(ErrorMessageCreator::create($traversable, $expectedType));
-        }
-        
         $array = [];
         
         foreach (self::convertToRewindable($traversable) as $value) {
@@ -57,7 +50,11 @@ class SequenceType
                 $array[] = Type::to($type, $value, $pseudoTypes);
             } catch (\LogicException $exception) {
                 if ($exception instanceof \InvalidArgumentException || $exception instanceof \DomainException) {
-                    throw new \DomainException(ErrorMessageCreator::create(null, $expectedType, ''), 0, $exception);
+                    throw new \DomainException(ErrorMessageCreator::create(
+                        null,
+                        sprintf('%s (an array including only %s)', 'sequence<' . $type . '>', $type),
+                        ''
+                    ), 0, $exception);
                 } else {
                     throw $exception;
                 }

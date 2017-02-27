@@ -42,16 +42,11 @@ class DictionaryType
      * @param mixed $value
      * @param string $identifier
      * @param array $pseudoTypes
-     * @throws \InvalidArgumentException SplType のインスタンスが与えられた場合。
      * @throws \DomainException dictionary メンバと同じキーを持つ $value の要素について、型が合致しない場合。
      * @return array
      */
     public static function toDictionary($value, $identifier, $pseudoTypes)
     {
-        if ($value instanceof \SplType) {
-            throw new \InvalidArgumentException(ErrorMessageCreator::create($value, $identifier));
-        }
-        
         $array = self::convertToArrayAccess($value);
         
         $dictionary = [];

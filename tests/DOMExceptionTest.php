@@ -12,7 +12,7 @@ class DOMExceptionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|\SplInt|string|\SplString $codeOrName
+     * @param integer|string $codeOrName
      * @param string $name
      * @dataProvider codeProvider
      */
@@ -41,7 +41,7 @@ class DOMExceptionTest extends \PHPUnit_Framework_TestCase
             [DOM_INVALID_ACCESS_ERR           , 'InvalidAccessError'        ],
             [18                               , 'SecurityError'             ],
             ['19'                             , 'NetworkError'              ],
-            [new \SplInt(20)                  , 'AbortError'                ],
+            [20                               , 'AbortError'                ],
             [21                               , 'URLMismatchError'          ],
             [22                               , 'QuotaExceededError'        ],
             [23                               , 'TimeoutError'              ],
@@ -51,7 +51,7 @@ class DOMExceptionTest extends \PHPUnit_Framework_TestCase
             ['NotReadableError'               , 'NotReadableError'          ],
             ['UnknownError'                   , 'UnknownError'              ],
             ['ConstraintError'                , 'ConstraintError'           ],
-            [new \SplString('DataError')      , 'DataError'                 ],
+            ['DataError'                      , 'DataError'                 ],
             ['TransactionInactiveError'       , 'TransactionInactiveError'  ],
             ['ReadOnlyError'                  , 'ReadOnlyError'             ],
             ['VersionError'                   , 'VersionError'              ],
@@ -68,13 +68,13 @@ class DOMExceptionTest extends \PHPUnit_Framework_TestCase
             [26                               , '26'                        ],
             [''                               , ''                          ],
             ['NoDataAllowedError'             , 'NoDataAllowedError'        ],
-            [new \SplString('ValidationError'), 'ValidationError'           ],
-            [new \SplInt(28)                  , '28'                        ],
-            [new \SplString('5')              , 'InvalidCharacterError'     ],
+            ['ValidationError'                , 'ValidationError'           ],
+            [28                               , '28'                        ],
+            ['5'                              , 'InvalidCharacterError'     ],
             [NAN                              , 'NAN'                       ],
             [INF                              , 'INF'                       ],
-            [new \SplFloat(8)                 , 'NotFoundError'             ],
-            [new \SplFloat(NAN)               , 'NAN'                       ],
+            [8.0                              , 'NotFoundError'             ],
+            [NAN                              , 'NAN'                       ],
         ];
     }
     

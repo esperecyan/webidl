@@ -13,19 +13,19 @@ class IntegerType
      * 与えられた値が整数型に変換可能であれば真を返します。
      *
      * 次の型の値が整数型に変換可能であるとみなされます。
-     * 論理型。整数型。浮動小数点型。文字列型。リソース型。オブジェクト型のうち、GMP、または SplInt のインスタンス。
+     * 論理型。整数型。浮動小数点型。文字列型。リソース型。オブジェクト型のうち、GMP のインスタンス。
      * @param mixed $value
      * @return boolean
      */
     public static function isIntegerCastable($value)
     {
-        return is_scalar($value) || is_resource($value) || $value instanceof \GMP || $value instanceof \SplInt;
+        return is_scalar($value) || is_resource($value) || $value instanceof \GMP;
     }
     
     /**
      * 与えられた値を整数型に変換して返します。
      * @link http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#es-integers Web IDL （第２版 — 日本語訳）
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string $type byte、octet、short、unsigned short、long、unsigned long、long long、unsigned long long
      * @param integer|float $min 浮動小数点型で正確に扱える整数の範囲よりも、整数型で扱える整数の範囲が狭ければ (整数型が32bitである環境なら) 浮動小数点数。
      * @param integer|float $max 浮動小数点型で正確に扱える整数の範囲よりも、整数型で扱える整数の範囲が狭ければ (整数型が32bitである環境なら) 浮動小数点数。
@@ -33,7 +33,7 @@ class IntegerType
      * @param booelan $signed
      * @param string $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer|float 整数型の範囲を超える場合は浮動小数点数。
-     * @throws \InvalidArgumentException 配列、NULL が与えられた場合。または、GMP、SplInt 以外のオブジェクトが与えられた場合。
+     * @throws \InvalidArgumentException 配列、NULL が与えられた場合。または、GMP 以外のオブジェクトが与えられた場合。
      * @throws \DomainException $extendedAttribute が [EnforceRange]、かつ与えられたの値が $min 〜 $max に収まらなかった場合。
      */
     private static function toInteger($value, $type, $min, $max, $bits, $signed, $extendedAttribute = null)
@@ -109,7 +109,7 @@ class IntegerType
      * 与えられた値を −128〜127 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-byte Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-byte Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer
      */
@@ -122,7 +122,7 @@ class IntegerType
      * 与えられた値を 0〜255 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-octet Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-octet Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer
      */
@@ -135,7 +135,7 @@ class IntegerType
      * 与えられた値を −32768〜32767 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-short Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-short Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer
      */
@@ -148,7 +148,7 @@ class IntegerType
      * 与えられた値を 0〜65535 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-unsigned-short Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-unsigned-short Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer
      */
@@ -161,7 +161,7 @@ class IntegerType
      * 与えられた値を −2147483648〜2147483647 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-long Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-long Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer
      */
@@ -174,7 +174,7 @@ class IntegerType
      * 与えられた値を 0〜4294967295 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-unsigned-long Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-unsigned-long Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer|float 32bit版のPHP、またはWindows版のPHPにおいて、整数型の範囲を超える場合は浮動小数点数。
      */
@@ -188,7 +188,7 @@ class IntegerType
      * 32bit版のPHP、またはWindows版のPHPでは、−9007199254740991〜9007199254740991 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-long-long Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-long Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer|float 32bit版のPHP、またはWindows版のPHPにおいて、整数型の範囲を超える場合は浮動小数点数。
      */
@@ -204,7 +204,7 @@ class IntegerType
      * 32bit版のPHP、またはWindows版のPHPでは、0〜9007199254740991 の範囲の整数に変換して返します。
      * @link https://heycam.github.io/webidl/#idl-unsigned-long-long Web IDL (Second Edition)
      * @link http://www.w3.org/TR/WebIDL/#idl-unsigned-long-long Web IDL
-     * @param boolean|integer|float|string|resource|\GMP|\SplInt $value
+     * @param boolean|integer|float|string|resource|\GMP $value
      * @param string|null $extendedAttribute 拡張属性。[EnforceRange] か [Clamp] のいずれか。
      * @return integer|float 32bit版のPHP、またはWindows版のPHPにおいて、整数型の範囲を超える場合は浮動小数点数。
      */

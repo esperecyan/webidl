@@ -19,10 +19,10 @@ class ErrorMessageCreatorTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [
-                new \SplBool(),
+                false,
                 'USVString (a UTF-8 string)',
                 null,
-                'Expected USVString (a UTF-8 string), got instance of SplBool',
+                'Expected USVString (a UTF-8 string), got false',
             ],
             [
                 [],

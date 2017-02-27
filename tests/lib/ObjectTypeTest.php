@@ -45,12 +45,12 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @param mixed $value
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected an instance of SplEnum, got
+     * @expectedExceptionMessage Expected an instance of ArrayObject, got
      * @dataProvider invalidInterfaceProvider
      */
     public function testInvalidInterface($value)
     {
-        ObjectType::toInterface($value, 'SplEnum');
+        ObjectType::toInterface($value, 'ArrayObject');
     }
     
     /**

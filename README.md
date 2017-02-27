@@ -112,8 +112,7 @@ The corresponding values have the following structure.
     'A callback interface type name' => 'callback interface',
     'A single operation callback interface type name' => 'single operation callback interface',
     'A callback function type name' => 'callback function',
-    'A enumeration type name A' => ['An array', 'of strings'],
-    'A enumeration type name B' => 'A fully qualified name of a class extending SplEnum',
+    'A enumeration type name' => ['An array', 'of strings'],
     'dictionary 型名' => [
         'A member key A' => [
             'type' => 'A type name',
@@ -256,6 +255,7 @@ The correspondence table of [the exceptions]
 Requirement
 -----------
 * PHP 5.5 or later
+	+ SPL Types PECL library is not supported
 * [mbstring extension module]
 
 [mbstring extension module]: http://uk3.php.net/manual/book.mbstring.php "mbstring provides multibyte specific string functions that help you deal with multibyte encodings in PHP."

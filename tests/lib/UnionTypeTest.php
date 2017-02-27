@@ -177,41 +177,8 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
                 '(double or (Date or Event) or (DOMNode or DOMString)?)',
             ],
             [
-                new \SplFloat(),
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
-            ],
-            [
-                new \SplBool(),
-                '(DOMNode or DOMString)',
-            ],
-            [
                 new \stdClass(),
                 '(USVString or URLSearchParams)',
-            ],
-            [
-                new \SplFloat(INF),
-                '(double or (Date or Event) or (DOMNode or DOMString)?)',
-            ],
-        ];
-    }
-
-    /**
-     * @param mixed $value
-     * @param string $type
-     * @expectedException \DomainException
-     * @expectedExceptionMessageRegExp /^Expected .+?, got/u
-     * @dataProvider invalidUnionProvider2
-     */
-    public function testInvalidUnion2($value, $type)
-    {
-        UnionType::toUnion($value, $type);
-    }
-    public function invalidUnionProvider2()
-    {
-        return [
-            [
-                [[new \SplInt(), new \SplInt()], []],
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
             ],
         ];
     }

@@ -19,18 +19,15 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             // boolean
             [true                       , false],
             [false                      , false],
-            [new \SplBool()             , false],
 
             // integer
             [1                          , false],
-            [new \SplInt()              , false],
             
             // float
             [0.1                        , false],
             [NAN                        , false],
             [INF                        , false],
             [-INF                       , false],
-            [new \SplFloat()            , false],
             
             // string
             [''                         , true ],
@@ -48,7 +45,6 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             ['/(str/'                   , true ], // invalid regular expression
             ['/' . mb_convert_encoding('ｓｔｒ', 'UTF-16', 'UTF-8') . '/', false],
             ['/str/'                    , true ],
-            [new \SplString('/str/')    , true ],
             
             // array
             [[]                         , false],
@@ -57,7 +53,6 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             [new \stdClass()            , false], // without __toString()
             [new StringCastable('/str/'), true ], // with __toString()
             [new StringCastable('str'),   true ], // with __toString()
-            [new Enum()                 , false], // instance of SplEnum
             [function () {
             }, false], // Callable
             
@@ -70,7 +65,7 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param string|\SplString $value
+     * @param string $value
      * @param string $regExp
      * @dataProvider regExpProvider
      */
@@ -83,7 +78,6 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['/str/'                    , '/str/'],
-            [new \SplString('/str/')    , '/str/'],
             [new StringCastable('/str/'), '/str/'],
             ['/str/'                    , '/str/'],
             ['{\\p{L}}'                 , '{\\p{L}}'],
@@ -112,18 +106,15 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             // boolean
             [true],
             [false],
-            [new \SplBool()],
 
             // integer
             [1],
-            [new \SplInt()],
             
             // float
             [0.1],
             [NAN],
             [INF],
             [-INF],
-            [new \SplFloat()],
             
             // string
             ["\xE6str\xE6"], // delimiters is invalid byte sequence for UTF-8
@@ -135,7 +126,6 @@ class RegExpTypeTest extends \PHPUnit_Framework_TestCase
             
             // object
             [new \stdClass()], // without __toString()
-            [new Enum()], // instance of SplEnum
             [function () {
             }], // Callable
             

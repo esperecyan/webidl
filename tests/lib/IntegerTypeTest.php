@@ -19,13 +19,11 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
             // boolean
             [true                     , true ],
             [false                    , true ],
-            [new \SplBool()           , false],
 
             // integer
             [-1                       , true ],
             [0                        , true ],
             [1                        , true ],
-            [new \SplInt()            , true ],
             
             // float
             [-0.1                     , true ],
@@ -34,12 +32,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
             [NAN                      , true ],
             [INF                      , true ],
             [-INF                     , true ],
-            [new \SplFloat()          , false],
             
             // string
             [''                       , true ],
             ['string'                 , true ],
-            [new \SplString('string') , false],
             ['9223372036854775808'    , true ],
             [gmp_init('9223372036854775808'), true],
             
@@ -49,7 +45,6 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
             // object
             [new \stdClass()          , false], // without __toString()
             [new StringCastable('123'), false], // with __toString()
-            [new Enum(),                false], // instance of SplEnum
             [function () {
             }, false], // Callable
             
@@ -90,7 +85,6 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
             [    0,    0,    0,    0],
             [  127,  127,  127,  127],
             [  128, null,  127, -128],
-            [new \SplInt(128), null, 127, -128],
             
             // float
             [ -INF, null, -128,    0],
@@ -148,12 +142,8 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     public function invalidByteProvider()
     {
         return [
-            [new \SplBool()],
-            [new \SplFloat()],
-            [new \SplString()],
             [[]],
             [new \stdClass()],
-            [new Enum()],
             [function () {
             }],
             [null],

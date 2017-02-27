@@ -124,31 +124,4 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
             [[[1.0, null], new \DOMNodeList()], '(sequence<double> or DOMNodeList)'],
         ];
     }
-    
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected sequence<USVString> (an array including only USVString), got instance of SplString
-     */
-    public function testInvalidSequence2()
-    {
-        SequenceType::toSequence(new \SplString(), 'USVString');
-    }
-    
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected sequence<USVString> (an array including only USVString), got instance of SplString
-     */
-    public function testInvalidArray2()
-    {
-        SequenceType::toArray(new \SplString(), 'USVString');
-    }
-    
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Expected sequence<USVString> (an array including only USVString), got instance of SplString
-     */
-    public function testInvalidFrozenArray2()
-    {
-        SequenceType::toFrozenArray(new \SplString(), 'USVString');
-    }
 }

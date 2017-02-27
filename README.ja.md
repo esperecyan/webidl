@@ -112,8 +112,7 @@ callback interface 型、列挙型、callback 関数型、または dictionary �
     'callback interface 型名' => 'callback interface',
     '単一演算 callback interface 型名' => 'single operation callback interface',
     'callback 関数型名' => 'callback function',
-    '列挙型名A' => ['文字列の', '配列'],
-    '列挙型名B' => 'SplEnumを継承したクラスの完全修飾名',
+    '列挙型名' => ['文字列の', '配列'],
     'dictionary 型名' => [
         'メンバキーA' => [
             'type' => '型名',
@@ -256,6 +255,7 @@ private、または protected が指定されたプロパティの値を取得�
 要件
 ----
 * PHP 5.5 以上
+	+ SPL Types PECL ライブラリには非対応
 * [mbstring拡張モジュール]
 
 [mbstring拡張モジュール]: http://jp2.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"

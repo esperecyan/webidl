@@ -19,13 +19,11 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
             // boolean
             [true                    , true ],
             [false                   , true ],
-            [new \SplBool()          , false],
 
             // integer
             [-1                      , true ],
             [0                       , true ],
             [1                       , true ],
-            [new \SplInt(0)          , false],
             
             // float
             [-0.1                    , true ],
@@ -34,12 +32,10 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
             [NAN                     , true ],
             [INF                     , true ],
             [-INF                    , true ],
-            [new \SplFloat(0.0)      , false],
             
             // string
             [''                      , true ],
             ['string'                , true ],
-            [new \SplString('string'), true ],
             
             // array
             [[]                      , false],
@@ -48,8 +44,6 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
             [new \stdClass()         , false], // without __toString()
             [new StringCastable('str'), true], // with __toString()
             [new \__PHP_Incomplete_Class(), false], // incomplete object
-            [new Enum('string')      , true ], // instance of SplEnum
-            [new Enum(null)          , false], // instance of SplEnum
             [function () {
             }, false], // Callable
             
@@ -125,7 +119,6 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
             // string
             [''                   , ''],
             ['string'             , 'string'],
-            [new \SplString('str'), 'str'],
             
             // object with __toString()
             [new StringCastable('str'), 'str'],
@@ -180,13 +173,9 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     public function invalidStringProvider()
     {
         return [
-            [new \SplBool()],
-            [new \SplInt()],
-            [new \SplFloat()],
             [[]],
             [new \stdClass()],
             [new \__PHP_Incomplete_Class()],
-            [new Enum()],
             [function () {
             }],
             [xml_parser_create()],
@@ -194,9 +183,9 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param string|\SplEnum $value
+     * @param string $value
      * @param string $identifier
-     * @param string[]|string $enum
+     * @param string[] $enum
      * @param string $string
      * @dataProvider enumerationValueProvider
      */
@@ -208,22 +197,18 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     public function enumerationValueProvider()
     {
         return [
-            ['string'          , 'EnumTest', ['string', 'string2'],           'string'],
-            [new Enum('string'), 'EnumTest', 'esperecyan\\webidl\\lib\\Enum', 'string'],
-            ['string'          , 'EnumTest', 'esperecyan\\webidl\\lib\\Enum', 'string'],
+            ['string', 'EnumTest', ['string', 'string2'], 'string'],
         ];
     }
     
     /**
-     * @param mixed $value
-     * @param string[]|string $enum
-     * @expectedException \InvalidArgumentException
+     * @param string $value
+     * @param string[] $enum
+     * @expectedException \DomainException
      * @expectedExceptionMessage Expected DOMString (a UTF-8 string) and valid EnumTest value, got
-     * @dataProvider invalidStringProvider
-     * @dataProvider byteStringProvider
      * @dataProvider invalidEnumerationValueProvider
      */
-    public function testInvalidEnumerationValue($value, $enum = ['string', 'string2'])
+    public function testInvalidEnumerationValue($value, $enum)
     {
         StringType::toEnumerationValue($value, 'EnumTest', $enum);
     }
@@ -231,29 +216,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     public function invalidEnumerationValueProvider()
     {
         return [
-            [new Enum(/* null */)     , 'esperecyan\\webidl\\lib\\Enum' ],
-            [new InvalidEnum('string'), 'esperecyan\\webidl\\lib\\Enum' ],
-            [new Enum('string')       , ['string', 'string2', 'string3']],
-        ];
-    }
-    
-    /**
-     * @param string $value
-     * @param string[]|string $enum
-     * @expectedException \DomainException
-     * @expectedExceptionMessage Expected DOMString (a UTF-8 string) and valid EnumTest value, got
-     * @dataProvider invalidEnumerationValueProvider2
-     */
-    public function testInvalidEnumerationValue3($value, $enum)
-    {
-        StringType::toEnumerationValue($value, 'EnumTest', $enum);
-    }
-    
-    public function invalidEnumerationValueProvider2()
-    {
-        return [
             ['string4', ['string', 'string2', 'string3']],
-            ['string4', 'esperecyan\\webidl\\lib\\Enum' ],
         ];
     }
 }

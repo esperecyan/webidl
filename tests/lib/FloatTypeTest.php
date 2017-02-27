@@ -19,13 +19,11 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
             // boolean
             [true                     , true ],
             [false                    , true ],
-            [new \SplBool()           , false],
 
             // integer
             [-1                       , true ],
             [0                        , true ],
             [1                        , true ],
-            [new \SplInt()            , false],
             
             // float
             [-0.1                     , true ],
@@ -34,12 +32,10 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
             [NAN                      , true ],
             [INF                      , true ],
             [-INF                     , true ],
-            [new \SplFloat()          , true ],
             
             // string
             [''                       , true ],
             ['string'                 , true ],
-            [new \SplString('string') , false],
             ['9223372036854775808'    , true ],
             [gmp_init('9223372036854775808'), true],
             
@@ -49,7 +45,6 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
             // object
             [new \stdClass()          , false], // without __toString()
             [new StringCastable('123'), false], // with __toString()
-            [new Enum(),                false], // instance of SplEnum
             [function () {
             }, false], // Callable
             
@@ -102,7 +97,7 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
             [                              0.0,                    0.0],
             [                              0.1,                    0.1],
             [                            128.6,                  128.6],
-            [new \SplFloat(1.844674407371E+19),     1.844674407371E+19],
+            [               1.844674407371E+19,     1.844674407371E+19],
             
             // string
             [                               '',                    0.0],
@@ -194,12 +189,8 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
     public function invalidFloatProvider()
     {
         return [
-            [new \SplBool()],
-            [new \SplInt()],
-            [new \SplString()],
             [[]],
             [new \stdClass()],
-            [new Enum()],
             [function () {
             }],
             [null],

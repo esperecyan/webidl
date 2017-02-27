@@ -10,16 +10,14 @@ class StringType
      * 与えられた値が文字列型に変換可能であれば真を返します。
      *
      * 次の型の値が文字列型に変換可能であるとみなされます。
-     * 論理型。整数型。浮動小数点型。文字列型。null型。オブジェクト型のうち、__toString()メソッドを持つインスタンス、SplStringのインスタンス、またはSplEnumのインスタンスで値が文字列であるもの。
+     * 論理型。整数型。浮動小数点型。文字列型。null型。オブジェクト型のうち、__toString()メソッドを持つインスタンス。
      * @param mixed $value
      * @return boolean
      */
     public static function isStringCastable($value)
     {
         return is_scalar($value) || $value === null
-            || is_object($value) /* __PHP_Incomplete_Class でないことを確認 */ && method_exists($value, '__toString')
-            || $value instanceof \SplString
-            || $value instanceof \SplEnum && is_string(current($value));
+            || is_object($value) /* __PHP_Incomplete_Class でないことを確認 */ && method_exists($value, '__toString');
     }
     
     /**
@@ -68,11 +66,10 @@ class StringType
     
     /**
      * 与えられた値を文字列型に変換し、列挙値のいずれかに一致するかチェックして返します。
-     * @param string|\SplEnum $value
+     * @param string $value
      * @param string $identifier 列挙型の識別子。
-     * @param string[]|string $enum 列挙値の配列、または SplEnum を継承したクラスの完全修飾名。
+     * @param string[] $enum 列挙値の配列。
      * @throws \InvalidArgumentException $value が文字列化できない場合。
-     *      $value が SplEnum かつ $enum が配列である場合。または、$value が SplEnum かつ $enum がクラス名で、$value が $enum のインスタンスでない場合。
      * @throws \DomainException $value が $enum で与えられた列挙値のいずれにも一致しなかった場合。
      * @return string
      */
@@ -86,9 +83,7 @@ class StringType
             throw new \InvalidArgumentException(ErrorMessageCreator::create($value, $expectedType), 0, $exception);
         }
         
-        if ($value instanceof \SplEnum && (!is_string($enum) || !($value instanceof $enum))) {
-            throw new \InvalidArgumentException(ErrorMessageCreator::create($value, $expectedType));
-        } elseif (!in_array($string, is_string($enum) ? (new $enum())->getConstList() : $enum, true)) {
+        if (!in_array($string, $enum, true)) {
             throw new \DomainException(ErrorMessageCreator::create($value, $expectedType));
         }
         
