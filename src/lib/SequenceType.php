@@ -66,21 +66,6 @@ class SequenceType
     
     /**
      * toSequence() のエイリアスです。
-     * @deprecated 1.1.0 Arrays are obsolete in Web IDL (Second Edition).
-     * @link https://github.com/heycam/webidl/commit/079cbb861a99e9e857a3f2a169c0beeb49cd020a Remove T[] array types. · heycam/webidl@079cbb8
-     * @link http://www.w3.org/TR/WebIDL/#idl-array Web IDL
-     * @param mixed $traversable
-     * @param string $type 配列の要素型 (T[] の T)。
-     * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
-     * @return array
-     */
-    public static function toArray($traversable, $type, $pseudoTypes = [])
-    {
-        return self::toSequence($traversable, $type, $pseudoTypes);
-    }
-    
-    /**
-     * toSequence() のエイリアスです。
      * @link https://heycam.github.io/webidl/#idl-frozen-array Web IDL (Second Edition)
      * @param mixed $traversable
      * @param string $type 配列の要素型 (FrozenArray<T\> の T)。

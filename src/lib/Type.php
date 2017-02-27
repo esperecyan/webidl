@@ -120,12 +120,6 @@ class Type
             case 'object':
                 $returnValue = ObjectType::toObject($value);
                 break;
-            case 'Date':
-                $returnValue = ObjectType::toInterface($value, 'DateTimeInterface');
-                break;
-            case 'RegExp':
-                $returnValue = RegExpType::toRegExp($value);
-                break;
             case 'Error':
                 $returnValue = self::to('(esperecyan\\webidl\\Error or DOMException)', $value, $pseudoTypes);
                 break;
@@ -133,14 +127,12 @@ class Type
                 $returnValue = ObjectType::toInterface($value, 'DOMException');
                 break;
             default:
-                $pattern = '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u';
+                $pattern = '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u';
                 if (preg_match($pattern, $type, $matches) === 1) {
                     if (!empty($matches['nullable'])) {
                         $returnValue = NullableType::toNullable($value, $matches['nullable'], $pseudoTypes);
                     } elseif (!empty($matches['sequence'])) {
                         $returnValue = SequenceType::toSequence($value, $matches['sequence'], $pseudoTypes);
-                    } elseif (!empty($matches['array'])) {
-                        $returnValue = SequenceType::toArray($value, $matches['array'], $pseudoTypes);
                     } elseif (!empty($matches['union'])) {
                         $returnValue = UnionType::toUnion($value, $matches['union'], $pseudoTypes);
                     } elseif (!empty($matches['FrozenArray'])) {

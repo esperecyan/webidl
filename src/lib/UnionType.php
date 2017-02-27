@@ -48,18 +48,6 @@ class UnionType
                 return $value;
             }
         }
-
-        if (RegExpType::isRegExpCastable($value) && isset($genericTypes['RegExp'])) {
-            try {
-                return RegExpType::toRegExp($value);
-            } catch (\LogicException $exception) {
-                if ($exception instanceof \DomainException) {
-                    $lastDomainException = $exception;
-                } else {
-                    throw $exception;
-                }
-            }
-        }
         
         if (is_callable($value) && array_search('callback function', $genericTypes)) {
             return $value;
@@ -72,9 +60,7 @@ class UnionType
             }
             
             if (is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value)) {
-                $type = array_search('array', $genericTypes)
-                    ?: array_search('sequence', $genericTypes)
-                    ?: array_search('FrozenArray', $genericTypes);
+                $type = array_search('sequence', $genericTypes) ?: array_search('FrozenArray', $genericTypes);
                 if ($type) {
                     return Type::to($type, $value, $pseudoTypes);
                 }
@@ -176,7 +162,7 @@ class UnionType
     
     /**
      * 次のいずれかを返します: any、boolean、numeric、string、
-     *      object、interface、dictionary、callback function、nullable、sequence、array、FrozenArray、union、RegExp。
+     *      object、interface、dictionary、callback function、nullable、sequence、FrozenArray、union。
      * @link https://heycam.github.io/webidl/#idl-types Web IDL (Second Edition)
      * @link https://heycam.github.io/webidl/#es-union Web IDL (Second Edition)
      * @param string $type
@@ -186,7 +172,7 @@ class UnionType
     private static function getGenericType($type, $pseudoTypes)
     {
         $genericType = 'interface';
-        if (in_array($type, ['any', 'boolean', 'object', 'RegExp'])) {
+        if (in_array($type, ['any', 'boolean', 'object'])) {
             $genericType = (string)$type;
         } elseif (in_array($type, ['[EnforceRange] byte', '[Clamp] byte', 'byte',
             '[EnforceRange] octet', '[Clamp] octet', 'octet', '[EnforceRange] short', '[Clamp] short', 'short',
@@ -200,7 +186,7 @@ class UnionType
         } elseif (in_array($type, ['DOMString', 'ByteString', 'USVString'])) {
             $genericType = 'string';
         } elseif (preg_match(
-            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<array>.+)\\[]|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u',
+            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u',
             $type,
             $matches
         ) === 1) {
@@ -208,8 +194,6 @@ class UnionType
                 $genericType = 'nullable';
             } elseif (!empty($matches['sequence'])) {
                 $genericType = 'sequence';
-            } elseif (!empty($matches['array'])) {
-                $genericType = 'array';
             } elseif (!empty($matches['union'])) {
                 $genericType = 'union';
             } elseif (!empty($matches['FrozenArray'])) {

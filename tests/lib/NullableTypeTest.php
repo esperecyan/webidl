@@ -66,7 +66,6 @@ class NullableTypeTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [-1                          , '[EnforceRange] octet'],
-            ['invalid regular expression', 'RegExp'              ],
             [['string', new \stdClass()] , 'sequence<DOMString>'         ],
         ];
     }

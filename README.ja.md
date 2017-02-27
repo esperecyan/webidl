@@ -167,19 +167,16 @@ private、または protected が指定されたプロパティの値を取得�
 | [dictionary型]                         | [配列]                     | [$pseudoType] で指定した構造に合致する配列。   |
 | [列挙型]                               | [文字列]                   | [$pseudoType] で指定した配列の要素、 またはクラスの定数値。 |
 | [callback関数型]                       | [Callable]                 |                                                |
-| [sequence]<br><a name="^2"></a>[配列][idl-array] <sup>[*2]</sup><br>[凍結配列型] | [配列] | 新しい配列。             |
+| [sequence]<br>[凍結配列型]             | [配列]                     | 新しい配列。                                   |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
-| [RegExp]                               | [文字列]                   | UTF-8 の文字列であり、 デリミタで囲まれた正しい [PCRE] のパターン。 [e修飾子] は不正とみなされる。 |
 | [Error]                                | [esperecyan\webidl\Error]\|[DOMException] |                                 |
 | [DOMException][idl-DOMException]       | [DOMException]             |                                                |
 | [buffer source型]                      |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名を指定。 |
 | [OpenEndedDictionary\<T>]              |                            | 未対応。                                       |
 
 <a name="*1"></a><sup>[*1](#^1)</sup> float は Web IDL 第2版 で推奨されない。非推奨。  
-<a name="*2"></a><sup>[*2](#^2)</sup> 配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。
 [*1]: #*1 "float は Web IDL 第2版 で推奨されない。非推奨。"
-[*2]: #*2 "配列は Web IDL 第2版 で廃止 (heycam/webidl@079cbb8)。非推奨。"
 
 [型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-types
 [boolean]: https://triple-underscore.github.io/WebIDL-ja.html#idl-boolean
@@ -204,11 +201,9 @@ private、または protected が指定されたプロパティの値を取得�
 [列挙型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-enumeration
 [callback関数型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-callback-function
 [sequence]: https://triple-underscore.github.io/WebIDL-ja.html#idl-sequence
-[idl-array]: http://www.w3.org/TR/WebIDL/#idl-array
 [凍結配列型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-frozen-array
 [promise型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-promise
 [共用体型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-union
-[RegExp]: https://triple-underscore.github.io/WebIDL-ja.html#idl-RegExp
 [Error]: https://triple-underscore.github.io/WebIDL-ja.html#idl-Error
 [idl-DOMException]: https://triple-underscore.github.io/WebIDL-ja.html#idl-DOMException
 [buffer source型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-buffer-source-types
@@ -225,8 +220,6 @@ private、または protected が指定されたプロパティの値を取得�
 [mixed]: http://jp2.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
-[PCRE]: http://jp2.php.net/manual/book.pcre.php
-[e修飾子]: http://jp2.php.net/manual/reference.pcre.pattern.modifiers.php#reference.pcre.pattern.modifiers.eval
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
 [DOMException]: http://jp2.php.net/manual/class.domexception.php
 

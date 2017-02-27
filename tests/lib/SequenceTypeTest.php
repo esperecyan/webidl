@@ -20,17 +20,6 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
      * @param array $sequence
      * @dataProvider sequenceProvider
      */
-    public function testToArray($value, $type, $sequence)
-    {
-        $this->assertSame($sequence, SequenceType::toArray($value, $type));
-    }
-    
-    /**
-     * @param boolean|integer|float|string|object|null $value
-     * @param string $type
-     * @param array $sequence
-     * @dataProvider sequenceProvider
-     */
     public function testToFrozenArray($value, $type, $sequence)
     {
         $this->assertSame($sequence, SequenceType::toFrozenArray($value, $type));
@@ -91,18 +80,6 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     public function testInvalidSequence($sequence, $type)
     {
         SequenceType::toSequence($sequence, $type);
-    }
-    
-    /**
-     * @param array $sequence
-     * @param string $type
-     * @expectedException \DomainException
-     * @expectedExceptionMessageRegExp /^Expected sequence<.+> \(an array including only .+\)$/u
-     * @dataProvider invalidSequence
-     */
-    public function testInvalidArray($sequence, $type)
-    {
-        SequenceType::toArray($sequence, $type);
     }
     
     /**

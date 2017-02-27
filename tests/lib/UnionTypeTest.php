@@ -23,11 +23,11 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 null,
-                '(double or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (DateTime or Event) or (DOMNode or DOMString)?)',
             ],
             [
                 'string',
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
+                '(DOMNode or Event or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
             ],
             [
                 'string',
@@ -75,13 +75,13 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [
-                '(double or (Date or Event) or (DOMNode or DOMString)?)',
-                ['double', 'Date', 'Event', 'DOMNode', 'DOMString'],
+                '(double or (DateTime or Event) or (DOMNode or DOMString)?)',
+                ['double', 'DateTime', 'Event', 'DOMNode', 'DOMString'],
                 1,
             ],
             [
-                '(DOMNode or (Date or Event) or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
-                ['DOMNode', 'Date', 'Event', 'XMLHttpRequest', 'DOMString', 'sequence<(sequence<double> or DOMNodeList)>'],
+                '(DOMNode or Event or (XMLHttpRequest or DOMString)? or sequence<(sequence<double> or DOMNodeList)>)',
+                ['DOMNode', 'Event', 'XMLHttpRequest', 'DOMString', 'sequence<(sequence<double> or DOMNodeList)>'],
                 1,
             ],
             [
@@ -174,7 +174,7 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 new \stdClass(),
-                '(double or (Date or Event) or (DOMNode or DOMString)?)',
+                '(double or (DateTime or Event) or (DOMNode or DOMString)?)',
             ],
             [
                 new \stdClass(),

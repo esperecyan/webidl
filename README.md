@@ -168,19 +168,16 @@ The correspondence table of [the types]
 | [Dictionary types]               | [Arrays]                             | An array conforming the structure passed in [$pseudoType]. |
 | [Enumeration types]              | [Strings]                            | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
 | [Callback function types]        | [Callables]                          |                                            |
-| [Sequences]<br><a name="^2"></a>[Arrays][idl-array] <sup>[*2]</sup><br>[Frozen arrays] | [Arrays] | New array.       |
+| [Sequences]<br>[Frozen arrays]   | [Arrays]                             | New array.                                 |
 | [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
-| [RegExp]                         | [Strings]                            | A UTF-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
 | [Error]                          | [esperecyan\webidl\Error]\|[DOMException] |                                       |
 | [DOMException][idl-DOMException] | [DOMException]                       |                                            |
 | [Buffer source types]            |                                      | Not supported. Instead, pass a fully qualified class name or interface name. |
 | [OpenEndedDictionary\<T>]        |                                      | Not yet supported.                         |
 
 <a name="*1"></a><sup>[*1](#^1)</sup> float is dis-recommended in Web IDL (Second Edition). Deprecated.  
-<a name="*2"></a><sup>[*2](#^2)</sup> Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated.
 [*1]: #*1 "float is dis-recommended in Web IDL (Second Edition). Deprecated."
-[*2]: #*2 "Arrays are obsolete in Web IDL (Second Edition) (heycam/webidl@079cbb8). Deprecated."
 
 [the types]: https://heycam.github.io/webidl/#idl-types
 [boolean]: https://heycam.github.io/webidl/#idl-boolean
@@ -205,11 +202,9 @@ The correspondence table of [the types]
 [Enumeration types]: https://heycam.github.io/webidl/#idl-enumeration
 [Callback function types]: https://heycam.github.io/webidl/#idl-callback-function
 [Sequences]: https://heycam.github.io/webidl/#idl-sequence
-[idl-array]: http://www.w3.org/TR/WebIDL/#idl-array
 [Frozen arrays]: https://heycam.github.io/webidl/#idl-frozen-array
 [Promise types]: https://heycam.github.io/webidl/#idl-promise
 [Union types]: https://heycam.github.io/webidl/#idl-union
-[RegExp]: https://heycam.github.io/webidl/#idl-RegExp
 [Error]: https://heycam.github.io/webidl/#idl-Error
 [idl-DOMException]: https://heycam.github.io/webidl/#idl-DOMException
 [Buffer source types]: https://heycam.github.io/webidl/#idl-buffer-source-types
@@ -226,8 +221,6 @@ The correspondence table of [the types]
 [mixed]: http://uk3.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
-[PCRE]: http://uk3.php.net/manual/book.pcre.php
-[e modifier]: http://uk3.php.net/manual/reference.pcre.pattern.modifiers.php#reference.pcre.pattern.modifiers.eval
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
 [DOMException]: http://uk3.php.net/manual/class.domexception.php
 

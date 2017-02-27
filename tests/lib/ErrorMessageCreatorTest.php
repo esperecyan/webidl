@@ -38,18 +38,6 @@ class ErrorMessageCreatorTest extends \PHPUnit_Framework_TestCase
                 'Expected ByteString (a string), got instance of Closure',
             ],
             [
-                xml_parser_create(),
-                'RegExp (a UTF-8 string and valid regular expression pattern)',
-                null,
-                'Expected RegExp (a UTF-8 string and valid regular expression pattern), got resource of type (xml)',
-            ],
-            [
-                'string',
-                'RegExp (a UTF-8 string and valid regular expression pattern)',
-                'Delimiter must not be alphanumeric or backslash',
-                'Expected RegExp (a UTF-8 string and valid regular expression pattern). Delimiter must not be alphanumeric or backslash',
-            ],
-            [
                 new \__PHP_Incomplete_Class(),
                 'sequence<DOMString> (an array including only DOMString)',
                 '',
