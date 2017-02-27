@@ -44,7 +44,6 @@ Composer について詳しくは、[Composerドキュメント]をご覧くだ�
 require_once 'vendor/autoload.php';
 
 use esperecyan\webidl\TypeHinter;
-use esperecyan\webidl\DOMException;
 
 class EventTarget
 {
@@ -172,7 +171,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
 | [RegExp]                               | [文字列]                   | UTF-8 の文字列であり、 デリミタで囲まれた正しい [PCRE] のパターン。 [e修飾子] は不正とみなされる。 |
-| [Error]                                | [esperecyan\webidl\Error]  |                                                |
+| [Error]                                | [esperecyan\webidl\Error]\|[DOMException] |                                 |
 | [DOMException][idl-DOMException]       | [DOMException]             |                                                |
 | [buffer source型]                      |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名を指定。 |
 | [OpenEndedDictionary\<T>]              |                            | 未対応。                                       |
@@ -235,13 +234,13 @@ private、または protected が指定されたプロパティの値を取得�
 -------------
 | Web IDL                          | PHP                                      |
 |----------------------------------|------------------------------------------|
-| Error                            | [esperecyan\webidl\Errorインターフェース]<br>(このエラー名の例外を作成する場合は `new esperecyan\webidl\lib\Error('エラーメッセージ')`) |
+| Error                            | [esperecyan\webidl\Errorインターフェース]\|[DOMExceptionクラス][DOMException]<br>(このエラー名の例外を作成する場合は `new esperecyan\webidl\lib\Error('エラーメッセージ')`) |
 | EvalError                        | [esperecyan\webidl\EvalErrorクラス]      |
 | RangeError                       | [esperecyan\webidl\RangeErrorクラス]     |
 | ReferenceError                   | [esperecyan\webidl\ReferenceErrorクラス] |
 | TypeError                        | [esperecyan\webidl\TypeErrorクラス]      |
 | URIError                         | [esperecyan\webidl\URIErrorクラス]       |
-| [DOMException][idl-DOMException] | [esperecyan\webidl\DOMExceptionクラス]   |
+| [DOMException][idl-DOMException] | [DOMExceptionクラス][DOMException]       |
 
 [例外]: https://triple-underscore.github.io/WebIDL-ja.html#idl-exceptions
 [esperecyan\webidl\Errorインターフェース]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error

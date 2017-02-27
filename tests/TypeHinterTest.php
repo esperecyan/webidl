@@ -79,7 +79,7 @@ class TypeHinterTest extends ParentClass
                 ],
             ],
             [
-                ($array = [new DOMException(), new ErrorClass(), new TypeError()]),
+                ($array = [new \DOMException(), new ErrorClass(), new TypeError()]),
                 'FrozenArray<Error>',
                 $array,
             ],

@@ -12,6 +12,6 @@ trait Error
     public function __construct($message = '', \Exception $previous = null)
     {
         parent::__construct($message, 0, $previous);
-        $this->code = (new \ReflectionClass(__CLASS__))->getShortName();
+        $this->code = $this->name = (new \ReflectionClass(__CLASS__))->getShortName();
     }
 }

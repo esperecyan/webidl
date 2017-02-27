@@ -172,7 +172,7 @@ The correspondence table of [the types]
 | [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
 | [RegExp]                         | [Strings]                            | A UTF-8 string, and a valid [PCRE] pattern enclosed by delimiters. [e modifier] is invalid. |
-| [Error]                          | [esperecyan\webidl\Error]            |                                            |
+| [Error]                          | [esperecyan\webidl\Error]\|[DOMException] |                                       |
 | [DOMException][idl-DOMException] | [DOMException]                       |                                            |
 | [Buffer source types]            |                                      | Not supported. Instead, pass a fully qualified class name or interface name. |
 | [OpenEndedDictionary\<T>]        |                                      | Not yet supported.                         |
@@ -235,13 +235,13 @@ The correspondence table of [the exceptions]
 ------------------------------------------
 | Web IDL                          | PHP                                      |
 |----------------------------------|------------------------------------------|
-| Error                            | [esperecyan\webidl\Error interface] \(If you need to construct an exception having this error name, write `new esperecyan\webidl\lib\Error('error message')`) |
+| Error                            | [esperecyan\webidl\Error interface]\|[DOMException class] \(If you need to construct an exception having this error name, write `new esperecyan\webidl\lib\Error('error message')`) |
 | EvalError                        | [esperecyan\webidl\EvalError class]      |
 | RangeError                       | [esperecyan\webidl\RangeError class]     |
 | ReferenceError                   | [esperecyan\webidl\ReferenceError class] |
 | TypeError                        | [esperecyan\webidl\TypeError class]      |
 | URIError                         | [esperecyan\webidl\URIError class]       |
-| [DOMException][idl-DOMException] | [esperecyan\webidl\DOMException class]   |
+| [DOMException][idl-DOMException] | [DOMException class][DOMException]       |
 
 [the exceptions]: https://heycam.github.io/webidl/#idl-exceptions
 [esperecyan\webidl\Error interface]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
@@ -250,7 +250,6 @@ The correspondence table of [the exceptions]
 [esperecyan\webidl\ReferenceError class]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Referencerror
 [esperecyan\webidl\TypeError class]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeError
 [esperecyan\webidl\URIError class]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.URIError
-[esperecyan\webidl\DOMException class]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.DOMException
 
 Requirement
 -----------
