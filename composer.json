@@ -22,7 +22,7 @@
 	},
 	"require-dev": {
 		"php": ">=5.5",
-		"phpunit/phpunit": "^4.8.26",
+		"phpunit/phpunit": "^5.7.14",
 		"apigen/apigen": "^4.1.2",
 		"ext-xml": "*",
 		"ext-gmp": "*",

@@ -75,8 +75,15 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testToUnrestrictedFloat($value, $float)
     {
-        $this->assertSame($float, FloatType::toUnrestrictedFloat($value));
-        $this->assertSame($float, FloatType::toUnrestrictedDouble($value));
+        $actualFloat = FloatType::toUnrestrictedFloat($value);
+        $actualDouble = FloatType::toUnrestrictedDouble($value);
+        if (is_nan($float)) {
+            $this->assertNan($actualFloat);
+            $this->assertNan($actualDouble);
+        } else {
+            $this->assertSame($float, $actualFloat);
+            $this->assertSame($float, $actualDouble);
+        }
     }
     
     public function floatProvider()
