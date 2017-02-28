@@ -67,13 +67,14 @@ class IntegerType
                 throw new \DomainException(ErrorMessageCreator::create($value, $expectedType));
             }
         } elseif (!is_nan($number) && $extendedAttribute === '[Clamp]') {
-            $number = min(max($number, $min), $max);
+            $number = min($max, max($number, $min));
             $integer = is_float($number) ? round($number, 0, PHP_ROUND_HALF_EVEN) : $number;
         } elseif (!is_finite($number)) {
             $integer = 0;
         } else {
             $integer = self::modulo(self::roundTowardZero($number), pow(2, $bits));
-            if ($signed && $integer >= pow(2, $bits - 1)) {
+            if ($signed && $integer >= pow(2, $bits - 1)
+                && !(PHP_INT_SIZE === 8 && $bits === 64 && $integer <= PHP_INT_MAX)) {
                 $integer -= pow(2, $bits);
             }
         }
@@ -102,7 +103,7 @@ class IntegerType
      */
     private static function modulo($x, $y)
     {
-        return (is_int($y) ? $x % $y : fmod($x, $y)) + ($x < 0 ? $y : 0);
+        return ($x < $y ? $x : (is_int($y) ? $x % $y : fmod($x, $y))) + ($x < 0 ? $y : 0);
     }
     
     /**
