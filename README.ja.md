@@ -2,13 +2,13 @@
 
 Web IDL
 =======
-[Web IDL 第2版]の型に沿うように、与えられた値をキャストするユーティリティクラスを提供し、PHP のタイプヒンティングを補助します。
+[WebIDL (Web IDL)]の型に沿うように、与えられた値をキャストするユーティリティクラスを提供し、PHP の型宣言を補助します。
 
-[Web IDL 第2版]: https://triple-underscore.github.io/WebIDL-ja.html "この文書は、 Web ブラウザへの実装を目的とするインタフェースを記述するためのインタフェース定義言語， Web IDL を定義する。"
+[WebIDL (Web IDL)]: https://triple-underscore.github.io/WebIDL-ja.html "この文書は、 Web ブラウザへの実装を目的とするインタフェースを記述するためのインタフェース定義言語， Web IDL を定義する。"
 
 概要
 ----
-当ライブラリは、[タイプヒンティング補助API]、また Web IDL で定義されている例外を PHP から利用できるようにします。
+当ライブラリは[型宣言補助API]を提供し、また Web IDL で定義されている例外を PHP から利用できるようにします。
 当ライブラリは Web 標準 API の実装者向けであり、PHP プロジェクトからの直接利用は想定していません。
 
 作成したライブラリと同時に当ライブラリをインストールしてもらうには、
@@ -32,7 +32,7 @@ Web IDL
 
 Composer について詳しくは、[Composerドキュメント]をご覧ください。
 
-[タイプヒンティング補助API]: #タイプヒンティング補助-api
+[型宣言補助API]: #type-declarations-help-api
 [composer.json]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/01-basic-usage.html#-composer-json- "このファイルにはプロジェクトの依存情報が記述されます。"
 [requireプロパティ]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/01-basic-usage.html#-require- "requireはパッケージ名とパッケージバージョンで指定されたオブジェクトを扱います。"
 [Composerドキュメント]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro "ComposerはPHPの依存管理ツールです。 Composerはあなたのプロジェクトが必要とする依存ライブラリを定義できるようにして、インストールを行います。"
@@ -77,8 +77,8 @@ class EventTarget
 
 [esperecyan/url]: https://github.com/esperecyan/url "URL Standard で定義されているアルゴリズム、および API を PHP から利用できるようにします。"
 
-タイプヒンティング補助 API
--------------------------
+<a name="type-declarations-help-api">型宣言補助 API</a>
+-------------------------------------------------
 いずれも静的メソッドで、クラスに属するメソッドから呼び出す必要があります。
 
 ### [esperecyan\webidl\TypeHinter::to($type, $value, $argNum, $pseudoTypes)]
@@ -140,15 +140,15 @@ private、または protected が指定されたプロパティの値を取得�
 [\__get()] メソッドの中から呼び出す必要があります。
 
 [esperecyan\webidl\TypeHinter::to($type, $value, $argNum, $pseudoTypes)]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_to
-[DomainException]: http://jp2.php.net/manual/class.domainexception.php
-[InvalidArgumentException]: http://jp2.php.net/manual/class.invalidargumentexception.php
+[DomainException]: https://secure.php.net/manual/class.domainexception.php
+[InvalidArgumentException]: https://secure.php.net/manual/class.invalidargumentexception.php
 [interface型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-interface
 [型の対応表]: #型の対応表
-[\__set()]: http://jp2.php.net/manual/language.oop5.overloading.php#object.set
+[\__set()]: https://secure.php.net/manual/language.oop5.overloading.php#object.set
 [esperecyan\webidl\TypeHinter::throwReadonlyException()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_throwReadonlyException
 [esperecyan\webidl\TypeHinter::triggerVisibilityErrorOrDefineProperty()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_triggerVisibilityErrorOrDefineProperty
 [esperecyan\webidl\TypeHinter::triggerVisibilityErrorOrUndefinedNotice()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_triggerVisibilityErrorOrUndefinedNotice
-[\__get()]: http://jp2.php.net/manual/language.oop5.overloading.php#object.get
+[\__get()]: https://secure.php.net/manual/language.oop5.overloading.php#object.get
 
 [型]の対応表
 -----------
@@ -156,9 +156,9 @@ private、または protected が指定されたプロパティの値を取得�
 |----------------------------------------|----------------------------|------------------------------------------------|
 | [boolean]                              | [論理値]                   |                                                |
 | [byte]<br>[octet]<br>[short]<br>[unsigned short]<br>[long] | [整数] |                                                |
-| [unsigned long]                        | [整数]\|[浮動小数点数]     | 32bit 版 PHPと Windows 版 PHP では、 −2147483648 より小さい数と 2147483647 より大きい数は浮動小数点数。 |
+| [unsigned long]                        | [整数]\|[浮動小数点数]     | 32bit 版 PHPと Windows 版 PHP 5.6 以前では、 −2147483648 より小さい数と 2147483647 より大きい数は浮動小数点数。 |
 | [long long]                            | [整数]\|[浮動小数点数]     | −9223372036854775808 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP では −9007199254740991 〜 9007199254740991 であり、 −2147483648 より小さい数と 2147483647 より大きい数は浮動小数点数。 |
-| [unsigned long long]                   | [整数]\|[浮動小数点数]     | 0 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP では 0 〜 9007199254740991 であり、 2147483647 より大きい数は浮動小数点数。 |
+| [unsigned long long]                   | [整数]\|[浮動小数点数]     | 0 〜 9223372036854775807。 ただし 32bit 版 PHP と Windows 版 PHP 5.6以前では 0 〜 9007199254740991 であり、 2147483647 より大きい数は浮動小数点数。 |
 | <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [浮動小数点数] | `float`、`unrestricted float` は、`double`、`unrestricted double` のエイリアス。 |
 | [DOMString]<br>[USVString]             | [文字列]                   | 妥当な UTF-8 文字列。                          |
 | [ByteString]                           | [文字列]                   |                                                |
@@ -168,15 +168,15 @@ private、または protected が指定されたプロパティの値を取得�
 | [列挙型]                               | [文字列]                   | [$pseudoType] で指定した配列の要素、 またはクラスの定数値。 |
 | [callback関数型]                       | [Callable]                 |                                                |
 | [sequence]<br>[凍結配列型]             | [配列]                     | 新しい配列。                                   |
+| [record\<K, V>]                        |                            | 未対応。                                       |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
 | [Error]                                | [esperecyan\webidl\Error]\|[DOMException] |                                 |
 | [DOMException][idl-DOMException]       | [DOMException]             |                                                |
 | [buffer source型]                      |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名を指定。 |
-| [OpenEndedDictionary\<T>]              |                            | 未対応。                                       |
 
-<a name="*1"></a><sup>[*1](#^1)</sup> float は Web IDL 第2版 で推奨されない。非推奨。  
-[*1]: #*1 "float は Web IDL 第2版 で推奨されない。非推奨。"
+<a name="*1"></a><sup>[*1](#^1)</sup> float の代わりに double を使うべきとされている。非推奨。 
+[*1]: #*1 "float の代わりに double を使うべきとされている。非推奨。"
 
 [型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-types
 [boolean]: https://triple-underscore.github.io/WebIDL-ja.html#idl-boolean
@@ -202,32 +202,32 @@ private、または protected が指定されたプロパティの値を取得�
 [callback関数型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-callback-function
 [sequence]: https://triple-underscore.github.io/WebIDL-ja.html#idl-sequence
 [凍結配列型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-frozen-array
+[record\<K, V>]: https://triple-underscore.github.io/WebIDL-ja.html#idl-record
 [promise型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-promise
 [共用体型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-union
 [Error]: https://triple-underscore.github.io/WebIDL-ja.html#idl-Error
 [idl-DOMException]: https://triple-underscore.github.io/WebIDL-ja.html#idl-DOMException
 [buffer source型]: https://triple-underscore.github.io/WebIDL-ja.html#idl-buffer-source-types
-[OpenEndedDictionary\<T>]: https://fetch.spec.whatwg.org/#headersinit
 
-[論理値]: http://jp2.php.net/manual/language.types.boolean.php
-[整数]: http://jp2.php.net/manual/language.types.integer.php
-[浮動小数点数]: http://jp2.php.net/manual/language.types.float.php
-[文字列]: http://jp2.php.net/manual/language.types.string.php
-[オブジェクト]: http://jp2.php.net/manual/language.types.object.php
-[Callable]: http://jp2.php.net/manual/language.types.callable.php
+[論理値]: https://secure.php.net/manual/language.types.boolean.php
+[整数]: https://secure.php.net/manual/language.types.integer.php
+[浮動小数点数]: https://secure.php.net/manual/language.types.float.php
+[文字列]: https://secure.php.net/manual/language.types.string.php
+[オブジェクト]: https://secure.php.net/manual/language.types.object.php
+[Callable]: https://secure.php.net/manual/language.types.callable.php
 [単一演算 callback interface]: https://triple-underscore.github.io/WebIDL-ja.html#dfn-single-operation-callback-interface
-[配列]: http://jp2.php.net/manual/language.types.array.php
-[mixed]: http://jp2.php.net/manual/language.pseudo-types.php#language.types.mixed
+[配列]: https://secure.php.net/manual/language.types.array.php
+[mixed]: https://secure.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
-[DOMException]: http://jp2.php.net/manual/class.domexception.php
+[DOMException]: https://secure.php.net/manual/class.domexception.php
 
 [例外]の対応表
 -------------
 | Web IDL                          | PHP                                      |
 |----------------------------------|------------------------------------------|
-| Error                            | [esperecyan\webidl\Errorインターフェース]\|[DOMExceptionクラス][DOMException]<br>(このエラー名の例外を作成する場合は `new esperecyan\webidl\lib\Error('エラーメッセージ')`) |
+| Error                            | [esperecyan\webidl\Errorインターフェース]\|[DOMExceptionクラス][DOMException]<br>(このエラー名の例外を作成する場合は `new esperecyan\webidl\ErrorClass('エラーメッセージ')`) |
 | EvalError                        | [esperecyan\webidl\EvalErrorクラス]      |
 | RangeError                       | [esperecyan\webidl\RangeErrorクラス]     |
 | ReferenceError                   | [esperecyan\webidl\ReferenceErrorクラス] |
@@ -250,7 +250,7 @@ private、または protected が指定されたプロパティの値を取得�
 	+ SPL Types PECL ライブラリには非対応
 * [mbstring拡張モジュール]
 
-[mbstring拡張モジュール]: http://jp2.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"
+[mbstring拡張モジュール]: https://secure.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"
 
 貢献
 ----

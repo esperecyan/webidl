@@ -8,8 +8,7 @@ class Type
     
     /**
      * 与えられた値を、指定された型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-types Web IDL (Second Edition)
-     * @link https://www.w3.org/TR/WebIDL/#idl-types Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-types WebIDL Level 1
      * @param string $type
      * @param mixed $value
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。

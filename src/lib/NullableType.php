@@ -8,8 +8,7 @@ class NullableType
     
     /**
      * 与えられた値を、指定された型、または NULL 型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-nullable-type Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-nullable-type Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-nullable-type WebIDL Level 1
      * @param mixed $value
      * @param string $type nullable 型の内部型 (T? の T)。
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。

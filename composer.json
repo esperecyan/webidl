@@ -1,6 +1,6 @@
 {
 	"name": "esperecyan/webidl",
-	"description": "Provides the utility class for casting a given value in accordance with Web IDL (Second Edition) type to help with PHP type hinting. / Web IDL 第2版 の型に沿うように、与えられた値をキャストするユーティリティクラスを提供し、PHP のタイプヒンティングを補助します。",
+	"description": "Provides the utility class for casting a given value in accordance with WebIDL (Web IDL) type to help with PHP type declarations. / WebIDL (Web IDL) の型に沿うように、与えられた値をキャストするユーティリティクラスを提供し、PHP の型宣言を補助します。",
 	"keywords": ["W3C", "EvalError", "RangeError", "ReferenceError", "TypeError", "URIError"],
 	"homepage": "https://github.com/esperecyan/webidl",
 	"license": "MPL-2.0",

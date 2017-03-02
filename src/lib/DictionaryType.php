@@ -35,10 +35,8 @@ class DictionaryType
     
     /**
      * 与えられた値を、指定された dictionary 型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-dictionary Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#idl-dictionaries Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-dictionary Web IDL
-     * @link http://www.w3.org/TR/WebIDL/#idl-dictionaries Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-dictionary WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-dictionaries WebIDL Level 1
      * @param mixed $value
      * @param string $identifier
      * @param array $pseudoTypes

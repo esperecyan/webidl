@@ -8,13 +8,12 @@ class BooleanType
     
     /**
      * 与えられた値を論理型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-boolean Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-boolean Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-boolean WebIDL Level 1
      * @param mixed $value
-     * @return boolean
+     * @return bool
      */
     public static function toBoolean($value)
     {
-        return (boolean)$value;
+        return (bool)$value;
     }
 }

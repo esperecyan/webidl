@@ -12,7 +12,7 @@ class FloatType
      * 次の型の値が浮動小数点型に変換可能であるとみなされます。
      * 論理型。整数型。浮動小数点型。文字列型。リソース型。オブジェクト型のうち、GMPのインスタンス。
      * @param mixed $value
-     * @return boolean
+     * @return bool
      */
     public static function isFloatCastable($value)
     {
@@ -21,10 +21,9 @@ class FloatType
     
     /**
      * toDouble() のエイリアスです。
-     * @deprecated 1.1.0 float is dis-recommended in Web IDL (Second Edition).
-     * @link https://heycam.github.io/webidl/#idl-float Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-float Web IDL
-     * @param boolean|integer|float|string|resource|\GMP $value
+     * @deprecated 1.1.0 double should be used rather than float.
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-float WebIDL Level 1
+     * @param bool|int|float|string|resource|\GMP $value
      * @return string
      */
     public static function toFloat($value)
@@ -34,10 +33,9 @@ class FloatType
     
     /**
      * toUnrestrictedDouble() のエイリアスです。
-     * @deprecated 1.1.0 float is dis-recommended in Web IDL (Second Edition).
-     * @link https://heycam.github.io/webidl/#idl-unrestricted-float Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-unrestricted-float Web IDL
-     * @param boolean|integer|float|string|resource|\GMP $value
+     * @deprecated 1.1.0 double should be used rather than float.
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-unrestricted-float WebIDL Level 1
+     * @param bool|int|float|string|resource|\GMP $value
      * @return string
      */
     public static function toUnrestrictedFloat($value)
@@ -47,9 +45,8 @@ class FloatType
 
     /**
      * 与えられた値を、NAN、INFを含まない浮動小数点型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-double Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-double Web IDL
-     * @param boolean|integer|float|string|resource|\GMP $value
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-double WebIDL Level 1
+     * @param bool|int|float|string|resource|\GMP $value
      * @throws \InvalidArgumentException 配列、NULL が与えられた場合。または、GMP 以外のオブジェクトが与えられた場合。
      * @throws \DomainException 変換後の値が、NAN、INF、-INF のいずれかになった場合。
      * @return float
@@ -73,9 +70,8 @@ class FloatType
 
     /**
      * 与えられた値を、浮動小数点型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-unrestricted-double Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-unrestricted-double Web IDL
-     * @param boolean|integer|float|string|resource|\GMP $value
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-unrestricted-double WebIDL Level 1
+     * @param bool|int|float|string|resource|\GMP $value
      * @throws \InvalidArgumentException 配列、NULL が与えられた場合。または、GMP 以外のオブジェクトが与えられた場合。
      * @return float
      */

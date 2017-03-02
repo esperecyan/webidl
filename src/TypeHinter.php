@@ -10,7 +10,7 @@ class TypeHinter
      * @link https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehintertotype-value-argnum-pseudotypes webidl/README.md at master · esperecyan/webidl
      * @param string $type The IDL type.
      * @param mixed $value The value being converted.
-     * @param integer $argNum The argument offset that received the value being converted.
+     * @param int $argNum The argument offset that received the value being converted.
      *      Arguments are counted starting from zero.  If the caller method is __set(), this argument are ignored.
      * @param (string|string[]|array)[] The associative array with the identifiers of
      *      callback interface types, enumeration types, callback function types or dictionary types
@@ -50,9 +50,8 @@ class TypeHinter
     /**
      * Throws an exception with a message that represents a read-only property. Must call from __set() method.
      * @link https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehinterthrowreadonlyexception webidl/README.md at master · esperecyan/webidl
-     * @link https://heycam.github.io/webidl/#dfn-read-only Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#dfn-read-only Web IDL
-     * @link https://wiki.php.net/rfc/readonly_properties#example PHP: rfc:readonly_properties
+     * @link https://www.w3.org/TR/WebIDL-1/#dfn-read-only WebIDL Level 1
+     * @link https://wiki.php.net/rfc/propertygetsetsyntax#read-only_and_write-only_properties PHP: rfc:propertygetsetsyntax
      * @throws \BadMethodCallException 呼び出し元のメソッドが __set() 以外の場合。
      * @throws \LogicException An exception with a message that represents a read-only property.
      */
@@ -73,10 +72,9 @@ class TypeHinter
      * If a user tries setting to a private or protected property, it will trigger a fatal error.
      * If a user tries setting to a non-existing property, it will create a new public property.
      * Must call from __set() method.
-     * @link https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehintertriggervisibilityerrorordefineproperty webidl/README.md at master · esperecyan/webidl
-     * @link https://heycam.github.io/webidl/#dfn-read-only Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#dfn-read-only Web IDL
-     * @link https://wiki.php.net/rfc/readonly_properties#example PHP: rfc:readonly_properties
+     * @link https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehinterthrowreadonlyexception webidl/README.md at master · esperecyan/webidl
+     * @link https://www.w3.org/TR/WebIDL-1/#dfn-read-only WebIDL Level 1
+     * @link https://wiki.php.net/rfc/propertygetsetsyntax#read-only_and_write-only_properties PHP: rfc:propertygetsetsyntax
      * @throws \BadMethodCallException 呼び出し元のメソッドが __set() 以外の場合。
      */
     public static function triggerVisibilityErrorOrDefineProperty()
@@ -122,7 +120,7 @@ class TypeHinter
      * アクセス権エラーを発生させる。
      * @param string $className 完全修飾クラス名。
      * @param string $propertyName プロパティ名 (クラス名を含まない)。
-     * @return boolean 成功した場合に真を、プロパティが存在しなかった場合に偽を返します。
+     * @return bool 成功した場合に真を、プロパティが存在しなかった場合に偽を返します。
      */
     private static function triggerVisibilityError($className, $propertyName)
     {

@@ -57,7 +57,7 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @param string $unionTypeString
      * @param string[] $flattenedMemberTypes
-     * @param integer $numberOfNullableMemberTypes
+     * @param int $numberOfNullableMemberTypes
      * @dataProvider unionTypeStringProvider
      */
     public function testGetFlattenedTypesAndNullableNums($unionTypeString, $flattenedMemberTypes, $numberOfNullableMemberTypes)

@@ -2,13 +2,13 @@ English / [日本語](README.ja.md)
 
 Web IDL
 =======
-Provides the utility class for casting a given value in accordance with [Web IDL (Second Edition)] type to help with PHP type hinting.
+Provides the utility class for casting a given value in accordance with [WebIDL (Web IDL)] type to help with PHP type declarations.
 
-[Web IDL (Second Edition)]: https://heycam.github.io/webidl/ "This document defines an interface definition language, Web IDL, that can be used to describe interfaces that are intended to be implemented in web browsers."
+[WebIDL (Web IDL)]: https://www.w3.org/TR/WebIDL-1/ "This document defines an interface definition language, Web IDL, that can be used to describe interfaces that are intended to be implemented in web browsers."
 
 Description
 -----------
-This library makes [Type hinting help API] and the exceptions defined by Web IDL available in PHP.
+This library makes [type declarations help API] and the exceptions defined by Web IDL available in PHP.
 This library is for Web standards API implementors and is not intended to be used directly by a PHP project.
 
 If you want your users to install this library simultaneously with your library,
@@ -32,7 +32,7 @@ append `"esperecyan/webidl": "^1.3.1"` to [require property] in [composer.json] 
 
 For details of Composer, see [Composer documentation].
 
-[Type hinting help API]: #type-hinting-help-api
+[type declarations help API]: #type-declarations-help-api
 [composer.json]: https://getcomposer.org/doc/01-basic-usage.md#composer-json-project-setup "This file describes the dependencies of your project and may contain other metadata as well."
 [require property]: https://getcomposer.org/doc/01-basic-usage.md#the-require-key "require takes an object that maps package names to package versions."
 [Composer documentation]: https://getcomposer.org/doc/00-intro.md "Composer is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you."
@@ -78,8 +78,8 @@ For actual examples, see the source code of [esperecyan/url].
 
 [esperecyan/url]: https://github.com/esperecyan/url "Makes the algorithms and APIs defined by URL Standard available on PHP."
 
-Type hinting help API
----------------------
+Type declarations help API
+--------------------------
 All of the methods are static, and must be called from a class method.
 
 ### [esperecyan\webidl\TypeHinter::to($type, $value, $argNum, $pseudoTypes)]
@@ -141,15 +141,15 @@ If a user tries getting to a non-existing property, it will trigger a notice.
 Must call from [\__get()] method.
 
 [esperecyan\webidl\TypeHinter::to($type, $value, $argNum, $pseudoTypes)]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_to
-[DomainException]: http://uk3.php.net/manual/class.domainexception.php
-[InvalidArgumentException]: http://uk3.php.net/manual/class.invalidargumentexception.php
-[interface type]: https://heycam.github.io/webidl/#idl-interface
+[DomainException]: https://secure.php.net/manual/class.domainexception.php
+[InvalidArgumentException]: https://secure.php.net/manual/class.invalidargumentexception.php
+[interface type]: https://www.w3.org/TR/WebIDL-1/#idl-interface
 [The correspondence table of the types]: #the-correspondence-table-of-the-types
-[\__set()]: http://uk3.php.net/manual/language.oop5.overloading.php#object.set
+[\__set()]: https://secure.php.net/manual/language.oop5.overloading.php#object.set
 [esperecyan\webidl\TypeHinter::throwReadonlyException()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_throwReadonlyException
 [esperecyan\webidl\TypeHinter::triggerVisibilityErrorOrDefineProperty()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_triggerVisibilityErrorOrDefineProperty
 [esperecyan\webidl\TypeHinter::triggerVisibilityErrorOrUndefinedNotice()]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.TypeHinter.html#_triggerVisibilityErrorOrUndefinedNotice
-[\__get()]: http://uk3.php.net/manual/language.oop5.overloading.php#object.get
+[\__get()]: https://secure.php.net/manual/language.oop5.overloading.php#object.get
 
 The correspondence table of [the types]
 --------------------------------------
@@ -157,9 +157,9 @@ The correspondence table of [the types]
 |----------------------------------|--------------------------------------|--------------------------------------------|
 | [boolean]                        | [Booleans]                           |                                            |
 | [byte]<br>[octet]<br>[short]<br>[unsigned short]<br>[long] | [Integers] |                                            |
-| [unsigned long]                  | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | On 32bit PHP or PHP for Windows, a number less than -2147483648 or greater than 2147483647 is the floating point number. |
-| [long long]                      | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | -9223372036854775808 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, -9007199254740991 to 9007199254740991, and the number less than -2147483648 or greater than 2147483647 is the floating point number. |
-| [unsigned long long]             | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | 0 to 9223372036854775807. However, on 32bit PHP or PHP for Windows, 0 to 9007199254740991, and the number greater than 2147483647 is the floating point number. |
+| [unsigned long]                  | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | On 32bit PHP or PHP 5.6 or earlier for Windows, a number less than -2147483648 or greater than 2147483647 is the floating point number. |
+| [long long]                      | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | -9223372036854775808 to 9223372036854775807. However, on 32bit PHP or PHP 5.6 or earlier for Windows, -9007199254740991 to 9007199254740991, and the number less than -2147483648 or greater than 2147483647 is the floating point number. |
+| [unsigned long long]             | [Integers]\|[Floating&nbsp;point&nbsp;numbers] | 0 to 9223372036854775807. However, on 32bit PHP or PHP 5.6 or earlier for Windows, 0 to 9007199254740991, and the number greater than 2147483647 is the floating point number. |
 | <a name="^1"></a>[float] <sup>[*1]</sup><br>[unrestricted float] <sup>[*1]</sup><br>[double]<br>[unrestricted double] | [Floating&nbsp;point&nbsp;numbers] | `float` and `unrestricted float` is aliases of `double` and `unrestricted double`. |
 | [DOMString]<br>[USVString]       | [Strings]                            | A valid UTF-8 string.                      |
 | [ByteString]                     | [Strings]                            |                                            |
@@ -169,66 +169,66 @@ The correspondence table of [the types]
 | [Enumeration types]              | [Strings]                            | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
 | [Callback function types]        | [Callables]                          |                                            |
 | [Sequences]<br>[Frozen arrays]   | [Arrays]                             | New array.                                 |
+| [record\<K, V>]                  |                                      | Not yet supported.                         |
 | [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
 | [Error]                          | [esperecyan\webidl\Error]\|[DOMException] |                                       |
 | [DOMException][idl-DOMException] | [DOMException]                       |                                            |
 | [Buffer source types]            |                                      | Not supported. Instead, pass a fully qualified class name or interface name. |
-| [OpenEndedDictionary\<T>]        |                                      | Not yet supported.                         |
 
-<a name="*1"></a><sup>[*1](#^1)</sup> float is dis-recommended in Web IDL (Second Edition). Deprecated.  
-[*1]: #*1 "float is dis-recommended in Web IDL (Second Edition). Deprecated."
+<a name="*1"></a><sup>[*1](#^1)</sup> double should be used rather than float. Deprecated.  
+[*1]: #*1 "double should be used rather than float. Deprecated."
 
-[the types]: https://heycam.github.io/webidl/#idl-types
-[boolean]: https://heycam.github.io/webidl/#idl-boolean
-[byte]: https://heycam.github.io/webidl/#idl-byte
-[octet]: https://heycam.github.io/webidl/#idl-octet
-[short]: https://heycam.github.io/webidl/#idl-short
-[unsigned short]: https://heycam.github.io/webidl/#idl-unsigned-short
-[long]: https://heycam.github.io/webidl/#idl-long
-[unsigned long]: https://heycam.github.io/webidl/#idl-unsigned-long
-[long long]: https://heycam.github.io/webidl/#idl-long-long
-[unsigned long long]: https://heycam.github.io/webidl/#idl-unsigned-long-long
-[float]: https://heycam.github.io/webidl/#idl-float
-[unrestricted float]: https://heycam.github.io/webidl/#idl-unrestricted-float
-[double]: https://heycam.github.io/webidl/#idl-double
-[unrestricted double]: https://heycam.github.io/webidl/#idl-unrestricted-double
-[DOMString]: https://heycam.github.io/webidl/#idl-DOMString
-[USVString]: https://heycam.github.io/webidl/#idl-USVString
-[ByteString]: https://heycam.github.io/webidl/#idl-ByteString
-[object]: https://heycam.github.io/webidl/#idl-object
-[Interface types]: https://heycam.github.io/webidl/#idl-interface
-[Dictionary types]: https://heycam.github.io/webidl/#idl-dictionary
-[Enumeration types]: https://heycam.github.io/webidl/#idl-enumeration
-[Callback function types]: https://heycam.github.io/webidl/#idl-callback-function
-[Sequences]: https://heycam.github.io/webidl/#idl-sequence
+[the types]: https://www.w3.org/TR/WebIDL-1/#idl-types
+[boolean]: https://www.w3.org/TR/WebIDL-1/#idl-boolean
+[byte]: https://www.w3.org/TR/WebIDL-1/#idl-byte
+[octet]: https://www.w3.org/TR/WebIDL-1/#idl-octet
+[short]: https://www.w3.org/TR/WebIDL-1/#idl-short
+[unsigned short]: https://www.w3.org/TR/WebIDL-1/#idl-unsigned-short
+[long]: https://www.w3.org/TR/WebIDL-1/#idl-long
+[unsigned long]: https://www.w3.org/TR/WebIDL-1/#idl-unsigned-long
+[long long]: https://www.w3.org/TR/WebIDL-1/#idl-long-long
+[unsigned long long]: https://www.w3.org/TR/WebIDL-1/#idl-unsigned-long-long
+[float]: https://www.w3.org/TR/WebIDL-1/#idl-float
+[unrestricted float]: https://www.w3.org/TR/WebIDL-1/#idl-unrestricted-float
+[double]: https://www.w3.org/TR/WebIDL-1/#idl-double
+[unrestricted double]: https://www.w3.org/TR/WebIDL-1/#idl-unrestricted-double
+[DOMString]: https://www.w3.org/TR/WebIDL-1/#idl-DOMString
+[USVString]: https://www.w3.org/TR/WebIDL-1/#idl-USVString
+[ByteString]: https://www.w3.org/TR/WebIDL-1/#idl-ByteString
+[object]: https://www.w3.org/TR/WebIDL-1/#idl-object
+[Interface types]: https://www.w3.org/TR/WebIDL-1/#idl-interface
+[Dictionary types]: https://www.w3.org/TR/WebIDL-1/#idl-dictionary
+[Enumeration types]: https://www.w3.org/TR/WebIDL-1/#idl-enumeration
+[Callback function types]: https://www.w3.org/TR/WebIDL-1/#idl-callback-function
+[Sequences]: https://www.w3.org/TR/WebIDL-1/#idl-sequence
 [Frozen arrays]: https://heycam.github.io/webidl/#idl-frozen-array
-[Promise types]: https://heycam.github.io/webidl/#idl-promise
-[Union types]: https://heycam.github.io/webidl/#idl-union
-[Error]: https://heycam.github.io/webidl/#idl-Error
-[idl-DOMException]: https://heycam.github.io/webidl/#idl-DOMException
-[Buffer source types]: https://heycam.github.io/webidl/#idl-buffer-source-types
-[OpenEndedDictionary\<T>]: https://fetch.spec.whatwg.org/#headersinit
+[record\<K, V>]: https://heycam.github.io/webidl/#idl-record
+[Promise types]: https://www.w3.org/TR/WebIDL-1/#idl-promise
+[Union types]: https://www.w3.org/TR/WebIDL-1/#idl-union
+[Error]: https://www.w3.org/TR/WebIDL-1/#idl-Error
+[idl-DOMException]: https://www.w3.org/TR/WebIDL-1/#idl-DOMException
+[Buffer source types]: https://www.w3.org/TR/WebIDL-1/#idl-buffer-source-types
 
-[Booleans]: http://uk3.php.net/manual/language.types.boolean.php
-[Integers]: http://uk3.php.net/manual/language.types.integer.php
-[Floating&nbsp;point&nbsp;numbers]: http://uk3.php.net/manual/language.types.float.php
-[Strings]: http://uk3.php.net/manual/language.types.string.php
-[Objects]: http://uk3.php.net/manual/language.types.object.php
-[Callables]: http://uk3.php.net/manual/language.types.callable.php
-[single operation callback interface]: https://heycam.github.io/webidl/#dfn-single-operation-callback-interface
-[Arrays]: http://uk3.php.net/manual/language.types.array.php
-[mixed]: http://uk3.php.net/manual/language.pseudo-types.php#language.types.mixed
+[Booleans]: https://secure.php.net/manual/language.types.boolean.php
+[Integers]: https://secure.php.net/manual/language.types.integer.php
+[Floating&nbsp;point&nbsp;numbers]: https://secure.php.net/manual/language.types.float.php
+[Strings]: https://secure.php.net/manual/language.types.string.php
+[Objects]: https://secure.php.net/manual/language.types.object.php
+[Callables]: https://secure.php.net/manual/language.types.callable.php
+[single operation callback interface]: https://www.w3.org/TR/WebIDL-1/#dfn-single-operation-callback-interface
+[Arrays]: https://secure.php.net/manual/language.types.array.php
+[mixed]: https://secure.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
-[DOMException]: http://uk3.php.net/manual/class.domexception.php
+[DOMException]: https://secure.php.net/manual/class.domexception.php
 
 The correspondence table of [the exceptions]
 ------------------------------------------
 | Web IDL                          | PHP                                      |
 |----------------------------------|------------------------------------------|
-| Error                            | [esperecyan\webidl\Error interface]\|[DOMException class] \(If you need to construct an exception having this error name, write `new esperecyan\webidl\lib\Error('error message')`) |
+| Error                            | [esperecyan\webidl\Error interface]\|[DOMException class] \(If you need to construct an exception having this error name, write `new esperecyan\webidl\ErrorClass('error message')`) |
 | EvalError                        | [esperecyan\webidl\EvalError class]      |
 | RangeError                       | [esperecyan\webidl\RangeError class]     |
 | ReferenceError                   | [esperecyan\webidl\ReferenceError class] |
@@ -236,7 +236,7 @@ The correspondence table of [the exceptions]
 | URIError                         | [esperecyan\webidl\URIError class]       |
 | [DOMException][idl-DOMException] | [DOMException class][DOMException]       |
 
-[the exceptions]: https://heycam.github.io/webidl/#idl-exceptions
+[the exceptions]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
 [esperecyan\webidl\Error interface]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
 [esperecyan\webidl\EvalError class]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.EvalError
 [esperecyan\webidl\RangeError class]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.RangeError
@@ -250,7 +250,7 @@ Requirement
 	+ SPL Types PECL library is not supported
 * [mbstring extension module]
 
-[mbstring extension module]: http://uk3.php.net/manual/book.mbstring.php "mbstring provides multibyte specific string functions that help you deal with multibyte encodings in PHP."
+[mbstring extension module]: https://secure.php.net/manual/book.mbstring.php "mbstring provides multibyte specific string functions that help you deal with multibyte encodings in PHP."
 
 Contribution
 ------------

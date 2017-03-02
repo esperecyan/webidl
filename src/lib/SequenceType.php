@@ -33,8 +33,7 @@ class SequenceType
     
     /**
      * 与えられた値を、要素として指定された型のみを含む配列に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-sequence Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-sequence Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-sequence WebIDL Level 1
      * @param mixed $traversable
      * @param string $type sequence の要素型 (sequence<T\> の T)。
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
@@ -66,7 +65,7 @@ class SequenceType
     
     /**
      * toSequence() のエイリアスです。
-     * @link https://heycam.github.io/webidl/#idl-frozen-array Web IDL (Second Edition)
+     * @link https://heycam.github.io/webidl/#idl-frozen-array Web IDL
      * @param mixed $traversable
      * @param string $type 配列の要素型 (FrozenArray<T\> の T)。
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。

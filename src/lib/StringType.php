@@ -12,7 +12,7 @@ class StringType
      * 次の型の値が文字列型に変換可能であるとみなされます。
      * 論理型。整数型。浮動小数点型。文字列型。null型。オブジェクト型のうち、__toString()メソッドを持つインスタンス。
      * @param mixed $value
-     * @return boolean
+     * @return bool
      */
     public static function isStringCastable($value)
     {
@@ -22,9 +22,8 @@ class StringType
     
     /**
      * toUSVString() のエイリアスです。
-     * @link https://heycam.github.io/webidl/#idl-DOMString Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-DOMString Web IDL
-     * @param boolean|integer|float|string|object|null $value
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-DOMString WebIDL Level 1
+     * @param bool|int|float|string|object|null $value
      * @return string
      */
     public static function toDOMString($value)
@@ -34,8 +33,8 @@ class StringType
 
     /**
      * 与えられた値を文字列型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-ByteString Web IDL (Second Edition)
-     * @param boolean|integer|float|string|object|null $value
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-ByteString WebIDL Level 1
+     * @param bool|int|float|string|object|null $value
      * @throws \InvalidArgumentException 配列、__toString()メソッドなどを持たないオブジェクト、またはリソースが与えられた場合。
      * @return string
      */
@@ -50,8 +49,8 @@ class StringType
 
     /**
      * 与えられた値を、符号化方式が UTF-8 である文字列型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-USVString Web IDL (Second Edition)
-     * @param boolean|integer|float|string|object|null $value
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-USVString WebIDL Level 1
+     * @param bool|int|float|string|object|null $value
      * @throws \InvalidArgumentException 符号化方式が UTF-8 でない文字列、配列、__toString()メソッドなどを持たないオブジェクト、またはリソースが与えられた場合。
      * @return string
      */

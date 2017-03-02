@@ -4,8 +4,8 @@ namespace esperecyan\webidl\lib;
 class StringTypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param boolean|integer|float|string|array|object|resource|null $value
-     * @param boolean $castable
+     * @param bool|int|float|string|array|object|resource|null $value
+     * @param bool $castable
      * @dataProvider stringCastableProvider
      */
     public function testIsStringCastable($value, $castable)
@@ -56,7 +56,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string|object|null $value
+     * @param bool|int|float|string|object|null $value
      * @param string|true $string
      * @dataProvider stringProvider
      */
@@ -71,7 +71,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string|object|null $value
+     * @param bool|int|float|string|object|null $value
      * @param string $string
      * @dataProvider stringProvider
      * @dataProvider byteStringProvider
@@ -82,7 +82,7 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string|object|null $value
+     * @param bool|int|float|string|object|null $value
      * @param string|true $string
      * @dataProvider stringProvider
      */

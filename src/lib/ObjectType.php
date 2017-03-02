@@ -8,8 +8,7 @@ class ObjectType
 
     /**
      * 与えられた値をオブジェクト型に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-object Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-object Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-object WebIDL Level 1
      * @param mixed $value
      * @return object
      */
@@ -20,10 +19,8 @@ class ObjectType
 
     /**
      * 与えられた値が、指定されたクラスのインスタンス、指定されたクラスを継承したクラスのインスタンス、または指定されたインターフェースを実装したクラスのインスタンスかチェックして返します。
-     * @link https://heycam.github.io/webidl/#idl-interface Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#idl-interfaces Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-interface Web IDL
-     * @link http://www.w3.org/TR/WebIDL/#idl-interfaces Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-interface WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-interfaces WebIDL Level 1
      * @param object $value
      * @param string $fullyQualifiedName クラス、またはインターフェースの完全修飾名。
      * @throws \InvalidArgumentException オブジェクト以外が与えられた場合、または指定されたクラス名、インターフェース名に合致しないオブジェクトが与えられた場合。
@@ -43,14 +40,11 @@ class ObjectType
 
     /**
      * 与えられた値をオブジェクト型、または callable に変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-interface Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#dfn-callback-interface Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#dfn-single-operation-callback-interface Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-interface Web IDL
-     * @link http://www.w3.org/TR/WebIDL/#dfn-callback-interface Web IDL
-     * @link http://www.w3.org/TR/WebIDL/#dfn-single-operation-interface Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-interface WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#dfn-callback-interface WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#dfn-single-operation-interface WebIDL Level 1
      * @param object|callable $value
-     * @param boolean $singleOperationCallbackInterface 単一演算 callback interface であれば真。
+     * @param bool $singleOperationCallbackInterface 単一演算 callback interface であれば真。
      * @throws \InvalidArgumentException 与えられた値がオブジェクトでも配列でもない場合。
      *      ただし $singleOperationCallbackInterface が真であれば、callable である文字列に対しては例外を発生させない。
      * @return object|callable $singleOperationCallbackInterface が偽なら常にオブジェクト。
@@ -73,10 +67,8 @@ class ObjectType
 
     /**
      * 与えられた値が callable かチェックして返します。
-     * @link https://heycam.github.io/webidl/#idl-callback-function Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#idl-callback-functions Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-callback-function Web IDL
-     * @link http://www.w3.org/TR/WebIDL/#idl-callback-functions Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-callback-function WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-callback-functions WebIDL Level 1
      * @param callable $value
      * @throws \InvalidArgumentException callable でない値が与えられた場合。
      * @return object

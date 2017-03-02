@@ -4,7 +4,7 @@ namespace esperecyan\webidl\lib;
 class SequenceTypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param boolean|integer|float|string|object|null $value
+     * @param bool|int|float|string|object|null $value
      * @param string $type
      * @param array $sequence
      * @dataProvider sequenceProvider
@@ -15,7 +15,7 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string|object|null $value
+     * @param bool|int|float|string|object|null $value
      * @param string $type
      * @param array $sequence
      * @dataProvider sequenceProvider

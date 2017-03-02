@@ -4,8 +4,8 @@ namespace esperecyan\webidl\lib;
 class FloatTypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param boolean|integer|float|string|array|object|resource|null $value
-     * @param boolean $castable
+     * @param bool|int|float|string|array|object|resource|null $value
+     * @param bool $castable
      * @dataProvider floatCastableProvider
      */
     public function testIsFloatCastable($value, $castable)
@@ -57,7 +57,7 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string $value
+     * @param bool|int|float|string $value
      * @param float $float
      * @dataProvider floatProvider
      */
@@ -68,7 +68,7 @@ class FloatTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string $value
+     * @param bool|int|float|string $value
      * @param float $float
      * @dataProvider floatProvider
      * @dataProvider unrestrictedFloatProvider

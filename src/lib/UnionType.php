@@ -8,9 +8,9 @@ class UnionType
     
     /**
      * 与えられた値を、指定された型のいずれか一つに変換して返します。
-     * @link https://heycam.github.io/webidl/#idl-union Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#idl-union Web IDL
-     * @link https://heycam.github.io/webidl/#es-union Web IDL (Second Edition)
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-union WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#es-union WebIDL Level 1
+     * @link https://heycam.github.io/webidl/#es-union Web IDL
      * @param mixed $value
      * @param string $unitTypeString 共用体型。先頭、末尾の丸括弧も含む文字列。
      * @param array $pseudoTypes callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。
@@ -110,20 +110,17 @@ class UnionType
     
     /**
      * 共用体型の平坦化メンバ型、および nullable メンバ型の個数を返す。
-     * @link https://heycam.github.io/webidl/#dfn-flattened-union-member-types Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#dfn-number-of-nullable-member-types Web IDL (Second Edition)
-     * @link http://www.w3.org/TR/WebIDL/#dfn-flattened-union-member-types Web IDL
-     * @link http://www.w3.org/TR/WebIDL/#dfn-number-of-nullable-member-types Web IDL
+     * @link https://www.w3.org/TR/WebIDL-1/#dfn-flattened-union-member-types WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#dfn-number-of-nullable-member-types WebIDL Level 1
      * @param string $unionTypeString
-     * @return (string[]|integer)[] flattenedMemberTypesキーの値に平坦化メンバ型の配列、
+     * @return (string[]|int)[] flattenedMemberTypesキーの値に平坦化メンバ型の配列、
      *      numberOfNullableMemberTypesキーの値に nullable メンバ型の個数。
      */
     public static function getFlattenedTypesAndNullableNums($unionTypeString)
     {
         /**
          * @var string[] 共用体のメンバ型
-         * @link https://heycam.github.io/webidl/#dfn-union-member-type Web IDL (Second Edition)
-         * @link http://www.w3.org/TR/WebIDL/#dfn-union-member-type Web IDL
+         * @link https://www.w3.org/TR/WebIDL-1/#dfn-union-member-type WebIDL Level 1
          */
         $unionMemberTypes = preg_split(
             '/^\\(|([^ (]*\\((?>[^()]+|(?1))*\\)[^ )]*)| or |\\)$/u',
@@ -163,8 +160,9 @@ class UnionType
     /**
      * 次のいずれかを返します: any、boolean、numeric、string、
      *      object、interface、dictionary、callback function、nullable、sequence、FrozenArray、union。
-     * @link https://heycam.github.io/webidl/#idl-types Web IDL (Second Edition)
-     * @link https://heycam.github.io/webidl/#es-union Web IDL (Second Edition)
+     * @link https://www.w3.org/TR/WebIDL-1/#idl-types WebIDL Level 1
+     * @link https://www.w3.org/TR/WebIDL-1/#es-union WebIDL Level 1
+     * @link https://heycam.github.io/webidl/#es-union Web IDL
      * @param string $type
      * @param array $pseudoTypes
      * @return string

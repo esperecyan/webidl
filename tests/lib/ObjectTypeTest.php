@@ -83,7 +83,6 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
      * @param booelan $singleOperationCallbackInterface
      * @param object $returnValue
      * @dataProvider callbackInterfaceProvider
-     * @dataProvider callbackProvider
      */
     public function testToCallbackInterface($value, $singleOperationCallbackInterface, $returnValue)
     {
@@ -180,7 +179,7 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|float $value
+     * @param int|float $value
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Expected a callback function (a callable), got
      * @dataProvider invalidInterfaceProvider

@@ -4,8 +4,8 @@ namespace esperecyan\webidl\lib;
 class IntegerTypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param boolean|integer|float|string|array|object|resource|null $value
-     * @param boolean $castable
+     * @param bool|int|float|string|array|object|resource|null $value
+     * @param bool $castable
      * @dataProvider integerCastableProvider
      */
     public function testIsIntegerCastable($value, $castable)
@@ -57,10 +57,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param boolean|integer|float|string $value
-     * @param integer|null $enforcedByte
-     * @param integer $clampedByte
-     * @param integer $byte
+     * @param bool|int|float|string $value
+     * @param int|null $enforcedByte
+     * @param int $clampedByte
+     * @param int $byte
      * @dataProvider byteProvider
      */
     public function testToByte($value, $enforcedByte, $clampedByte, $byte)
@@ -107,7 +107,7 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|float $value
+     * @param int|float $value
      * @expectedException \DomainException
      * @expectedExceptionMessage Expected byte (an integer in the range of -128 to 127), got
      * @dataProvider invalidEnforcedByteProvider
@@ -151,10 +151,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|float $value
-     * @param integer|null $enforcedOctet
-     * @param integer $clampedOctet
-     * @param integer $octet
+     * @param int|float $value
+     * @param int|null $enforcedOctet
+     * @param int $clampedOctet
+     * @param int $octet
      * @dataProvider octetProvider
      */
     public function testToOctet($value, $enforcedOctet, $clampedOctet, $octet)
@@ -180,10 +180,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|float $value
-     * @param integer|null $enforcedShort
-     * @param integer $clampedShort
-     * @param integer $short
+     * @param int|float $value
+     * @param int|null $enforcedShort
+     * @param int $clampedShort
+     * @param int $short
      * @dataProvider shortProvider
      */
     public function testToShort($value, $enforcedShort, $clampedShort, $short)
@@ -209,10 +209,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|float $value
-     * @param integer|null $enforcedUnsignedShort
-     * @param integer $clampedUnsignedShort
-     * @param integer $unsignedShort
+     * @param int|float $value
+     * @param int|null $enforcedUnsignedShort
+     * @param int $clampedUnsignedShort
+     * @param int $unsignedShort
      * @dataProvider unsignedShortProvider
      */
     public function testToUnsignedShort($value, $enforcedUnsignedShort, $clampedUnsignedShort, $unsignedShort)
@@ -239,10 +239,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * 2147483648 is float if PHP_INT_SIZE is 4.
-     * @param integer|float $value
-     * @param integer|null $enforcedLong
-     * @param integer $clampedLong
-     * @param integer $long
+     * @param int|float $value
+     * @param int|null $enforcedLong
+     * @param int $clampedLong
+     * @param int $long
      * @dataProvider longProvider
      */
     public function testToLong($value, $enforcedLong, $clampedLong, $long)
@@ -271,10 +271,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     
     /**
      * 4294967295 and 4294967296 is float if PHP_INT_SIZE is 4.
-     * @param integer|float $value
-     * @param integer|float|null $enforcedUnsignedLong
-     * @param integer|float $clampedUnsignedLong
-     * @param integer|float $unsignedLong
+     * @param int|float $value
+     * @param int|float|null $enforcedUnsignedLong
+     * @param int|float $clampedUnsignedLong
+     * @param int|float $unsignedLong
      * @dataProvider unsignedLongProvider
      */
     public function testToUnsignedLong($value, $enforcedUnsignedLong, $clampedUnsignedLong, $unsignedLong)
@@ -304,10 +304,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
      * -9223372036854775808, -9007199254740992 and 9007199254740992 are float if PHP_INT_SIZE is 4.
      * Integer literal 9223372036854775807 is float 9223372036854775808 if PHP_INT_SIZE is 4.
      * -9223372036854777856, -9223372036854775808 and 9223372036854775808 are float if PHP_INT_SIZE is 4 or 8.
-     * @param integer|float $value
-     * @param integer|float|null $enforcedLongLong
-     * @param integer|float $clampedLongLong
-     * @param integer|float $longLong
+     * @param int|float $value
+     * @param int|float|null $enforcedLongLong
+     * @param int|float $clampedLongLong
+     * @param int|float $longLong
      * @dataProvider longLongProvider
      */
     public function testToLongLong($value, $enforcedLongLong, $clampedLongLong, $longLong)
@@ -348,10 +348,10 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Integer literal 18446744073709551615 is float 18446744073709551616 if PHP_INT_SIZE is 4 or 8.
      * 18446744073709551616 is float if PHP_INT_SIZE is 4 or 8.
-     * @param integer|float $value
-     * @param integer|float|null $enforcedUnsignedLongLong
-     * @param integer|float $clampedUnsignedLongLong
-     * @param integer|float $unsignedLongLong
+     * @param int|float $value
+     * @param int|float|null $enforcedUnsignedLongLong
+     * @param int|float $clampedUnsignedLongLong
+     * @param int|float $unsignedLongLong
      * @dataProvider unsignedLongLongProvider
      */
     public function testToUnsignedLongLong($value, $enforcedUnsignedLongLong, $clampedUnsignedLongLong, $unsignedLongLong)
@@ -386,6 +386,5 @@ class IntegerTypeTest extends \PHPUnit_Framework_TestCase
             [                             INF, null, $max,                    0],
             [                             NAN, null,    0,                    0],
         ];
-
     }
 }

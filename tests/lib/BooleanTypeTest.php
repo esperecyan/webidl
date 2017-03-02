@@ -4,8 +4,8 @@ namespace esperecyan\webidl\lib;
 class BooleanTypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param boolean|integer|float|string|array|object|resource|null $value
-     * @param boolean $boolean
+     * @param bool|int|float|string|array|object|resource|null $value
+     * @param bool $boolean
      * @dataProvider booleanProvider
      */
     public function testToBoolean($value, $boolean)

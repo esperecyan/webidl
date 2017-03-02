@@ -7,7 +7,7 @@ namespace esperecyan\webidl\lib;
 class NonScalarKeyIterator implements \Iterator
 {
     /**
-     * @return stdClass|array|resource|integer|string
+     * @return \stdClass|array|resource|int|string
      */
     public function key()
     {
@@ -33,7 +33,7 @@ class NonScalarKeyIterator implements \Iterator
     /** @var array */
     private $array;
     
-    /** @var boolean */
+    /** @var bool */
     private $valid = true;
     
     public function __construct(array $array = [1, 2, 3])
@@ -55,7 +55,7 @@ class NonScalarKeyIterator implements \Iterator
     }
     
     /**
-     * @return boolean
+     * @return bool
      */
     public function valid()
     {
