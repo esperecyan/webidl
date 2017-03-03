@@ -22,7 +22,7 @@ class DictionaryType
                     return $severity === E_WARNING
                         ? $message === 'Illegal offset type'
                         : preg_match('/^Resource ID#([0-9]+) used as offset, casting to integer \\(\\1\\)$/', $message);
-                }, E_WARNING | E_STRICT);
+                }, E_WARNING | (PHP_MAJOR_VERSION === 5 ? E_STRICT : E_NOTICE));
                 $array = iterator_to_array($array);
                 restore_error_handler();
             }
