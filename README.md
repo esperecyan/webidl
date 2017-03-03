@@ -248,9 +248,6 @@ Requirement
 -----------
 * PHP 5.5 or later
 	+ SPL Types PECL library is not supported
-* [mbstring extension module]
-
-[mbstring extension module]: https://secure.php.net/manual/book.mbstring.php "mbstring provides multibyte specific string functions that help you deal with multibyte encodings in PHP."
 
 Contribution
 ------------

@@ -248,9 +248,6 @@ private、または protected が指定されたプロパティの値を取得�
 ----
 * PHP 5.5 以上
 	+ SPL Types PECL ライブラリには非対応
-* [mbstring拡張モジュール]
-
-[mbstring拡張モジュール]: https://secure.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"
 
 貢献
 ----
