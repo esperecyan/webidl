@@ -29,7 +29,7 @@ class TypeErrorTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['esperecyan\\webidl\\Error'],
-            ['UnexpectedValueException'],
+            ['TypeError'],
         ];
     }
 }

@@ -6,8 +6,9 @@ namespace esperecyan\webidl;
  * @link https://www.w3.org/TR/WebIDL-1/ WebIDL Level 1
  * @link https://www.ecma-international.org/ecma-262/7.0/index.html#sec-native-error-types-used-in-this-standard-typeerror ECMAScript 2015 Language Specification – ECMA-262 6th Edition
  * @link https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError TypeError - JavaScript | MDN
+ * @link https://secure.php.net/manual/class.typeerror.php PHP: TypeError — Manual
  */
-class TypeError extends \UnexpectedValueException implements Error
+class TypeError extends \TypeError implements Error
 {
     use lib\Error;
 }

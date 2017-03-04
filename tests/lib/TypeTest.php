@@ -82,4 +82,23 @@ class TypeTest extends \PHPUnit_Framework_TestCase
             ],
         ];
     }
+    /**
+     * @param string $type
+     * @param \esperecyan\webidl\Error|\Error $exception
+     * @dataProvider exceptionProvider
+     */
+    public function testToException($exception)
+    {
+        $this->assertSame($exception, Type::to('Error', $exception));
+    }
+    
+    public function exceptionProvider()
+    {
+        return [
+            [new \esperecyan\webidl\RangeError()],
+            [new \esperecyan\webidl\TypeError()],
+            [new \TypeError()],
+            [new \Error()],
+        ];
+    }
 }

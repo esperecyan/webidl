@@ -120,7 +120,8 @@ class Type
                 $returnValue = ObjectType::toObject($value);
                 break;
             case 'Error':
-                $returnValue = self::to('(esperecyan\\webidl\\Error or DOMException)', $value, $pseudoTypes);
+                $returnValue = self
+                    ::to('(esperecyan\\webidl\\Error or TypeError or DOMException or \\Error)', $value, $pseudoTypes);
                 break;
             case 'DOMException':
                 $returnValue = ObjectType::toInterface($value, 'DOMException');
