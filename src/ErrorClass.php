@@ -4,6 +4,7 @@ namespace esperecyan\webidl;
 /**
  * This class is defined to construct an exception having the error name "Error".
  * If you catch an exception having the error name "Error", use {@see Error}.
+ * @deprecated 2.0.0 “Error” simple exception type is obsoleted in W3C Editor’s draft (* this is not Error IDL type).
  */
 class ErrorClass extends \RuntimeException implements Error
 {

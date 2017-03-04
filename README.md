@@ -226,15 +226,18 @@ The correspondence table of [the types]
 
 The correspondence table of [the exceptions]
 ------------------------------------------
-| Web IDL                          | PHP                                      |
-|----------------------------------|------------------------------------------|
-| Error                            | [esperecyan\webidl\Error interface]\|[DOMException class] \(If you need to construct an exception having this error name, write `new esperecyan\webidl\ErrorClass('error message')`) |
-| EvalError                        | [esperecyan\webidl\EvalError class]      |
-| RangeError                       | [esperecyan\webidl\RangeError class]     |
-| ReferenceError                   | [esperecyan\webidl\ReferenceError class] |
-| TypeError                        | [esperecyan\webidl\TypeError class]      |
-| URIError                         | [esperecyan\webidl\URIError class]       |
-| [DOMException][idl-DOMException] | [DOMException class][DOMException]       |
+| Web IDL                                | PHP                                      |
+|----------------------------------------|------------------------------------------|
+| <a name="^2"></a>Error <sup>[*2]</sup> | [esperecyan\webidl\Error interface] \(If you need to construct an exception having this error name, write `new esperecyan\webidl\ErrorClass('error message')`) |
+| EvalError                              | [esperecyan\webidl\EvalError class]      |
+| RangeError                             | [esperecyan\webidl\RangeError class]     |
+| ReferenceError                         | [esperecyan\webidl\ReferenceError class] |
+| TypeError                              | [esperecyan\webidl\TypeError class]      |
+| URIError                               | [esperecyan\webidl\URIError class]       |
+| [DOMException][idl-DOMException]       | [DOMException class][DOMException]       |
+
+<a name="*2"></a><sup>[*2](#^2)</sup> “Error” simple exception type is obsoleted in W3C Editor’s draft (* this is not Error IDL type). Deprecated.
+[*2]: #*2 "“Error” simple exception type is obsoleted in W3C Editor’s draft (* this is not Error IDL type). Deprecated."
 
 [the exceptions]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
 [esperecyan\webidl\Error interface]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error

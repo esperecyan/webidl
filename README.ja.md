@@ -225,15 +225,18 @@ private、または protected が指定されたプロパティの値を取得�
 
 [例外]の対応表
 -------------
-| Web IDL                          | PHP                                      |
-|----------------------------------|------------------------------------------|
-| Error                            | [esperecyan\webidl\Errorインターフェース]\|[DOMExceptionクラス][DOMException]<br>(このエラー名の例外を作成する場合は `new esperecyan\webidl\ErrorClass('エラーメッセージ')`) |
-| EvalError                        | [esperecyan\webidl\EvalErrorクラス]      |
-| RangeError                       | [esperecyan\webidl\RangeErrorクラス]     |
-| ReferenceError                   | [esperecyan\webidl\ReferenceErrorクラス] |
-| TypeError                        | [esperecyan\webidl\TypeErrorクラス]      |
-| URIError                         | [esperecyan\webidl\URIErrorクラス]       |
-| [DOMException][idl-DOMException] | [DOMExceptionクラス][DOMException]       |
+| Web IDL                                | PHP                                      |
+|----------------------------------------|------------------------------------------|
+| <a name="^2"></a>Error <sup>[*2]</sup> | [esperecyan\webidl\Errorインターフェース]<br>(このエラー名の例外を作成する場合は `new esperecyan\webidl\ErrorClass('エラーメッセージ')`) |
+| EvalError                              | [esperecyan\webidl\EvalErrorクラス]      |
+| RangeError                             | [esperecyan\webidl\RangeErrorクラス]     |
+| ReferenceError                         | [esperecyan\webidl\ReferenceErrorクラス] |
+| TypeError                              | [esperecyan\webidl\TypeErrorクラス]      |
+| URIError                               | [esperecyan\webidl\URIErrorクラス]       |
+| [DOMException][idl-DOMException]       | [DOMExceptionクラス][DOMException]       |
+
+<a name="*2"></a><sup>[*2](#^2)</sup> 「Error」単純例外型 (※ Error IDL型ではない) はW3C編集者草案で廃止された。非推奨。
+[*2]: #*2 "「Error」単純例外型 (Error IDL型ではない) はW3C編集者草案で廃止された。非推奨。"
 
 [例外]: https://triple-underscore.github.io/WebIDL-ja.html#idl-exceptions
 [esperecyan\webidl\Errorインターフェース]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
