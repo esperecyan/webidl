@@ -19,7 +19,7 @@ append `"esperecyan/webidl": "^1.3.1"` to [require property] in [composer.json] 
 	"name": "esperecyan/url",
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
-		"php": ">=5.5",
+		"php": ">=7.1",
 		"esperecyan/webidl": "^1.3.1"
 	},
 	"autoload": {
@@ -249,7 +249,7 @@ The correspondence table of [the exceptions]
 
 Requirement
 -----------
-* PHP 5.5 or later
+* PHP 5.4 or later **(PHP 5.4 and 5.5 are deprecated)**
 	+ SPL Types PECL library is not supported
 
 Contribution

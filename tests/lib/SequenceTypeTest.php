@@ -15,6 +15,18 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @requires PHP 5.5
+     * @param object $value
+     * @param string $type
+     * @param array $sequence
+     * @dataProvider generatorProvider
+     */
+    public function testGeneratorToSequence($value, $type, $sequence)
+    {
+        $this->assertSame($sequence, SequenceType::toSequence($value, $type));
+    }
+    
+    /**
      * @param bool|int|float|string|object|null $value
      * @param string $type
      * @param array $sequence
@@ -27,10 +39,6 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
     
     public function sequenceProvider()
     {
-        /** @var \Generator rewindするとエラーが発生するオブジェクト。 */
-        $errorRewindObject = $this->generatorFunction();
-        $errorRewindObject->next();
-        
         return [
             [true                       , 'DOMString', ['1']          ],
             [false                      , 'boolean'  , [false]        ],
@@ -48,26 +56,22 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
             // object
             [(object)[1, 2, 3]                  , 'DOMString', ['1', '2', '3']], // stdCalss (not implements Traversable)
             [new NonScalarKeyIterator([1, 2, 3]), 'DOMString', ['1', '2', '3']], // implements Iterator
-            [(new GeneratorAggregate([1, 2, 3]))->createGenerator(), 'DOMString', ['1', '2', '3']], // 新規のジェネレータ
-            [(new GeneratorAggregate([1, 2, 3]))->getIterator(), 'DOMString', ['2', '3']], // すでに開始したジェネレータ
-            [(new GeneratorAggregate([1]))->getIterator(), 'DOMString', []], // 閉じられたジェネレータ
-            [(new GeneratorAggregate([]))->getIterator(), 'DOMString', []], // rewindメソッドではエラーが発生しない閉じられたジェネレータ
             [new \ArrayObject([1, 2, 3])        , 'DOMString', ['1', '2', '3']], // implements IteratorAggregate
-            [new GeneratorAggregate([1, 2, 3])  , 'DOMString', ['2', '3']], // すでに開始したジェネレータを持つ IteratorAggregate
 
             // NULL
             [null                       , 'DOMString', []             ],
         ];
     }
     
-    /**
-     * @return \Generator
-     */
-    private function generatorFunction()
+    public function generatorProvider()
     {
-        for ($i = 1; $i <= 3; $i++) {
-            yield $i;
-        }
+        return [
+            [(new GeneratorAggregate([1, 2, 3]))->createGenerator(), 'DOMString', ['1', '2', '3']], // 新規のジェネレータ
+            [(new GeneratorAggregate([1, 2, 3]))->getIterator(), 'DOMString', ['2', '3']], // すでに開始したジェネレータ
+            [(new GeneratorAggregate([1]))->getIterator(), 'DOMString', []], // 閉じられたジェネレータ
+            [(new GeneratorAggregate([]))->getIterator(), 'DOMString', []], // rewindメソッドではエラーが発生しない閉じられたジェネレータ
+            [new GeneratorAggregate([1, 2, 3])  , 'DOMString', ['2', '3']], // すでに開始したジェネレータを持つ IteratorAggregate
+        ];
     }
     
     /**

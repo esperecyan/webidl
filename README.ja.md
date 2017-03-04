@@ -19,7 +19,7 @@ Web IDL
 	"name": "esperecyan/url",
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
-		"php": ">=5.5",
+		"php": ">=7.1",
 		"esperecyan/webidl": "^1.3.1"
 	},
 	"autoload": {
@@ -249,7 +249,7 @@ private、または protected が指定されたプロパティの値を取得�
 
 要件
 ----
-* PHP 5.5 以上
+* PHP 5.4 以上 **(PHP 5.4、および 5.5 は非推奨)**
 	+ SPL Types PECL ライブラリには非対応
 
 貢献
