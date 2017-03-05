@@ -11,45 +11,33 @@ class NonScalarKeyIterator implements \Iterator
      */
     public function key()
     {
-        if ($this->valid) {
-            $key = key($this->array);
-            switch ($key) {
-                case 0:
-                    $key = new \stdClass();
-                    break;
-                case 1:
-                    $key = [];
-                    break;
-                case 2:
-                    $key = xml_parser_create();
-                    break;
-            }
-        } else {
-            $key = null;
-        }
-        return $key;
+        return $this->valid ? current($this->pairs)[0] : null;
     }
     
-    /** @var array */
-    private $array;
+    /** @var array[] */
+    private $pairs;
     
     /** @var bool */
     private $valid = true;
     
-    public function __construct(array $array = [1, 2, 3])
+    public function __construct(array $pairs = null)
     {
-        $this->array = $array;
+        $this->pairs = $pairs ? $pairs : [
+            [new \stdClass()    , 1],
+            [[]                 , 2],
+            [xml_parser_create(), 3],
+        ];
     }
     
     public function rewind()
     {
-        reset($this->array);
-        $this->valid = count($this->array) > 0;
+        reset($this->pairs);
+        $this->valid = count($this->pairs) > 0;
     }
     
     public function next()
     {
-        if (next($this->array) === false) {
+        if (next($this->pairs) === false) {
             $this->valid = false;
         }
     }
@@ -64,6 +52,6 @@ class NonScalarKeyIterator implements \Iterator
     
     public function current()
     {
-        return current($this->array);
+        return current($this->pairs)[1];
     }
 }

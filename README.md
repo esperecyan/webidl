@@ -169,7 +169,7 @@ The correspondence table of [the types]
 | [Enumeration types]              | [Strings]                            | A element of the array passed in [$pseudoType], or a constant value of the class passed in. |
 | [Callback function types]        | [Callables]                          |                                            |
 | [Sequences]<br>[Frozen arrays]   | [Arrays]                             | New array.                                 |
-| [record\<K, V>]                  |                                      | Not yet supported.                         |
+| [record\<K, V>]                  | [esperecyan\webidl\Record]           |                                            |
 | [Promise types]                  |                                      | Not supported. Instead, pass a fully qualified class name or interface name (for example, `React\Promise\PromiseInterface`). |
 | [Union types]                    | [mixed]                              | A return value of [UnionType::toUnion()].  |
 | [Error]                          | [esperecyan\webidl\Error]\|[DOMException] |                                       |
@@ -220,6 +220,7 @@ The correspondence table of [the types]
 [Arrays]: https://secure.php.net/manual/language.types.array.php
 [mixed]: https://secure.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
+[esperecyan\webidl\Record]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Record
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
 [DOMException]: https://secure.php.net/manual/class.domexception.php

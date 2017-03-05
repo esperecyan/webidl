@@ -127,12 +127,15 @@ class Type
                 $returnValue = ObjectType::toInterface($value, 'DOMException');
                 break;
             default:
-                $pattern = '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u';
+                $pattern = '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|record<(?<recordK>(?:DOMString|USVString|ByteString)), (?<recordV>.+)>|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u';
                 if (preg_match($pattern, $type, $matches) === 1) {
                     if (!empty($matches['nullable'])) {
                         $returnValue = NullableType::toNullable($value, $matches['nullable'], $pseudoTypes);
                     } elseif (!empty($matches['sequence'])) {
                         $returnValue = SequenceType::toSequence($value, $matches['sequence'], $pseudoTypes);
+                    } elseif (!empty($matches['recordK'])) {
+                        $returnValue
+                            = DictionaryType::toRecord($value, $matches['recordK'], $matches['recordV'], $pseudoTypes);
                     } elseif (!empty($matches['union'])) {
                         $returnValue = UnionType::toUnion($value, $matches['union'], $pseudoTypes);
                     } elseif (!empty($matches['FrozenArray'])) {

@@ -1,6 +1,8 @@
 <?php
 namespace esperecyan\webidl\lib;
 
+use esperecyan\webidl\Record;
+
 /** @internal */
 class DictionaryType
 {
@@ -80,5 +82,52 @@ class DictionaryType
         }
         
         return $dictionary;
+    }
+    
+    /**
+     * 与えられた値を、{@link \esperecyan\webidl\Record} に変換して返します。
+     * @link https://heycam.github.io/webidl/#idl-record Web IDL
+     * @param mixed $traversable
+     * @param string $keyType record のキーの型 (record<K, V\> の K)。
+     * @param string $valueType record の値の型 (record<K, V\> の V)。
+     * @param array $pseudoTypes
+     * @throws \DomainException 与えられた配列のキーまたは値が、指定された型に合致しない場合。
+     * @return Record
+     */
+    public static function toRecord($traversable, $keyType, $valueType, $pseudoTypes = [])
+    {
+        $exceptionMessage = ErrorMessageCreator::create(
+            null,
+            sprintf('%s (an associative array including only %s)', "record<$keyType, $valueType>", $valueType),
+            ''
+        );
+        
+        $entries = [];
+        
+        foreach (SequenceType::convertToRewindable($traversable) as $key => $value) {
+            try {
+                $entry[0] = Type::to($keyType, $key, $pseudoTypes);
+            } catch (\LogicException $exception) {
+                if ($exception instanceof \InvalidArgumentException || $exception instanceof \DomainException) {
+                    throw new \DomainException($exceptionMessage, 0, $exception);
+                } else {
+                    throw $exception;
+                }
+            }
+            
+            try {
+                $entry[1] = Type::to($valueType, $value, $pseudoTypes);
+            } catch (\LogicException $exception) {
+                if ($exception instanceof \InvalidArgumentException || $exception instanceof \DomainException) {
+                    throw new \DomainException($exceptionMessage, 0, $exception);
+                } else {
+                    throw $exception;
+                }
+            }
+            
+            $entries[] = $entry;
+        }
+        
+        return new Record($entries);
     }
 }

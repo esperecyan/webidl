@@ -54,16 +54,28 @@ class UnionType
         }
         
         try {
-            if ((is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value))
-                && ($identifier = array_search('dictionary', $genericTypes)) !== false) {
-                return DictionaryType::toDictionary($value, $identifier, $pseudoTypes);
-            }
-            
             if (is_array($value) || is_object($value) || $value instanceof \__PHP_Incomplete_Class || is_null($value)) {
-                $type = array_search('sequence', $genericTypes) ?: array_search('FrozenArray', $genericTypes);
-                if ($type) {
+                $dictionaryLike = array_search('record', $genericTypes) ?: array_search('dictionary', $genericTypes);
+                $sequenceLike = array_search('sequence', $genericTypes) ?: array_search('FrozenArray', $genericTypes);
+                
+                if ($dictionaryLike !== false || $sequenceLike) {
+                    if ($dictionaryLike !== false && $sequenceLike) {
+                        $type = $sequenceLike;
+                        $i = 0;
+                        foreach (SequenceType::convertToRewindable($value) as $entryKey => $entryValue) {
+                            if (!is_int($entryKey) || $entryKey !== $i) {
+                                $type = $dictionaryLike;
+                                break;
+                            }
+                            $i++;
+                        }
+                    } else {
+                        $type = $sequenceLike ?: $dictionaryLike;
+                    }
+
                     return Type::to($type, $value, $pseudoTypes);
                 }
+                
                 foreach (array_keys($genericTypes, 'interface') as $interfaceType) {
                     if (isset($pseudoTypes[$interfaceType])
                         && ($pseudoTypes[$interfaceType] === 'callback interface'
@@ -159,7 +171,7 @@ class UnionType
     
     /**
      * 次のいずれかを返します: any、boolean、numeric、string、
-     *      object、interface、dictionary、callback function、nullable、sequence、FrozenArray、union。
+     *      object、interface、dictionary、callback function、nullable、sequence、record、FrozenArray、union。
      * @link https://www.w3.org/TR/WebIDL-1/#idl-types WebIDL Level 1
      * @link https://www.w3.org/TR/WebIDL-1/#es-union WebIDL Level 1
      * @link https://heycam.github.io/webidl/#es-union Web IDL
@@ -184,7 +196,7 @@ class UnionType
         } elseif (in_array($type, ['DOMString', 'ByteString', 'USVString'])) {
             $genericType = 'string';
         } elseif (preg_match(
-            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u',
+            '/^(?:(?<nullable>.+)\\?|sequence<(?<sequence>.+)>|record<(?<recordK>(?:DOMString|USVString|ByteString)), (?<recordV>.+)>|(?<union>\\(.+\\))|FrozenArray<(?<FrozenArray>.+)>)$/u',
             $type,
             $matches
         ) === 1) {
@@ -192,6 +204,8 @@ class UnionType
                 $genericType = 'nullable';
             } elseif (!empty($matches['sequence'])) {
                 $genericType = 'sequence';
+            } elseif (!empty($matches['recordK'])) {
+                $genericType = 'record';
             } elseif (!empty($matches['union'])) {
                 $genericType = 'union';
             } elseif (!empty($matches['FrozenArray'])) {

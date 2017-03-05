@@ -12,10 +12,15 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testToUnion($value, $unitTypeString, $pseudoTypes = null, $returnValue = null)
     {
-        $this->assertEquals(
-            $returnValue === null ? $value : $returnValue,
-            UnionType::toUnion($value, $unitTypeString, $pseudoTypes)
-        );
+        $actualReturnValue = UnionType::toUnion($value, $unitTypeString, $pseudoTypes);
+        if ($actualReturnValue instanceof \esperecyan\webidl\Record) {
+            $entries = [];
+            foreach ($actualReturnValue as $k => $v) {
+                $entries[] = [$k, $v];
+            }
+            $actualReturnValue = $entries;
+        }
+        $this->assertEquals($returnValue === null ? $value : $returnValue, $actualReturnValue);
     }
     
     public function unionProvider()
@@ -50,6 +55,50 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
                     ],
                 ]],
                 ['memberA' => '1'],
+            ],
+            [
+                'key=value',
+                'sequence<sequence<USVString>> or record<USVString, USVString> or USVString',
+            ],
+            [
+                [['key1', 'value1'], ['key2', 'value2']],
+                'sequence<sequence<USVString>> or record<USVString, USVString> or USVString',
+            ],
+            [
+                ['key1' => 'value1', 'key2' => 'value2'],
+                'sequence<sequence<USVString>> or record<USVString, USVString> or USVString',
+                null,
+                [['key1', 'value1'], ['key2', 'value2']],
+            ],
+            [
+                [0 => 'value1', 1 => 'value2'],
+                'sequence<DOMString> or record<DOMString, DOMString>',
+                null,
+                ['value1', 'value2'],
+            ],
+            [
+                [0 => 'value1', 2 => 'value2'],
+                'sequence<DOMString> or record<DOMString, DOMString>',
+                null,
+                [['0', 'value1'], ['2', 'value2']],
+            ],
+            [
+                [1 => 'value1', 2 => 'value2'],
+                'sequence<DOMString> or record<DOMString, DOMString>',
+                null,
+                [['1', 'value1'], ['2', 'value2']],
+            ],
+            [
+                new NonScalarKeyIterator([[0, 'value1'], [1, 'value2']]),
+                'sequence<DOMString> or record<DOMString, DOMString>',
+                null,
+                ['value1', 'value2'],
+            ],
+            [
+                new NonScalarKeyIterator([[0, 'value1'], ['1', 'value2']]),
+                'sequence<DOMString> or record<DOMString, DOMString>',
+                null,
+                [['0', 'value1'], ['1', 'value2']],
             ],
         ];
     }
@@ -152,6 +201,16 @@ class UnionTypeTest extends \PHPUnit_Framework_TestCase
             [
                 'DOMText or DOMElement or PseudoElement or DOMDocument',
                 ['DOMText', 'DOMElement', 'PseudoElement', 'DOMDocument'],
+                0,
+            ],
+            [
+                'sequence<sequence<USVString>> or record<USVString, USVString> or USVString',
+                ['sequence<sequence<USVString>>', 'record<USVString, USVString>', 'USVString'],
+                0,
+            ],
+            [
+                'sequence<sequence<ByteString>> or record<ByteString, ByteString>',
+                ['sequence<sequence<ByteString>>', 'record<ByteString, ByteString>'],
                 0,
             ],
         ];

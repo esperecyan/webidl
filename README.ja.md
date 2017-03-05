@@ -168,7 +168,7 @@ private、または protected が指定されたプロパティの値を取得�
 | [列挙型]                               | [文字列]                   | [$pseudoType] で指定した配列の要素、 またはクラスの定数値。 |
 | [callback関数型]                       | [Callable]                 |                                                |
 | [sequence]<br>[凍結配列型]             | [配列]                     | 新しい配列。                                   |
-| [record\<K, V>]                        |                            | 未対応。                                       |
+| [record\<K, V>]                        | [esperecyan\webidl\Record] |                                                |
 | [promise型]                            |                            | 非対応。 代わりに完全修飾形式のクラス名、 またはインターフェース名 (例:&nbsp;`React\Promise\PromiseInterface`) を指定。 |
 | [共用体型]                             | [mixed]                    | [UnionType::toUnion()] の戻り値。              |
 | [Error]                                | [esperecyan\webidl\Error]\|[DOMException] |                                 |
@@ -219,6 +219,7 @@ private、または protected が指定されたプロパティの値を取得�
 [配列]: https://secure.php.net/manual/language.types.array.php
 [mixed]: https://secure.php.net/manual/language.pseudo-types.php#language.types.mixed
 [$pseudoType]: #user-content-stringstringarray-pseudotype--
+[esperecyan\webidl\Record]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Record
 [UnionType::toUnion()]: src/lib/UnionType.php#L20
 [esperecyan\webidl\Error]: https://esperecyan.github.io/webidl/class-esperecyan.webidl.Error
 [DOMException]: https://secure.php.net/manual/class.domexception.php

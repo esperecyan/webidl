@@ -12,7 +12,15 @@ class TypeHinterTest extends ParentClass
      */
     public function testTo($value, $type, $returnValue)
     {
-        $this->assertSame($returnValue, $this->callee($value, $type));
+        $actualReturnValue = $this->callee($value, $type);
+        if ($actualReturnValue instanceof Record) {
+            $entries = [];
+            foreach ($actualReturnValue as $key => $value) {
+                $entries[] = [$key, $value];
+            }
+            $actualReturnValue = $entries;
+        }
+        $this->assertSame($returnValue, $actualReturnValue);
     }
     
     public function callee($value, $type)
@@ -82,6 +90,11 @@ class TypeHinterTest extends ParentClass
                 ($array = [new \DOMException(), new ErrorClass(), new TypeError()]),
                 'FrozenArray<Error>',
                 $array,
+            ],
+            [
+                ['key1' => 'value1', 'key2' => 'value2'],
+                '(sequence<sequence<USVString>> or record<USVString, USVString> or USVString)',
+                [['key1', 'value1'], ['key2', 'value2']],
             ],
         ];
     }

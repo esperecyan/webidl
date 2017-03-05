@@ -54,9 +54,9 @@ class SequenceTypeTest extends \PHPUnit_Framework_TestCase
             ]],
             
             // object
-            [(object)[1, 2, 3]                  , 'DOMString', ['1', '2', '3']], // stdCalss (not implements Traversable)
-            [new NonScalarKeyIterator([1, 2, 3]), 'DOMString', ['1', '2', '3']], // implements Iterator
-            [new \ArrayObject([1, 2, 3])        , 'DOMString', ['1', '2', '3']], // implements IteratorAggregate
+            [(object)[1, 2, 3]          , 'DOMString', ['1', '2', '3']], // stdCalss (not implements Traversable)
+            [new NonScalarKeyIterator() , 'DOMString', ['1', '2', '3']], // implements Iterator
+            [new \ArrayObject([1, 2, 3]), 'DOMString', ['1', '2', '3']], // implements IteratorAggregate
 
             // NULL
             [null                       , 'DOMString', []             ],
