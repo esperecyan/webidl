@@ -45,6 +45,8 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-esperecyan.webidl.Record.html">Record</a></li>
+				<li><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></li>
 				<li><a href="class-esperecyan.webidl.TypeHinter.html">TypeHinter</a></li>
 			</ul>
 
@@ -56,12 +58,10 @@
 
 			<h3>Exceptions</h3>
 			<ul>
-				<li><a href="class-esperecyan.webidl.DOMException.html">DOMException</a></li>
-				<li><a href="class-esperecyan.webidl.ErrorClass.html">ErrorClass</a></li>
+				<li><a href="class-esperecyan.webidl.ErrorClass.html" class="deprecated">ErrorClass</a></li>
 				<li><a href="class-esperecyan.webidl.EvalError.html">EvalError</a></li>
 				<li><a href="class-esperecyan.webidl.RangeError.html">RangeError</a></li>
 				<li><a href="class-esperecyan.webidl.ReferenceError.html">ReferenceError</a></li>
-				<li><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></li>
 				<li><a href="class-esperecyan.webidl.URIError.html">URIError</a></li>
 			</ul>
 
@@ -113,6 +113,15 @@
 <table class="summary" id="classes">
 <caption>Classes summary</caption>
 <tr>
+	<td class="name"><a href="class-esperecyan.webidl.Record.html">Record</a></td>
+	<td><p>This ordered map corresponds to record on Web IDL type
+and is substituted for native PHP array that can’t use numeric keys as string.</p></td>
+</tr>
+<tr>
+	<td class="name"><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></td>
+	<td>Indicates the actual type of an operand is different than the expected type.</td>
+</tr>
+<tr>
 	<td class="name"><a href="class-esperecyan.webidl.TypeHinter.html">TypeHinter</a></td>
 	<td></td>
 </tr>
@@ -123,8 +132,9 @@
 <tr>
 	<td class="name"><a href="class-esperecyan.webidl.Error.html">Error</a></td>
 	<td><p>The Error type corresponds to the set of all possible non-null references to exception objects,
-including simple exceptions and DOMExceptions.
-If you need to construct an exception having the error name "Error", use <code><a href="class-esperecyan.webidl.ErrorClass.html">esperecyan\webidl\ErrorClass</a></code>.</p></td>
+including simple exceptions, but excluding DOMExceptions.
+If you need to construct a deprecated Error simple exception (an exception having the error name “Error”),
+use <code><a href="class-esperecyan.webidl.ErrorClass.html" class="deprecated">esperecyan\webidl\ErrorClass</a></code>.</p></td>
 </tr>
 </table>
 
@@ -132,11 +142,7 @@ If you need to construct an exception having the error name "Error", use <code><
 <table class="summary" id="exceptions">
 <caption>Exceptions summary</caption>
 <tr>
-	<td class="name"><a href="class-esperecyan.webidl.DOMException.html">DOMException</a></td>
-	<td>This exception is that encapsulates a name, for compatibility with historically defined exceptions in the DOM.</td>
-</tr>
-<tr>
-	<td class="name"><a href="class-esperecyan.webidl.ErrorClass.html">ErrorClass</a></td>
+	<td class="name"><a href="class-esperecyan.webidl.ErrorClass.html" class="deprecated">ErrorClass</a></td>
 	<td><p>This class is defined to construct an exception having the error name "Error".
 If you catch an exception having the error name "Error", use <code><a href="class-esperecyan.webidl.Error.html">esperecyan\webidl\Error</a></code>.</p></td>
 </tr>
@@ -154,10 +160,6 @@ This object remains for compatibility with previous editions of the ECMAScript s
 	<td>Indicate that an invalid reference value has been detected.</td>
 </tr>
 <tr>
-	<td class="name"><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></td>
-	<td>Indicates the actual type of an operand is different than the expected type.</td>
-</tr>
-<tr>
 	<td class="name"><a href="class-esperecyan.webidl.URIError.html">URIError</a></td>
 	<td>Indicates that one of the global URI handling functions was used in a way that is incompatible with its definition.</td>
 </tr>
@@ -171,7 +173,7 @@ This object remains for compatibility with previous editions of the ECMAScript s
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1a5d1f8bfefa02896829688491a841c7d835a30d"></script>
-<script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
+<script src="resources/combined.js?e2a327d690efedf9a3962e88de9d3530a6b5c2e7"></script>
+<script src="elementlist.js?fd1006ab478a9d6d4306ed59a1c2b16402c5928b"></script>
 </body>
 </html>

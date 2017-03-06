@@ -51,7 +51,6 @@
 				<li><a href="class-esperecyan.webidl.lib.IntegerType.html">IntegerType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.NullableType.html">NullableType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.ObjectType.html">ObjectType</a></li>
-				<li><a href="class-esperecyan.webidl.lib.RegExpType.html">RegExpType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.SequenceType.html">SequenceType</a></li>
 				<li class="active"><a href="class-esperecyan.webidl.lib.StringType.html">StringType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.Type.html">Type</a></li>
@@ -131,7 +130,7 @@
 
 				<b>Internal</b>
 				<br>
-			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.StringType.html#4-97" title="Go to source code">lib/StringType.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.StringType.html#4-91" title="Go to source code">lib/StringType.php</a>
 		<br>
 	</div>
 
@@ -151,7 +150,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isStringCastable">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#9-23" title="Go to source code">isStringCastable</a>( <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#9-21" title="Go to source code">isStringCastable</a>( <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値が文字列型に変換可能であれば真を返します。</p>
@@ -161,7 +160,7 @@
 			<p>与えられた値が文字列型に変換可能であれば真を返します。</p>
 
 <p>次の型の値が文字列型に変換可能であるとみなされます。
-論理型。整数型。浮動小数点型。文字列型。null型。オブジェクト型のうち、__toString()メソッドを持つインスタンス、SplStringのインスタンス、またはSplEnumのインスタンスで値が文字列であるもの。</p>
+論理型。整数型。浮動小数点型。文字列型。null型。オブジェクト型のうち、__toString()メソッドを持つインスタンス。</p>
 
 
 				<h4>Parameters</h4>
@@ -193,7 +192,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toDOMString">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#25-35" title="Go to source code">toDOMString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#23-32" title="Go to source code">toDOMString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>toUSVString() のエイリアスです。</p>
@@ -217,8 +216,7 @@
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://heycam.github.io/webidl/#idl-DOMString">Web IDL (Second Edition)</a><br>
-						<a href="http://www.w3.org/TR/WebIDL/#idl-DOMString">Web IDL</a><br>
+						<a href="https://www.w3.org/TR/WebIDL-1/#idl-DOMString">WebIDL Level 1</a><br>
 				</div>
 
 
@@ -237,7 +235,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toByteString">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#37-51" title="Go to source code">toByteString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#34-48" title="Go to source code">toByteString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を文字列型に変換して返します。</p>
@@ -265,7 +263,7 @@
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://heycam.github.io/webidl/#idl-ByteString">Web IDL (Second Edition)</a><br>
+						<a href="https://www.w3.org/TR/WebIDL-1/#idl-ByteString">WebIDL Level 1</a><br>
 				</div>
 
 
@@ -284,7 +282,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toUSVString">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#53-67" title="Go to source code">toUSVString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#50-64" title="Go to source code">toUSVString</a>( <span>boolean|integer|float|string|object|null <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を、符号化方式が UTF-8 である文字列型に変換して返します。</p>
@@ -312,7 +310,7 @@
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://heycam.github.io/webidl/#idl-USVString">Web IDL (Second Edition)</a><br>
+						<a href="https://www.w3.org/TR/WebIDL-1/#idl-USVString">WebIDL Level 1</a><br>
 				</div>
 
 
@@ -331,7 +329,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toEnumerationValue">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#69-96" title="Go to source code">toEnumerationValue</a>( <span>string|SplEnum <var>$value</var></span>, <span>string <var>$identifier</var></span>, <span>string[]|string <var>$enum</var></span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.StringType.html#66-90" title="Go to source code">toEnumerationValue</a>( <span>string <var>$value</var></span>, <span>string <var>$identifier</var></span>, <span>string[] <var>$enum</var></span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を文字列型に変換し、列挙値のいずれかに一致するかチェックして返します。</p>
@@ -348,7 +346,7 @@
 					<dt><var>$identifier</var></dt>
 					<dd>列挙型の識別子。</dd>
 					<dt><var>$enum</var></dt>
-					<dd>列挙値の配列、または SplEnum を継承したクラスの完全修飾名。</dd>
+					<dd>列挙値の配列。</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -358,8 +356,7 @@
 
 				<h4>Throws</h4>
 				<div class="list">
-					InvalidArgumentException<br><p>$value が文字列化できない場合。
-     $value が SplEnum かつ $enum が配列である場合。または、$value が SplEnum かつ $enum がクラス名で、$value が $enum のインスタンスでない場合。</p><br>
+					InvalidArgumentException<br>$value が文字列化できない場合。<br>
 					DomainException<br>$value が $enum で与えられた列挙値のいずれにも一致しなかった場合。
 				</div>
 
@@ -394,7 +391,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1a5d1f8bfefa02896829688491a841c7d835a30d"></script>
-<script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
+<script src="resources/combined.js?e2a327d690efedf9a3962e88de9d3530a6b5c2e7"></script>
+<script src="elementlist.js?fd1006ab478a9d6d4306ed59a1c2b16402c5928b"></script>
 </body>
 </html>

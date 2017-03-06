@@ -51,7 +51,6 @@
 				<li><a href="class-esperecyan.webidl.lib.IntegerType.html">IntegerType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.NullableType.html">NullableType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.ObjectType.html">ObjectType</a></li>
-				<li><a href="class-esperecyan.webidl.lib.RegExpType.html">RegExpType</a></li>
 				<li class="active"><a href="class-esperecyan.webidl.lib.SequenceType.html">SequenceType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.StringType.html">StringType</a></li>
 				<li><a href="class-esperecyan.webidl.lib.Type.html">Type</a></li>
@@ -131,7 +130,7 @@
 
 				<b>Internal</b>
 				<br>
-			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.SequenceType.html#4-97" title="Go to source code">lib/SequenceType.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.lib.SequenceType.html#4-78" title="Go to source code">lib/SequenceType.php</a>
 		<br>
 	</div>
 
@@ -190,7 +189,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toSequence">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.SequenceType.html#34-68" title="Go to source code">toSequence</a>( <span>mixed <var>$traversable</var></span>, <span>string <var>$type</var></span>, <span>array <var>$pseudoTypes</var> = []</span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.SequenceType.html#34-64" title="Go to source code">toSequence</a>( <span>mixed <var>$traversable</var></span>, <span>string <var>$type</var></span>, <span>array <var>$pseudoTypes</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>与えられた値を、要素として指定された型のみを含む配列に変換して返します。</p>
@@ -217,66 +216,12 @@
 
 				<h4>Throws</h4>
 				<div class="list">
-					InvalidArgumentException<br>SplType のインスタンスが与えられた場合。<br>
 					DomainException<br>与えられた配列の要素が、指定された型に合致しない場合。
 				</div>
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://heycam.github.io/webidl/#idl-sequence">Web IDL (Second Edition)</a><br>
-						<a href="http://www.w3.org/TR/WebIDL/#idl-sequence">Web IDL</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="toArray" id="_toArray" class="deprecated">
-
-		<td class="attributes"><code>
-			 public static
-
-			array
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_toArray">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.SequenceType.html#70-83" title="Go to source code">toArray</a>( <span>mixed <var>$traversable</var></span>, <span>string <var>$type</var></span>, <span>array <var>$pseudoTypes</var> = []</span> )</code>
-
-		<div class="description short">
-			<p>toSequence() のエイリアスです。</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>toSequence() のエイリアスです。</p>
-
-				<h4>Deprecated</h4>
-				<div class="list">
-						1.1.0 Arrays are obsolete in Web IDL (Second Edition).<br>
-				</div>
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$traversable</var></dt>
-					<dd></dd>
-					<dt><var>$type</var></dt>
-					<dd>配列の要素型 (T[] の T)。</dd>
-					<dt><var>$pseudoTypes</var></dt>
-					<dd>callback interface 型、列挙型、callback 関数型、または dictionary 型の識別子をキーとした型情報の配列。</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					array
-				</div>
-
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://github.com/heycam/webidl/commit/079cbb861a99e9e857a3f2a169c0beeb49cd020a">Remove T[] array types. · heycam/webidl@079cbb8</a><br>
-						<a href="http://www.w3.org/TR/WebIDL/#idl-array">Web IDL</a><br>
+						<a href="https://www.w3.org/TR/WebIDL-1/#idl-sequence">WebIDL Level 1</a><br>
 				</div>
 
 
@@ -295,7 +240,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toFrozenArray">#</a>
-		<code><a href="source-class-esperecyan.webidl.lib.SequenceType.html#85-96" title="Go to source code">toFrozenArray</a>( <span>mixed <var>$traversable</var></span>, <span>string <var>$type</var></span>, <span>array <var>$pseudoTypes</var> = []</span> )</code>
+		<code><a href="source-class-esperecyan.webidl.lib.SequenceType.html#66-77" title="Go to source code">toFrozenArray</a>( <span>mixed <var>$traversable</var></span>, <span>string <var>$type</var></span>, <span>array <var>$pseudoTypes</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>toSequence() のエイリアスです。</p>
@@ -323,7 +268,7 @@
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://heycam.github.io/webidl/#idl-frozen-array">Web IDL (Second Edition)</a><br>
+						<a href="https://heycam.github.io/webidl/#idl-frozen-array">Web IDL</a><br>
 				</div>
 
 
@@ -356,7 +301,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1a5d1f8bfefa02896829688491a841c7d835a30d"></script>
-<script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
+<script src="resources/combined.js?e2a327d690efedf9a3962e88de9d3530a6b5c2e7"></script>
+<script src="elementlist.js?fd1006ab478a9d6d4306ed59a1c2b16402c5928b"></script>
 </body>
 </html>

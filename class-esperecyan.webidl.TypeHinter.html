@@ -45,6 +45,8 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-esperecyan.webidl.Record.html">Record</a></li>
+				<li><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></li>
 				<li class="active"><a href="class-esperecyan.webidl.TypeHinter.html">TypeHinter</a></li>
 			</ul>
 
@@ -56,12 +58,10 @@
 
 			<h3>Exceptions</h3>
 			<ul>
-				<li><a href="class-esperecyan.webidl.DOMException.html">DOMException</a></li>
-				<li><a href="class-esperecyan.webidl.ErrorClass.html">ErrorClass</a></li>
+				<li><a href="class-esperecyan.webidl.ErrorClass.html" class="deprecated">ErrorClass</a></li>
 				<li><a href="class-esperecyan.webidl.EvalError.html">EvalError</a></li>
 				<li><a href="class-esperecyan.webidl.RangeError.html">RangeError</a></li>
 				<li><a href="class-esperecyan.webidl.ReferenceError.html">ReferenceError</a></li>
-				<li><a href="class-esperecyan.webidl.TypeError.html">TypeError</a></li>
 				<li><a href="class-esperecyan.webidl.URIError.html">URIError</a></li>
 			</ul>
 
@@ -129,7 +129,7 @@
 		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.webidl.html">webidl</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-esperecyan.webidl.TypeHinter.html#4-163" title="Go to source code">TypeHinter.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.webidl.TypeHinter.html#4-161" title="Go to source code">TypeHinter.php</a>
 		<br>
 	</div>
 
@@ -182,7 +182,8 @@
 
 				<h4>Throws</h4>
 				<div class="list">
-					InvalidArgumentException<br>If $value is not castable. The exception includes a message with method name etc.<br>
+					InvalidArgumentException
+<br>If $value is not castable. The exception includes a message with method name etc.<br>
 					DomainException<br>If $value is not castable. The exception includes a message with method name etc.
 				</div>
 
@@ -207,7 +208,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_throwReadonlyException">#</a>
-		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#50-70" title="Go to source code">throwReadonlyException</a>( )</code>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#50-69" title="Go to source code">throwReadonlyException</a>( )</code>
 
 		<div class="description short">
 			<p>Throws an exception with a message that represents a read-only property. Must call from __set() method.</p>
@@ -228,9 +229,8 @@
 				<h4>Link</h4>
 				<div class="list">
 						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehinterthrowreadonlyexception">webidl/README.md at master · esperecyan/webidl</a><br>
-						<a href="https://heycam.github.io/webidl/#dfn-read-only">Web IDL (Second Edition)</a><br>
-						<a href="http://www.w3.org/TR/WebIDL/#dfn-read-only">Web IDL</a><br>
-						<a href="https://wiki.php.net/rfc/readonly_properties#example">PHP: rfc:readonly_properties</a><br>
+						<a href="https://www.w3.org/TR/WebIDL-1/#dfn-read-only">WebIDL Level 1</a><br>
+						<a href="https://wiki.php.net/rfc/propertygetsetsyntax#read-only_and_write-only_properties">PHP: rfc:propertygetsetsyntax</a><br>
 				</div>
 
 
@@ -249,7 +249,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_triggerVisibilityErrorOrDefineProperty">#</a>
-		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#72-98" title="Go to source code">triggerVisibilityErrorOrDefineProperty</a>( )</code>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#71-96" title="Go to source code">triggerVisibilityErrorOrDefineProperty</a>( )</code>
 
 		<div class="description short">
 			<p>If a user tries setting to a private or protected property, it will trigger a fatal error.
@@ -272,10 +272,9 @@ Must call from __set() method.</p>
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehintertriggervisibilityerrorordefineproperty">webidl/README.md at master · esperecyan/webidl</a><br>
-						<a href="https://heycam.github.io/webidl/#dfn-read-only">Web IDL (Second Edition)</a><br>
-						<a href="http://www.w3.org/TR/WebIDL/#dfn-read-only">Web IDL</a><br>
-						<a href="https://wiki.php.net/rfc/readonly_properties#example">PHP: rfc:readonly_properties</a><br>
+						<a href="https://github.com/esperecyan/webidl/blob/master/README.md#esperecyanwebidltypehinterthrowreadonlyexception">webidl/README.md at master · esperecyan/webidl</a><br>
+						<a href="https://www.w3.org/TR/WebIDL-1/#dfn-read-only">WebIDL Level 1</a><br>
+						<a href="https://wiki.php.net/rfc/propertygetsetsyntax#read-only_and_write-only_properties">PHP: rfc:propertygetsetsyntax</a><br>
 				</div>
 
 
@@ -294,7 +293,7 @@ Must call from __set() method.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_triggerVisibilityErrorOrUndefinedNotice">#</a>
-		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#100-119" title="Go to source code">triggerVisibilityErrorOrUndefinedNotice</a>( )</code>
+		<code><a href="source-class-esperecyan.webidl.TypeHinter.html#98-117" title="Go to source code">triggerVisibilityErrorOrUndefinedNotice</a>( )</code>
 
 		<div class="description short">
 			<p>If a user tries setting to a private or protected property, it will trigger a fatal error.
@@ -338,7 +337,7 @@ If a user tries getting to a non-existing property, it will trigger a notice. Mu
 		<td class="attributes"><code>integer</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.webidl.TypeHinter.html#140-144" title="Go to source code"><b>STACK_FRAME_LIMIT</b></a>
+				<a href="source-constant-STACK_FRAME_LIMIT.html#138-142" title="Go to source code"><b>STACK_FRAME_LIMIT</b></a>
 			</code>
 
 			<div class="description short">
@@ -378,7 +377,7 @@ If a user tries getting to a non-existing property, it will trigger a notice. Mu
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1a5d1f8bfefa02896829688491a841c7d835a30d"></script>
-<script src="elementlist.js?4e125f2599342388409adeeebf1efcd49b82176c"></script>
+<script src="resources/combined.js?e2a327d690efedf9a3962e88de9d3530a6b5c2e7"></script>
+<script src="elementlist.js?fd1006ab478a9d6d4306ed59a1c2b16402c5928b"></script>
 </body>
 </html>
