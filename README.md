@@ -12,7 +12,7 @@ This library makes [type declarations help API] and the exceptions defined by We
 This library is for Web standards API implementors and is not intended to be used directly by a PHP project.
 
 If you want your users to install this library simultaneously with your library,
-append `"esperecyan/webidl": "^1.3.1"` to [require property] in [composer.json] of your library, such as the following.
+append `"esperecyan/webidl": "^2.0.0"` to [require property] in [composer.json] of your library, such as the following.
 
 ```json
 {
@@ -20,7 +20,7 @@ append `"esperecyan/webidl": "^1.3.1"` to [require property] in [composer.json] 
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
 		"php": ">=7.1",
-		"esperecyan/webidl": "^1.3.1"
+		"esperecyan/webidl": "^2.0.0"
 	},
 	"autoload": {
 		"psr-4": {

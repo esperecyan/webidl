@@ -12,7 +12,7 @@ Web IDL
 当ライブラリは Web 標準 API の実装者向けであり、PHP プロジェクトからの直接利用は想定していません。
 
 作成したライブラリと同時に当ライブラリをインストールしてもらうには、
-ライブラリの[composer.json]の[requireプロパティ]に、以下のように `"esperecyan/webidl": "^1.3.1"` を追加します。
+ライブラリの[composer.json]の[requireプロパティ]に、以下のように `"esperecyan/webidl": "^2.0.0"` を追加します。
 
 ```json
 {
@@ -20,7 +20,7 @@ Web IDL
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
 		"php": ">=7.1",
-		"esperecyan/webidl": "^1.3.1"
+		"esperecyan/webidl": "^2.0.0"
 	},
 	"autoload": {
 		"psr-4": {
