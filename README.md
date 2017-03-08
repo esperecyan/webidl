@@ -276,6 +276,15 @@ HADAA helped me translate README to English.
 
 [Web IDL (Second Edition) — Japanese translation]: http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html "この ページ は、 W3C により，副題の日付にて編集者草案（ Editor's Draft ）として公開された Web IDL （第２版）を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
 
+セマンティック バージョニング
+---------------------------
+This library uses [Semantic Versioning].
+The classes (including exceptions), interfaces, and methods not indicated “Internal”
+in [the documentation of the library] are the public API. 
+
+[Semantic Versioning]: http://semver.org/
+[the documentation of the library]: https://esperecyan.github.io/webidl/
+
 Licence
 -------
 This library is licensed under the [Mozilla Public License Version 2.0] \(MPL-2.0).
