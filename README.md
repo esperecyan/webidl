@@ -12,15 +12,15 @@ This library makes [type declarations help API] and the exceptions defined by We
 This library is for Web standards API implementors and is not intended to be used directly by a PHP project.
 
 If you want your users to install this library simultaneously with your library,
-append `"esperecyan/webidl": "^2.0.0"` to [require property] in [composer.json] of your library, such as the following.
+append `"esperecyan/webidl": "^2.1.0"` to [require property] in [composer.json] of your library, such as the following.
 
 ```json
 {
 	"name": "esperecyan/url",
 	"description": "Makes the algorithms and APIs defined by URL Standard available on PHP.",
 	"require": {
-		"php": ">=7.1",
-		"esperecyan/webidl": "^2.0.0"
+		"php": ">=7.4",
+		"esperecyan/webidl": "^2.1.0"
 	},
 	"autoload": {
 		"psr-4": {
@@ -250,7 +250,7 @@ The correspondence table of [the exceptions]
 
 Requirement
 -----------
-* PHP 5.4 or later **(PHP 5.4 and 5.5 are deprecated)**
+* PHP 5.4 or later **(PHP 5.4 – 7.1 are deprecated)**
 	+ SPL Types PECL library is not supported
 
 Contribution
