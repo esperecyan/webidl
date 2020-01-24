@@ -22,9 +22,8 @@
 		"ext-reflection": "*"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^5.7.14",
+		"phpunit/phpunit": "^8.5.2",
 		"apigen/apigen": "@dev",
-		"symfony/polyfill-php55": "^1.3.0",
 		"ext-xml": "*",
 		"ext-gmp": "*",
 		"ext-simplexml": "*"
