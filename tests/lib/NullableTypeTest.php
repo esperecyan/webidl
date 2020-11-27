@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
-class NullableTypeTest extends \PHPUnit_Framework_TestCase
+class NullableTypeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param mixed $value

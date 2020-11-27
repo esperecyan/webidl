@@ -1,12 +1,12 @@
 <?php
 namespace esperecyan\webidl;
 
-class ReferenceErrorTest extends \PHPUnit_Framework_TestCase
+class ReferenceErrorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var ReferenceError */
     protected $object;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ReferenceError();
     }

@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
-class FloatTypeTest extends \PHPUnit_Framework_TestCase
+class FloatTypeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param bool|int|float|string|array|object|resource|null $value

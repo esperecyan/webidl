@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
-class ErrorMessageCreatorTest extends \PHPUnit_Framework_TestCase
+class ErrorMessageCreatorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param mixed $value

@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl;
 
-class ParentClass extends \PHPUnit_Framework_TestCase
+class ParentClass extends \PHPUnit\Framework\TestCase
 {
     public function callee($value, $type)
     {

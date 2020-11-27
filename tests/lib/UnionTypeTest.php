@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
-class UnionTypeTest extends \PHPUnit_Framework_TestCase
+class UnionTypeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param mixed $value

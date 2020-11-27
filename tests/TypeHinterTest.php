@@ -193,7 +193,7 @@ class TypeHinterTest extends ParentClass
     private $privateProperty;
     
     /**
-     * @expectedException \PHPUnit_Framework_Error
+     * @expectedException \PHPUnit\Framework\Error\Error
      * @expectedExceptionMessage Cannot access private property esperecyan\webidl\TypeHinterTest::privateProperty
      */
     public function testSetPrivateProperty()
@@ -202,7 +202,7 @@ class TypeHinterTest extends ParentClass
     }
     
     /**
-     * @expectedException \PHPUnit_Framework_Error
+     * @expectedException \PHPUnit\Framework\Error\Error
      * @expectedExceptionMessage Cannot access protected property esperecyan\webidl\TypeHinterTest::protectedProperty
      */
     public function testSetProtectedProperty()
@@ -235,7 +235,7 @@ class TypeHinterTest extends ParentClass
     }
     
     /**
-     * @expectedException \PHPUnit_Framework_Error
+     * @expectedException \PHPUnit\Framework\Error\Error
      * @expectedExceptionMessage Cannot access private property esperecyan\webidl\TypeHinterTest::privateProperty
      */
     public function testGetPrivateProperty()
@@ -244,7 +244,7 @@ class TypeHinterTest extends ParentClass
     }
     
     /**
-     * @expectedException \PHPUnit_Framework_Error
+     * @expectedException \PHPUnit\Framework\Error\Error
      * @expectedExceptionMessage Cannot access protected property esperecyan\webidl\TypeHinterTest::protectedProperty
      */
     public function testGetProtectedProperty()
@@ -253,7 +253,7 @@ class TypeHinterTest extends ParentClass
     }
     
     /**
-     * @expectedException \PHPUnit_Framework_Error_Notice
+     * @expectedException \PHPUnit\Framework\Error\Notice
      * @expectedExceptionMessage Undefined property: esperecyan\webidl\TypeHinterTest::undefinedProperty
      */
     public function testGetUndefinedProperty()

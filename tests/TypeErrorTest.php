@@ -1,12 +1,12 @@
 <?php
 namespace esperecyan\webidl;
 
-class TypeErrorTest extends \PHPUnit_Framework_TestCase
+class TypeErrorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var TypeError */
     protected $object;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new TypeError();
     }

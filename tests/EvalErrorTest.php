@@ -1,12 +1,12 @@
 <?php
 namespace esperecyan\webidl;
 
-class EvalErrorTest extends \PHPUnit_Framework_TestCase
+class EvalErrorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var EvalError */
     protected $object;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new EvalError();
     }

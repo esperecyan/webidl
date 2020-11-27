@@ -3,7 +3,7 @@ namespace esperecyan\webidl\lib;
 
 use esperecyan\webidl\Record;
 
-class DictionaryTypeTest extends \PHPUnit_Framework_TestCase
+class DictionaryTypeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param array $value

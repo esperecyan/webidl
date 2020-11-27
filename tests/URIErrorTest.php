@@ -1,12 +1,12 @@
 <?php
 namespace esperecyan\webidl;
 
-class URIErrorTest extends \PHPUnit_Framework_TestCase
+class URIErrorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var URIError */
     protected $object;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new URIError();
     }

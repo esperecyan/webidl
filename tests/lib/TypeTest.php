@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
-class TypeTest extends \PHPUnit_Framework_TestCase
+class TypeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string $type

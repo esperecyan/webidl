@@ -1,12 +1,12 @@
 <?php
 namespace esperecyan\webidl;
 
-class ErrorTest extends \PHPUnit_Framework_TestCase
+class ErrorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var ErrorClass */
     protected $object;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ErrorClass();
     }

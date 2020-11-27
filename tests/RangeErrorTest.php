@@ -1,12 +1,12 @@
 <?php
 namespace esperecyan\webidl;
 
-class RangeErrorTest extends \PHPUnit_Framework_TestCase
+class RangeErrorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var RangeError */
     protected $object;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new RangeError();
     }

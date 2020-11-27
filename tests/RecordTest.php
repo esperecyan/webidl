@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl;
 
-class RecordTest extends \PHPUnit_Framework_TestCase
+class RecordTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param mixed[][] $entries
@@ -130,7 +130,7 @@ class RecordTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param \Closure $operation
-     * @expectedException \PHPUnit_Framework_Error_Notice
+     * @expectedException \PHPUnit\Framework\Error\Notice
      * @expectedExceptionMessage Indirect modification of overloaded element of esperecyan\webidl\Record has no effect
      * @dataProvider gettingOffsetProvider
      */

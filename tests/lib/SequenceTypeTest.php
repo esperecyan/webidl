@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\webidl\lib;
 
-class SequenceTypeTest extends \PHPUnit_Framework_TestCase
+class SequenceTypeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param bool|int|float|string|object|null $value
