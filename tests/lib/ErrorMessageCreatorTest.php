@@ -70,7 +70,7 @@ class ErrorMessageCreatorTest extends \PHPUnit\Framework\TestCase
             [new \stdClass()              , 'instance of stdClass'              ],
             [new \__PHP_Incomplete_Class(), 'instance of __PHP_Incomplete_Class'],
             [$this                        , 'instance of ' . __CLASS__          ],
-            [xml_parser_create()         , 'resource of type (xml)'            ],
+            [tmpfile()                    , 'resource of type (stream)'         ],
             [null                         , 'NULL'                              ],
         ];
     }

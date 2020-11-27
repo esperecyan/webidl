@@ -51,7 +51,7 @@ class BooleanTypeTest extends \PHPUnit\Framework\TestCase
             }, true], // Callable
             
             // resource
-            [xml_parser_create()     , true ],
+            [tmpfile()                , true ],
             
             // NULL
             [null                     , false],

@@ -73,7 +73,7 @@ class ObjectTypeTest extends \PHPUnit\Framework\TestCase
             ['string'],
             [[]],
             [new \stdClass()],
-            [xml_parser_create()], // resource
+            [tmpfile()], // resource
             [null],
         ];
     }
@@ -138,7 +138,7 @@ class ObjectTypeTest extends \PHPUnit\Framework\TestCase
             [0],
             [0.0],
             ['string'],
-            [xml_parser_create()], // resource
+            [tmpfile()], // resource
             [null],
         ];
     }

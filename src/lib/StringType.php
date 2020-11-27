@@ -17,7 +17,7 @@ class StringType
     public static function isStringCastable($value)
     {
         return is_scalar($value) || $value === null
-            || !($value instanceof \__PHP_Incomplete_Class) && method_exists($value, '__toString');
+            || !($value instanceof \__PHP_Incomplete_Class) && is_object($value) && method_exists($value, '__toString');
     }
     
     /**

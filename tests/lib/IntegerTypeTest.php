@@ -49,7 +49,7 @@ class IntegerTypeTest extends \PHPUnit\Framework\TestCase
             }, false], // Callable
             
             // resource
-            [xml_parser_create()     , true ],
+            [tmpfile()                , true ],
             
             // NULL
             [null                     , false],

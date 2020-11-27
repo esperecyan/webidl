@@ -20,13 +20,18 @@ class DictionaryType
         } elseif ($value instanceof \Traversable) {
             $array = SequenceType::convertToRewindable($value);
             if ($array instanceof \Traversable) {
-                set_error_handler(function ($severity, $message) {
-                    return $severity === E_WARNING
-                        ? $message === 'Illegal offset type'
-                        : preg_match('/^Resource ID#([0-9]+) used as offset, casting to integer \\(\\1\\)$/', $message);
-                }, E_WARNING | (PHP_MAJOR_VERSION === 5 ? E_STRICT : E_NOTICE));
-                $array = iterator_to_array($array);
-                restore_error_handler();
+                $iterator = $array;
+                $array = [];
+                foreach ($iterator as $key => $value) {
+                    if (is_int($key) || is_float($key) || is_bool($key) || is_resource($key)) {
+                        $key = (int)$key;
+                    } else if (StringType::isStringCastable($key)) {
+                        $key = (string)$key;
+                    } else {
+                        $key = '';
+                    }
+                    $array[$key] = $value;
+                }
             }
         } else {
             $array = (array)$value;

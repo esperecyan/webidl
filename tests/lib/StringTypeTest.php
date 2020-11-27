@@ -48,7 +48,7 @@ class StringTypeTest extends \PHPUnit\Framework\TestCase
             }, false], // Callable
             
             // resource
-            [xml_parser_create()    , false],
+            [tmpfile()               , false],
             
             // NULL
             [null                    , true ],
