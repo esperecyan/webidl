@@ -8,6 +8,8 @@ namespace esperecyan\webidl;
  */
 class ErrorClass extends \RuntimeException implements Error
 {
+    public string $name;
+
     /**
      * @param string $message
      * @param \Exception $previous

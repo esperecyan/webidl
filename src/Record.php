@@ -9,13 +9,13 @@ class Record implements \Iterator, \ArrayAccess
 {
     /** @var mixed[][] */
     protected $entries = [];
-    
+
     /** @var string[] */
     protected $keys = [];
-    
+
     /** @var mixed[] */
     protected $values = [];
-    
+
     /**
      * @param mixed[][] $entries
      */
@@ -30,54 +30,61 @@ class Record implements \Iterator, \ArrayAccess
         }
         $this->rewind();
     }
-    
+
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         reset($this->entries);
     }
-    
+
+    #[\ReturnTypeWillChange]
     public function next()
     {
         next($this->entries);
     }
-    
+
     /**
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return key($this->entries) !== null;
     }
-    
+
     /**
      * @return string
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->valid() ? current($this->entries)[0] : null;
     }
-    
+
     /**
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->valid() ? current($this->entries)[1] : false;
     }
-    
+
     /**
      * @param string
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return in_array($offset, $this->keys, true);
     }
-    
+
     /**
      * @param string
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         $indexes = array_keys($this->keys, $offset, true);
@@ -86,24 +93,26 @@ class Record implements \Iterator, \ArrayAccess
         }
         return $indexes ? $this->values[$indexes[0]] : null;
     }
-    
+
     /**
      * @param void $offset
      * @param void $value
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         throw new \BadMethodCallException('An instance of esperecyan\\webidl\\Record is immutable');
     }
-    
+
     /**
      * @param void $offset
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         throw new \BadMethodCallException('An instance of esperecyan\\webidl\\Record is immutable');
     }
-    
+
     /**
      * @param string $name
      * @return bool
@@ -112,7 +121,7 @@ class Record implements \Iterator, \ArrayAccess
     {
         return $this->offsetExists($name);
     }
-    
+
     /**
      * @param string $name
      * @return mixed
@@ -125,7 +134,7 @@ class Record implements \Iterator, \ArrayAccess
         }
         return $indexes ? $this->values[$indexes[0]] : null;
     }
-    
+
     /**
      * @param void $name
      * @param void $value
@@ -134,7 +143,7 @@ class Record implements \Iterator, \ArrayAccess
     {
         throw new \BadMethodCallException('An instance of esperecyan\\webidl\\Record is immutable');
     }
-    
+
     /**
      * @param void $name
      */

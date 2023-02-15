@@ -4,6 +4,8 @@ namespace esperecyan\webidl\lib;
 /** @internal */
 trait Error
 {
+    public string $name;
+
     /**
      * @param string $message The exception message to throw,
      *      which is an optional, that provides human readable details of the exception.
